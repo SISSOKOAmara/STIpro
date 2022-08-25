@@ -30,14 +30,13 @@ return new class extends Migration
             $table->date('date_retrait')->nullable();
             $table->string('remarque')->nullable();
 
-            $table->unsignedBigInteger('appareil');
-            $table->foreign('appareil')
-            ->references('id')
-            ->on('appareils');
-
             $table->unsignedBigInteger('client');
             $table->foreign('client')
             ->references('id')->on('clients');
+            
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')
+            ->references('id')->on('users');
             $table->timestamps();
         });
     }

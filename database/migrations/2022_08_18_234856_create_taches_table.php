@@ -22,6 +22,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user');
             $table->foreign('user')
             ->references('id')->on('users');
+            
+            $table->unsignedBigInteger('reparation');
+            $table->foreign('reparation')
+            ->references('id')->on('reparations');
             $table->timestamps();
         });
     }
