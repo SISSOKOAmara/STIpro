@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reparations;
 use App\Models\taches;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TachesController extends Controller
@@ -15,6 +17,8 @@ class TachesController extends Controller
     public function index()
     {
         //
+        $tache =taches::all();
+        return view('tache/index', compact('tache'));
     }
 
     /**
@@ -23,8 +27,20 @@ class TachesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {       
+        // $secretaires = secretaires::Where('user', $user->id)->first();
+        $user = User::all();
+        $Reparé = Reparations::all();
+
+        // $dejaenreparation = Reparations::
+        // whereRaw('Reparations.id = (select max(id) from `Reparations` id where etat = '.$Reparé.')' )
+        // ->orderBy('id', 'desc')
+        // ->get();
+
+        $repara = Reparations::where('etat', 'Reparé')->get();
+
+        return view('tache/create', compact('user',  'repara'));
+        return view('admin/client/createA', compact('clients'));
     }
 
     /**
@@ -36,6 +52,21 @@ class TachesController extends Controller
     public function store(Request $request)
     {
         //
+        $tache = $request->validate(
+            [
+                'Lieu'=>['required', 'string', 'max:30'],
+                'designation'=>['required', 'integer'],
+                'designation'=>['required', 'string', 'max:30'],
+                'designation'=>['required', 'string', 'max:30'],
+                'Etat'=>['required', 'string', 'max:30'],
+                'type'=>['required', 'string', 'max:30'],
+                'user'=>['required', 'string', 'max:30'],
+                'reparation'=>['required', 'string', 'max:30'],
+            ]
+        );
+
+         taches::create($tache);
+        return redirect('tache/Index');
     }
 
     /**

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\ReparationsController;
 use App\Http\Controllers\StocksController;
+use App\Http\Controllers\TachesController;
 use App\Http\Controllers\userController;
 
 /*
@@ -83,6 +84,12 @@ Route::get('/admin/client/create', [ClientsController::class, 'create'])->name('
 Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
 Route::get('/admin/client/{id}', [ClientsController::class, 'show'])->name('client.detail');
 
+
+// Tache
+Route::get('/admin/tache/Index', [TachesController::class, 'index'])->name('tache.index');
+Route::get('/admin/tache/create', [TachesController::class, 'create'])->name('tache.ajout');
+Route::post('/admin/tache/liste', [TachesController::class, 'store'])->name('tache.register');
+Route::get('/admin/tache/{id}', [TachesController::class, 'show'])->name('tache.detail');
 
 // User Route
 Route::get('/admin/user/index', [userController::class, 'index'])->name('user.index');

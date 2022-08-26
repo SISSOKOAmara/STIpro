@@ -221,7 +221,7 @@ use App\Models\Postimage;
 
              select * from `users` where `id` = ? limit 1
 
-
+<!-- Loo -->
              @forelse($posts as $post)
     <tr>
         <td> {{ $post->title }} </td>
@@ -233,3 +233,5 @@ use App\Models\Postimage;
         <td colspan="3"> No record found </td>
     </tr>
 @endforelse
+
+<!-- Loop fin -->

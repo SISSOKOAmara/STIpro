@@ -22,7 +22,7 @@
             
     </thead>
     <tbody>
-    @foreach($produit as $produits ) @foreach($reparation as $reparations)
+    @foreach($produit as $produits ) 
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -42,7 +42,6 @@
               <a href="" class="btn btn-info">Detail</a>
             </td>
         </tr>
-        @endforeach
         @endforeach
     </tbody>
   </table>
