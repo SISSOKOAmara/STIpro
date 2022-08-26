@@ -22,7 +22,7 @@
             
     </thead>
     <tbody>
-    @foreach($appareils as $appareils)
+    @foreach($produit as $produits ) @foreach($reparation as $reparations)
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -31,17 +31,18 @@
               </div>
             </td>
         
-            <td>{{$appareils->categorie}}</td>
-            <td>{{$appareils->marque}}</td>
-            <td>{{$appareils->model}}</td>
-            <td>{{$appareils->motif}}</td>
-            <td>{{$appareils->note}}</td>
-            <td>{{$appareils->etat}}</td>
+            <td>{{$produits->categorie}}</td>
+            <td>{{$produits->marque}}</td>
+            <td>{{$produits->model}}</td>
+            <td>{{$produits->motif}}</td>
+            <td>{{$produits->note}}</td>
+            <td>{{$produits->etat}}</td>
             <td>
               <a href="" class="btn btn-primary">Modifier</a>
               <a href="" class="btn btn-info">Detail</a>
             </td>
         </tr>
+        @endforeach
         @endforeach
     </tbody>
   </table>

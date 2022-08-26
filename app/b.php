@@ -172,3 +172,64 @@ use App\Models\Postimage;
                                     <a>Lien 2 </a>
                                 </div>
                             </li>
+
+
+
+
+                            {
+        //
+            $appar = $request->validate(
+                [                    
+                    'categorie'=>['required', 'string', 'max:30'],
+                    'marque'=>['required', 'string', 'max:20'],
+                    'model'=>['required', 'string', 'max:50'],
+                    'motif'=>['required', 'string', 'max:20'],
+                    'etat'=>['required', 'string', 'max:25'],
+                    'note'=>['required', 'string', 'max:225'],        
+                    'panne'=>['required', 'string', 'max:225'],        
+                    'prix'=>['required', 'decimal', 'max:225'],        
+                    'paye'=>['required', 'decimal', 'max:225'],        
+                    'rdv'=>['required', 'date', 'max:225'],        
+                    'date_retrait'=>['required', 'date', 'max:225'],        
+                    'remarque'=>['required', 'string', 'max:225'],        
+                    'client'=>['required', 'integer', 'max:225'],       
+                ]
+            );
+            if ($appar)
+            {
+              
+                    $Reparations = Reparations::create( 
+                        [ 
+                            'categorie'=>$request['categorie'],
+                            'marque'=>$request['marque'],
+                            'model'=>$request['model'],
+                            'motif'=>'Réparation',
+                            'etat'=>$request['etat'],
+                            'note'=>$request['note'],
+                            'panne'=>$request['panne'],
+                            'prix'=>$request['prix'],
+                            'paye'=>$request['paye'],
+                            'rdv'=>$request['rdv'],
+                            'date_retrait'=>$request['date_retrait'],
+                            'remarque'=>$request['remarque'],
+                            'client'=>$request['client'],
+                        ]);
+                        
+                }
+                return redirect('/admin/reparation/index');
+             }
+
+             select * from `users` where `id` = ? limit 1
+
+
+             @forelse($posts as $post)
+    <tr>
+        <td> {{ $post->title }} </td>
+        <td> {{ $post->body }} </td>
+        <td> {{ $post->created_at }} </td>
+    </tr>
+@empty
+    <tr>
+        <td colspan="3"> No record found </td>
+    </tr>
+@endforelse

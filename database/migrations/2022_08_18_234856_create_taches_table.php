@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('taches', function (Blueprint $table) {
             $table->id();
+            $table->string('Lieu');
             $table->string('designation');
             $table->string('Etat');
             $table->string('type');

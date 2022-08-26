@@ -30,9 +30,7 @@ class ProduitController extends Controller
     public function create()
     {
         $produit = Produit::all();
-        $user = User::all();
-        $fournisseur = fournisseurs::all();
-        return view('admin/produit/create', compact('fournisseur', 'user'));
+        return view('admin/produit/create');
     }
 
     /**
@@ -43,46 +41,33 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
+        //
+        $fournisseur= fournisseurs::all();
+        $Auth = Auth::user();
+        $user = User::all();
+
         $produit = $request->validate(
-            [                    
-                'categorie'=>['required', 'string', 'max:30'],
-                'marque'=>['required', 'string', 'max:20'],
-                'model'=>['required', 'string', 'max:20'],
-                'motif'=>['required', 'string', 'max:20'],
-                'etat'=>['required', 'string', 'max:225'],
-                'note'=>['required', 'string', 'max:225'],        
-                'user'=>['required', 'integer', 'max:225'],        
-                'fournisseur'=>['required', 'integer', 'max:225'],        
+            [         'user'=>$request['user'],
+                    'fournisseur'=>$request['fournisseur'],
+                    'categorie'=>$request['categorie'],
+                    'marque'=>$request['marque'],
+                    'model'=>$request['model'],
+                    'motif'=>$request['motif'],
+                    'etat'=>$request['etat'],
+
+                    'quantite'=>$request['quantite'],
+                    'QtVendu'=>$request['QtVendu'],
+                    'QtRestant'=>$request['QtRestant'],
+                    'prix_achat'=>$request['prix_achat'],
+                    'prix_vente'=>$request['prix_vente'],
+                    'benefice'=>$request['benefice'],
+                    'date_achat'=>$request['date_achat'],
+                    'date_vente'=>$request['date_vente'],
+                    'remarque'=>$request['remarque'],          
             ]
         );
 
-            if($produit)
-            { 
-                $fournisseur = fournisseurs::all();
-                $Auth = Auth::user();
-                $user = User::all();
-                $stock = Produit::create( 
-                    [ 
-                        'user'=>$request['user'],
-                        'fournisseur'=>$request['fournisseur'],
-                        'categorie'=>$request['categorie'],
-                        'marque'=>$request['marque'],
-                        'model'=>$request['model'],
-                        'motif'=>'Vente',
-                        'etat'=>$request['etat'],
-
-                        'quantite'=>$request['quantite'],
-                        'QtVendu'=>$request['QtVendu'],
-                        'QtRestant'=>$request['QtRestant'],
-                        'prix_achat'=>$request['prix_achat'],
-                        'prix_vente'=>$request['prix_vente'],
-                        'benefice'=>$request['benefice'],
-                        'date_achat'=>$request['date_achat'],
-                        'date_vente'=>$request['date_vente'],
-                        'remarque'=>$request['remarque'],                         
-                    ]);
-                    
-            }
+             Produit::create($produit);
             return redirect('/admin/produit/index');
          
         

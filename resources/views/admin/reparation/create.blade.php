@@ -38,15 +38,23 @@
 
 
                         @foreach($clients as $client)
-                        <!-- <div class="row mb-3">
-                            <label for="client" class="col-md-4 col-form-label text-md-end">{{ __('categorie') }}</label>
 
-                            <div class="col-md-6"> -->
-                                <input id="client" type="integer" hidden class="form-control" name="client" value="{{$client->id)}}" required autocomplete="categorie" autofocus>
-                            <!-- </div>
+                        <div class="row mb-3">
+                            <label for="client" class="col-md-4 col-form-label text-md-end">{{ __('client') }}</label>
+                                
+                            <div class="col-md-6">
+                                <input id="client" type="integer"  class="form-control" name="client" value="{{($client->id)}}" required autocomplete="categorie" autofocus>
+                            </div>
                         </div>
-            -->
-            @endforeach
+                         @endforeach
+
+                         <div class="row mb-3">
+                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('User') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="user" type="integer"  class="form-control" name="user" value="{{ Auth::user()->id }}" required  autofocus>
+                            </div>
+                        </div>
                         
                         <div class="row mb-3">
                             <label for="categorie" class="col-md-4 col-form-label text-md-end">{{ __('categorie') }}</label>
@@ -94,13 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="commentaire" class="col-md-4 col-form-label text-md-end">{{ __('commentaire') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="commentaire" type="text" class="form-control" name="commentaire" value="" autocomplete="commentaire" autofocus>
-                            </div>
-                        </div>
+        
 
                         <div class="row mb-3">
                             <label for="panne" class="col-md-4 col-form-label text-md-end">{{ __('panne') }}</label>
@@ -133,6 +135,14 @@
                                 <input id="restant" type="decimale" class="form-control" name="restant" value="" autocomplete="restant" autofocus>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="rdv" class="col-md-4 col-form-label text-md-end">{{ __('date retrait') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="rdv" type="date" class="form-control" name="rdv" >
+                            </div>
+                        </div>
                         
                         <div class="row mb-3">
                             <label for="date_retrait" class="col-md-4 col-form-label text-md-end">{{ __('date retrait') }}</label>
@@ -142,17 +152,14 @@
                             </div>
                         </div>
 
-                        
-                        
                         <div class="row mb-3">
-                            <label for="remarque" class="col-md-4 col-form-label text-md-end">{{ __('remarque') }}</label>
+                            <label for="remarque" class="col-md-4 col-form-label text-md-end">{{ __('commentaire') }}</label>
 
                             <div class="col-md-6">
-                                <input id="remarque" type="text" class="" name="remarque" value="" autocomplete="remarque">
-
-                               
+                                <input id="remarque" type="text" class="form-control" name="remarque" value="" autocomplete="commentaire" autofocus>
                             </div>
                         </div>
+                        
 
                 </div>
               

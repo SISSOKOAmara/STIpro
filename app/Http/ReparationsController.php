@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appareils;
 use App\Models\Clients;
 use App\Models\Reparations;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ReparationsController extends Controller
 {
@@ -16,8 +15,9 @@ class ReparationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function listeA()
+    public function listeA($id)
         {
+            $client = Clients::findOrfail($id);
             $reparations = Reparations::all();
                   $clients = Clients::all();
             return view('admin/reparation/create', compact('clients'));
@@ -49,20 +49,31 @@ public function liste()
                     'categorie'=>['required', 'string', 'max:30'],
                     'marque'=>['required', 'string', 'max:20'],
                     'model'=>['required', 'string', 'max:50'],
-                    'motif'=>['required', 'string', 'max:20'],
-                    'etat'=>['required', 'string', 'max:25'],
-                    'note'=>['required', 'string', 'max:225'],       
+                    'motif'=>['required', 'string', 'max:50'],
+                    'etat'=>['required', 'string', 'max:225'],
+                    'note'=>['required', 'string', 'max:225'],        
+                    'user'=>['required', 'string', 'max:225'],        
                 ]
             );
             if ($appar)
-            {       
-                    $Auth = Auth::user();
-                    $user = User::all();
-                    
+            {
+                $appareils = Appareils::create(
+                    [
+                    'categorie'=>$request['categorie'],
+                    'marque'=>$request['marque'],
+                    'model'=>$request['model'],
+                    'motif'=>'Réparation',
+                    'etat'=>$request['etat'],
+                    'note'=>$request['note'],
+                    'note'=>'Auth::id',
+                    ]
+                );
+    
+                if($appareils)
+                {
                     $Reparations = Reparations::create( 
                         [ 
-                            
-                            'user'=>$request['user'],
+                            'appareil'=> $appareils->id,
                             'categorie'=>$request['categorie'],
                             'marque'=>$request['marque'],
                             'model'=>$request['model'],
@@ -76,12 +87,13 @@ public function liste()
                             'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
                             'client'=>$request['client'],
+                             'commentaire'=>$request['commentaire'],
                         ]);
                         
                 }
                 return redirect('/admin/reparation/index');
              }
-    
+    }
     
 
     /**

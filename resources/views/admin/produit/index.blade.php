@@ -2,14 +2,12 @@
 
 @section('content')
 
-<a href="{{route('stock.ajout')}}" class="btn btn-primary">Ajouter</a>
+<a href="{{route('produit.ajout')}}" class="btn btn-primary">Ajouter</a>
 @if(session()->has("successDelete"))
          <div class="alert alert-success">
             {{session()->get('successDelete')}}
           </div>
      @endif
-
-
 
      <div class="table-responsive">
   <table class="table">
@@ -32,7 +30,7 @@
             
     </thead>
     <tbody>
-    @foreach($stock as $stoks)
+    @foreach($produit as $produits)
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -42,15 +40,15 @@
             </td>
         
             <td scope="row">{{$loop->index + 1}}</td>
-            <td>{{$stoks->fournisseurs->nom}}</td>
-            <td>{{$stoks->categorie}}</td>
-            <td>{{$stoks->marque}}</td>
-            <td>{{$stoks->model}}</td>
-            <td>{{$stoks->motif}}</td>
-            <td>{{$stoks->etat}}</td>
-            <td>{{$stoks->note}}</td>
-            <td>{{$stoks->prix}}F</td>
-            <td>{{$stoks->etat}}</td>
+            <td>{{$produits->fournisseur}}</td>
+            <td>{{$produits->categorie}}</td>
+            <td>{{$produits->marque}}</td>
+            <td>{{$produits->model}}</td>
+            <td>{{$produits->motif}}</td>
+            <td>{{$produits->etat}}</td>
+            <td>{{$produits->note}}</td>
+            <td>{{$produits->prix_vente}}F</td>
+            <td>{{$produits->etat}}</td>
             <td>
               <a href="" class="btn btn-primary">Modifier</a>
               <a href="" class="btn btn-info">Detail</a>

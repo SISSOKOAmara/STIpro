@@ -4,6 +4,7 @@ use App\Http\Controllers\AppareilsController;
 use App\Http\Controllers\ClientsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\ReparationsController;
@@ -70,6 +71,13 @@ Route::get('/admin/stock/create', [StocksController::class, 'create'])->name('st
 Route::post('/admin/stock/liste', [StocksController::class, 'store'])->name('stockregister');
 
 
+// Produit
+Route::get('/admin/produit/index', [ProduitController::class, 'index'])->name('produit.index');
+Route::get('/admin/produit/create', [ProduitController::class, 'create'])->name('produit.ajout');
+Route::post('/admin/produit/liste', [ProduitController::class, 'store'])->name('produit.register');
+
+
+// Route Client
 Route::get('/admin/client/Index', [ClientsController::class, 'index'])->name('clientIndex');
 Route::get('/admin/client/create', [ClientsController::class, 'create'])->name('clientajout');
 Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');

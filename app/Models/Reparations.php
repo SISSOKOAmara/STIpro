@@ -21,12 +21,12 @@ class Reparations extends Model
         'rdv',
         'date_retrait',
         'remarque',
-        'appareil',
-        'client'
+        'client',
+        'user',
     ];
 
-    public function appareils(){
-        return $this->belongsTo(appareils::class, 'appareil');
+    public function User(){
+        return $this->belongsTo(User::class, 'appareil');
     }
 
     public function client(){

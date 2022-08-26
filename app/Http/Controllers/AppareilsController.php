@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appareils;
+use App\Models\Produit;
+use App\Models\Reparations;
 use Illuminate\Http\Request;
 
 class AppareilsController extends Controller
@@ -15,8 +17,10 @@ class AppareilsController extends Controller
     public function index()
     {
         //
+        $produit= Produit::all() and Produit::all();
+        $reparation= Reparations::all();
         $appareils= Appareils::all();
-        return view('/admin/appareil/Index', compact('appareils'));
+        return view('/admin/appareil/Index', compact('appareils', 'produit', 'reparation'));
     }
 
     /**

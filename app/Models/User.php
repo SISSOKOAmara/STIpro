@@ -47,7 +47,16 @@ class User extends Authenticatable
         'type'
 
     ];
+    public function Reparations(){
+        return $this->belongsTo(Reparations::class, 'appareil');
+    }
 
+    public function Produit(){
+        return $this->belongsTo(Produit::class, 'client');
+    }
+    public function taches(){
+        return $this->belongsTo(Taches::class, 'client');
+    }
   
 
     /**

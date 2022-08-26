@@ -13,7 +13,8 @@ class fournisseurs extends Model
         'adresse',
         'numero'
     ];
-    public function stocks(){
-        return $this->hasMany(Stocks::class, 'fournisseur');
+    
+    public function produit(){
+        return $this->hasMany(Produit::class, 'fournisseur');
     }
 }

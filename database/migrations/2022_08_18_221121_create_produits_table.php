@@ -35,6 +35,7 @@ return new class extends Migration
             $table->unsignedBigInteger('fournisseur');
             $table->foreign('fournisseur')
             ->references('id')->on('fournisseurs');
+            
             $table->unsignedBigInteger('user');
             $table->foreign('user')
             ->references('id')->on('users');
