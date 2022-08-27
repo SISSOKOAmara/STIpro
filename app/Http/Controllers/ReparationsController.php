@@ -20,13 +20,13 @@ class ReparationsController extends Controller
         {
             $reparations = Reparations::all();
                   $clients = Clients::all();
-            return view('admin/reparation/create', compact('clients'));
+            return view('admin/reparation/createA', compact('clients'));
         }
-public function liste()
+    public function liste1()
         {
             $reparations = Reparations::all();
                   $clients = Clients::all();
-            return view('admin/reparation/create', compact('clients'));
+            return view('admin/reparation/create1', compact('clients'));
         }
     public function index()
         {        

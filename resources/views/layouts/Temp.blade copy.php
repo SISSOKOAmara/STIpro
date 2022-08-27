@@ -82,7 +82,7 @@
                         </ul>
                     </li>
 
-                    <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Icons</h3>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
@@ -663,7 +663,7 @@
 
 
         </div> <!-- .content -->
-    </div><!-- /#right-panel -->
+    </div>
 
     <!-- Right Panel -->
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('reparationajout') }}" class="btn btn-primary">Ajouter</a>
+    <a href="{{ route('reparationajoutA') }}" class="btn btn-primary">Ajouter</a>
     <div class="table-responsive">
       <table class="table">
         <thead>

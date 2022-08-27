@@ -20,11 +20,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Ajouter à réparer') }}</div>
-
-                <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-center" style="width: 50% ;margin-left:25%">
-    
+            <div class="">
+                <div class="card-header">{{ __('Ajouter un Appareil à la Maintenance') }}</div>
+            </div>
+             <!-- <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-center" style="width: 50% ;margin-left:25%"> -->
+        </div>
     <div class="row">
        
     

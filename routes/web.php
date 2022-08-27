@@ -62,8 +62,8 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 
 // Les route des view nav
 Route::get('/admin/reparation/index', [ReparationsController::class, 'index'])->name('reparationIndex');
-Route::get('/admin/reparation/create', [ReparationsController::class, 'listeA'])->name('reparationajout');
-Route::get('/admin/reparation/createA', [ReparationsController::class, 'liste'])->name('reparationajoutA');
+Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
+Route::get('/admin/reparation/create1', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('reparationregister');
 
 // Stock

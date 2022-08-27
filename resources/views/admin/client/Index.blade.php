@@ -42,7 +42,7 @@
             <td>{{$client->numero}}</td>
             <td>{{$client->adresse}}</td>
           <td>
-            <a href="{{route('reparationajoutA', $client->id)}}" class="btn btn-success">Ajouter appareil</a>
+            <a href="{{route('reparationajout1', $client->id)}}" class="btn btn-success">Ajouter appareil</a>
             <a href="" class="btn btn-primary">Modifier</a>
             <a href="{{route('client.detail',$client->id)}}"  class="btn btn-warning">Detail</a>
           </td>

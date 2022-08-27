@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.coro')
 
 @section('content')
 
-<a href="{{ route('reparationajout') }}">Ajouter</a>
+<a href="{{ route('reparationajout1') }}">Ajouter</a>
 <div class="table-responsive">
   <table class="table">
     <thead>

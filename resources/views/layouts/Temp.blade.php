@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<div id="app">
+    <div id="app">
 
     <!-- Left Panel -->
 
@@ -325,7 +325,7 @@
             });
         })(jQuery);
     </script>
-        <main class="py-4"> -->
+        <main class="py-4">
             @yield('content')
         </main>
     </div>
