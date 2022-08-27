@@ -93,19 +93,62 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+    <!-- client -->
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Client</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic1">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex') }}">Liste</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout') }}">Ajouter</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- fin cleint -->
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('appareilIndex') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Appareil</span>
+            </a>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Maintenance</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic1">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Réparé</a></li>
+              </ul>
+            </div>
+          </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
-              <span class="menu-title">Basic UI Elements</span>
+              <span class="menu-title">Produit</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('produit.index') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Stock</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Vendu</a></li>
               </ul>
             </div>
           </li>
@@ -319,14 +362,14 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                  <p class="p-3 mb-0 text-center">plus</p>
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="{{asset('assetss/images/faces/face15.jpg')}}" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -340,7 +383,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="preview-subject mb-1">Réglage</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -351,7 +394,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
+                      <p class="preview-subject mb-1">Se déconnecter</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -366,7 +409,7 @@
         </nav>
         <!-- partial -->
         <div class="main-panel ">
-        <div class="content-wrapper bg-white" style="border: solid 2px green;">
+        <div class="content-wrapper bg-white" style="border-left: solid 2px green;">
         <main class="py-4">
             @yield('content')
         </main>

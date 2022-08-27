@@ -235,3 +235,9 @@ use App\Models\Postimage;
 @endforelse
 
 <!-- Loop fin -->
+
+
+color:
+orange: #FF6501
+bleu: #0201FD
+vert: #2ECD04

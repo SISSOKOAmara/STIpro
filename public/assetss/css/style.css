@@ -15571,7 +15571,7 @@ input:focus {
 .bg-gradient-dark {
   background: #0d0d0d; }
 
-.sidebar-grdient-primary {
+.sidebar-grdient-dark {
   background: #6a008a;
   background: -moz-linear-gradient(top, #6a008a 0%, #6a008a 20%, #fa0053 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #6a008a), color-stop(20%, #6a008a), color-stop(100%, #fa0053));
@@ -20472,7 +20472,7 @@ div.tagsinput {
         left: 66%;
         width: 7px;
         height: 7px;
-        color: #ffffff;
+        color: #reparationIndex;
         border-radius: 100%;
         text-align: center;
         font-size: .625rem;
@@ -20734,8 +20734,9 @@ div.tagsinput {
         .sidebar .nav .nav-item .nav-link .badge {
           margin-right: auto;
           margin-left: 1rem; }
+          /*Moi backgound-active-nav */
       .sidebar .nav .nav-item.active > .nav-link {
-        background: #0f1015;
+        background: #2ECD04;
         position: relative; }
         .sidebar .nav .nav-item.active > .nav-link:before {
           content: "";
@@ -20746,8 +20747,10 @@ div.tagsinput {
           position: absolute;
           left: 0;
           top: 0; }
+          /* moi text-active-color */
         .sidebar .nav .nav-item.active > .nav-link .menu-title {
           color: #ffffff; }
+          /* moi icone-active-color */
         .sidebar .nav .nav-item.active > .nav-link i {
           color: #ffffff; }
       .sidebar .nav .nav-item.nav-profile .nav-link {
@@ -20902,7 +20905,7 @@ div.tagsinput {
           height: auto;
           border-top: 0; }
           .sidebar .nav.sub-menu .nav-item .nav-link.active {
-            color: #ffffff;
+            color: black;
             background: transparent; }
           .sidebar .nav.sub-menu .nav-item .nav-link:hover {
             color: #ffffff; }
