@@ -93,23 +93,22 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-    <!-- client -->
+          
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic13" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
               <span class="menu-title">Client</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic1">
+            <div class="collapse" id="ui-basic13">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex') }}">Liste</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout') }}">Ajouter</a></li>
               </ul>
             </div>
           </li>
-          <!-- fin cleint -->
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('appareilIndex') }}">
               <span class="menu-icon">
@@ -152,36 +151,30 @@
               </ul>
             </div>
           </li>
+
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Form Elements</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="{{ route('tache.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Tables</span>
+              <span class="menu-title">Taches</span>
             </a>
           </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
-              <span class="menu-title">Charts</span>
+              <span class="menu-title">Inventaire</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
+          <li class="nav-item menu-itemsd">
+            <a class="nav-link" href="{{route('user.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
-              <span class="menu-title">Icons</span>
+              <span class="menu-title">Comptes</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -202,14 +195,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+          
         </ul>
       </nav>
       <!-- partial -->

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.Master')
 
 @section('content')
 <div class="container mx-4" style="margin-left:10% ;">
