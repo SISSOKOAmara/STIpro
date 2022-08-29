@@ -44,7 +44,7 @@
                     <div class="row mb-3">
                         <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Appareils') }}</label> 
                         <div class="col-md-3">
-                    <select name="reparation">
+                    <select name="reparation_id">
                       <option  selected disabled>Appareils</option>
                         @foreach( $repara as $reparations )
                       <option value="{{$reparations->id}}">{{$reparations->model}} - {{$reparations->panne}}</option>
@@ -57,7 +57,7 @@
                     <div class="row mb-3">
                     <label for="Lieu" class="col-md-4 col-form-label text-md-end">{{ __('Personne') }}</label>
                     <div class="col-md-3">
-                    <select name="user">
+                    <select name="user_id">
                       <option  selected disabled>Personne</option>
                         @foreach ($user as $users)
                       <option value="{{$users->id}}">{{$users->id}}</option>
@@ -92,7 +92,7 @@
                                 @enderror
                             </div>
                         </div>
-
+<!-- 
                          <div class="row mb-3">
                             <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type') }}</label>
 
@@ -105,7 +105,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row mb-0">
                             <div class="col-md-4 offset-md-4">

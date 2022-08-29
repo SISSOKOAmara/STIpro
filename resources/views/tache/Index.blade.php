@@ -27,7 +27,7 @@
         <th scope="col">Lieu</th>
         <th scope="col">designation</th>
         <th scope="col">Etat</th>
-        <th scope="col">type</th>
+        <th scope="col">Delai</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -42,16 +42,16 @@
                   <label class="custom-control-label" for="customCheck1"></label>
               </div>
         </td>
-            <td>{{$taches->user}}</td>
-            <td>{{$taches->user}}</td>
-            <td>{{$taches->reparation}}</td>
+            <td>{{$taches->user->name}}</td>
+            <td>{{$taches->reparation->marque}}</td>
+            <td>{{$taches->reparation->client->nom}}</td>
             <td>{{$taches->Lieu}}</td>
             <td>{{$taches->designation}}</td>
             <td>{{$taches->Etat}}</td>
             <td>{{$taches->type}}</td>
             
           <td>
-            <a href="{{route('reparationajoutA', $taches->id)}}" class="btn btn-success">Ajouter appareil</a>
+            <a href="{{route('reparationajoutA', $taches->id)}}" class="btn btn-success">Modifier</a>
             <a href="" class="btn btn-primary">Modifier</a>
             <a href="{{route('client.detail',$taches->id)}}"  class="btn btn-warning">Detail</a>
           </td>

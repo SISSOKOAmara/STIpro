@@ -24,15 +24,15 @@ class Produit extends Model
         'date_vente',
         'remarque',
         'appareil',
-        'fournisseur',
-        'user',
+        'fournisseur_id',
+        'user_id',
     ];
 
     public function fournisseur(){
-        return $this->belongsTo(fournisseurs::class, 'fournisseur');
+        return $this->belongsTo(fournisseurs::class, 'fournisseur_id');
     }
 
     public function client(){
-        return $this->belongsTo(Clients::class, 'client');
+        return $this->belongsTo(Clients::class, 'client_id');
     }
 }

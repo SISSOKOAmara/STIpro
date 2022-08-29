@@ -32,7 +32,7 @@
                   </div>
                 </td>
             
-                <td>{{$reparation->client}}</td>
+                <td>{{$reparation->client->nom}}</td>
                 <td>{{$reparation->categorie}}</td>
                 <td>{{$reparation->marque}}</td>
                 <td>{{$reparation->model}}</td>

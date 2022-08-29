@@ -18,7 +18,7 @@ class TachesController extends Controller
     {
         //
         $tache =taches::all();
-        return view('tache/index', compact('tache'));
+        return view('tache/Index', compact('tache'));
     }
 
     /**
@@ -37,7 +37,7 @@ class TachesController extends Controller
         // ->orderBy('id', 'desc')
         // ->get();
 
-        $repara = Reparations::where('etat', 'Reparé')->get();
+        $repara = Reparations::where('etat', 'Attente')->get();
 
         return view('tache/create', compact('user',  'repara'));
         return view('admin/client/createA', compact('clients'));
@@ -55,13 +55,10 @@ class TachesController extends Controller
         $tache = $request->validate(
             [
                 'Lieu'=>['required', 'string', 'max:30'],
-                'designation'=>['required', 'integer'],
-                'designation'=>['required', 'string', 'max:30'],
                 'designation'=>['required', 'string', 'max:30'],
                 'Etat'=>['required', 'string', 'max:30'],
-                'type'=>['required', 'string', 'max:30'],
-                'user'=>['required', 'string', 'max:30'],
-                'reparation'=>['required', 'string', 'max:30'],
+                'user_id'=>['required', 'string', 'max:30'],
+                'reparation_id'=>['required', 'string', 'max:30'],
             ]
         );
 

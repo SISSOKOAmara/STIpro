@@ -23,20 +23,20 @@ return new class extends Migration
             $table->string('note')->nullable();
 
             $table->string('panne')->nullable();
-            $table->decimal('prix')->nullable();
-            $table->decimal('paye')->nullable();
-            $table->decimal('restant')->nullable();
+            $table->decimal('prix',9)->nullable();
+            $table->decimal('paye',9)->nullable();
+            $table->decimal('restant',9)->nullable();
             $table->date('rdv')->nullable();
             $table->date('date_retrait')->nullable();
             $table->string('remarque')->nullable();
 
-            $table->unsignedBigInteger('client');
-            $table->foreign('client')
-            ->references('id')->on('clients');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')
+            ->references('id')->on('clients')->onDelete('cascade');
             
-            $table->unsignedBigInteger('user');
-            $table->foreign('user')
-            ->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+            ->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

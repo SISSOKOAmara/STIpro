@@ -33,11 +33,11 @@
 
 
                 <div class="card-body bg-white">
-                    <form method="POST" action="{{ route('reparationregister' ,$clients->id) }}">
+                    <form method="POST" action="{{ route('reparationregister') }}">
                         @csrf
 
 
-                        @foreach($clients as $client)
+                        @($clients as $client)
 
                         <div class="row mb-3">
                             <label for="client" class="col-md-4 col-form-label text-md-end">{{ __('client') }}</label>
@@ -46,7 +46,7 @@
                                 <input id="client" type="integer"  class="form-control" name="client" value="{{($client->id)}}" required autocomplete="categorie" autofocus>
                             </div>
                         </div>
-                         @endforeach
+                         @end
 
                          <div class="row mb-3">
                             <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('User') }}</label>

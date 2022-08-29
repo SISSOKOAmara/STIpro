@@ -44,28 +44,16 @@ class ReparationsController extends Controller
     public function create(Request $request)
     {
         //
-            $appar = $request->validate(
-                [                    
-                    'categorie'=>['required', 'string', 'max:30'],
-                    'marque'=>['required', 'string', 'max:20'],
-                    'model'=>['required', 'string', 'max:50'],
-                    'motif'=>['required', 'string', 'max:20'],
-                    'etat'=>['required', 'string', 'max:25'],
-                    'note'=>['required', 'string', 'max:225'],       
-                ]
-            );
-            if ($appar)
-            {       
                     $Auth = Auth::user();
                     $user = User::all();
-                    
+                    $clients = Clients::all();
                     $Reparations = Reparations::create( 
-                        [ 
-                            
-                            'user'=>$request['user'],
+                        [                             
+                            'user_id'=>$request['user_id'],
                             'categorie'=>$request['categorie'],
                             'marque'=>$request['marque'],
                             'model'=>$request['model'],
+                            'etat'=>$request['etat'],
                             'motif'=>'Réparation',
                             'etat'=>$request['etat'],
                             'note'=>$request['note'],
@@ -75,10 +63,9 @@ class ReparationsController extends Controller
                             'rdv'=>$request['rdv'],
                             'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
-                            'client'=>$request['client'],
+                            'client_id'=>$request['client_id'],
                         ]);
                         
-                }
                 return redirect('/admin/reparation/index');
              }
     

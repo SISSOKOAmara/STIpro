@@ -18,15 +18,14 @@ return new class extends Migration
             $table->string('Lieu');
             $table->string('designation');
             $table->string('Etat');
-            $table->string('type');
 
-            $table->unsignedBigInteger('user');
-            $table->foreign('user')
-            ->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+            ->references('id')->on('users')->onDelete('cascade');
             
-            $table->unsignedBigInteger('reparation');
-            $table->foreign('reparation')
-            ->references('id')->on('reparations');
+            $table->unsignedBigInteger('reparation_id');
+            $table->foreign('reparation_id')
+            ->references('id')->on('reparations')->onDelete('cascade');
             $table->timestamps();
         });
     }

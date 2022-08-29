@@ -32,13 +32,13 @@ return new class extends Migration
             $table->date('date_vente')->nullable();
             $table->string('remarque')->nullable();
 
-            $table->unsignedBigInteger('appareil');
-            $table->foreign('appareil')
-            ->references('id')->on('appareils');
+            $table->unsignedBigInteger('appareil_id');
+            $table->foreign('appareil_id')
+            ->references('id')->on('appareils')->onDelete('cascade');
 
-            $table->unsignedBigInteger('fournisseur');
-            $table->foreign('fournisseur')
-            ->references('id')->on('fournisseurs');
+            $table->unsignedBigInteger('fournisseur_id');
+            $table->foreign('fournisseur_id')
+            ->references('id')->on('fournisseurs')->onDelete('cascade');
             $table->timestamps();
         });
     }
