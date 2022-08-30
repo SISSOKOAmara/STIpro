@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.app')
 
 @section('content')
 
@@ -91,7 +91,7 @@
                             <label for="prix" class="col-md-4 col-form-label text-md-end">{{ __('prix') }}</label>
 
                             <div class="col-md-6">
-                                <input id="prix" type="integer" class="form-control" name="prix" value="" autocomplete="prix" autofocus>
+                                <input id="prix" type="decimale" class="form-control" name="prix" value="" autocomplete="prix" autofocus>
                             </div>
                         </div>
 
@@ -99,7 +99,7 @@
                             <label for="paye" class="col-md-4 col-form-label text-md-end">{{ __('paye') }}</label>
 
                             <div class="col-md-6">
-                                <input id="paye" type="integer" class="form-control" name="paye" value="" autocomplete="paye" autofocus>
+                                <input id="paye" type="decimale" class="form-control" name="paye" value="" autocomplete="paye" autofocus>
                             </div>
                         </div>
                         

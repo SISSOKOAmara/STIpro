@@ -77,29 +77,37 @@ class TachesController extends Controller
         //
     }
 
-    /**
+         /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\taches  $taches
+     * * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(taches $taches)
+    public function edit($id)
     {
-        //
+        $user = User::all();
+        $Reparé = Reparations::all();
+        $modif = taches::findOrfail($id); 
+        $repara = Reparations::where('etat', 'Attente')->get();      
+        return view('tache/edit', compact('modif', 'repara', 'user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\taches  $taches
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, taches $taches)
+    public function update( $request,)
     {
-        //
+                $modif =$request->validate([
+               "designation"=>"Required",
+                "Etat"=>"Required",
+        ]);
+        taches::whereId()->update($modif);
+        return redirect('/tache/index');
     }
-
     /**
      * Remove the specified resource from storage.
      *

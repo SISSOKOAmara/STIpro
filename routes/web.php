@@ -48,6 +48,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
    Route::get('/admin/appareil/Index', [AppareilsController::class, 'index'])->name('appareilIndex');
 
+
+
 //    Route::get('/reparation.index', [HomeController::class, 'repaireView'])->name('reparationIndex');
  
 });
@@ -65,12 +67,16 @@ Route::get('/admin/reparation/index', [ReparationsController::class, 'index'])->
 Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
 Route::get('/admin/reparation/create1/{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('reparationregister');
+Route::get('/admin/reparation/detail/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
+Route::get('/admin/reparation/edit/{id}', [ReparationsController::class, 'edit'])->name('reparation.edit');
+Route::patch('/admin/reparation/update/{id}', [ReparationsController::class, 'update'])->name('reparation.update');
+Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
+Route::delete('/admin/reparation/delete/{reparation}', [ReparationsController::class, 'destroy2'])->name('reparation.supprimer');
 
 // Stock
 Route::get('/admin/stock/index', [StocksController::class, 'index'])->name('stockindex');
 Route::get('/admin/stock/create', [StocksController::class, 'create'])->name('stock.ajout');
 Route::post('/admin/stock/liste', [StocksController::class, 'store'])->name('stockregister');
-
 
 // Produit
 Route::get('/admin/produit/index', [ProduitController::class, 'index'])->name('produit.index');
@@ -89,7 +95,9 @@ Route::get('/admin/client/{id}', [ClientsController::class, 'show'])->name('clie
 Route::get('/admin/tache/Index', [TachesController::class, 'index'])->name('tache.index');
 Route::get('/admin/tache/create', [TachesController::class, 'create'])->name('tache.ajout');
 Route::post('/admin/tache/liste', [TachesController::class, 'store'])->name('tache.register');
-Route::get('/admin/tache/{id}', [TachesController::class, 'show'])->name('tache.detail');
+Route::get('/tache/{id}', [TachesController::class, 'show'])->name('tache.detail');
+Route::get('/tache/edit/{id}', [TachesController::class, 'edit'])->name('tache.edit');
+Route::patch('/admin/tache/index', [TachesController::class, 'update'])->name('tache.update');
 
 // User Route
 Route::get('/admin/user/index', [userController::class, 'index'])->name('user.index');

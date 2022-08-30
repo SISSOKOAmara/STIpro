@@ -43,8 +43,7 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        $produit = $request->validate(
-            [                    
+        $produit = $request->validate([                    
                 'categorie'=>['required', 'string', 'max:30'],
                 'marque'=>['required', 'string', 'max:20'],
                 'model'=>['required', 'string', 'max:20'],
@@ -53,8 +52,7 @@ class ProduitController extends Controller
                 'note'=>['required', 'string', 'max:225'],        
                 'user'=>['required', 'integer', 'max:225'],        
                 'fournisseur'=>['required', 'integer', 'max:225'],        
-            ]
-        );
+            ]);
 
             if($produit)
             { 

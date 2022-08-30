@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<a href="{{ route('reparationajout1') }}">Ajouter</a>
 <div class="table-responsive">
   <table class="table">
     <thead>

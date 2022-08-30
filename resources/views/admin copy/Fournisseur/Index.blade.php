@@ -1,13 +1,13 @@
 @extends('layouts.Master')
 
 @section('content')
-<div class="container mx-4" style="margin-left:10% ;">
+<div class="container" style="margin-left:10% ;">
 <!-- boutton ajouter -->
-<a href="{{ route('tache.ajout') }}" class="btn btn-primary">Ajouter</a>
+<a href="{{ route('clientajout') }}" class="btn btn-primary">Ajouter</a>
 
 <!-- alert -->
 @if(session()->has("successDelete"))
-          <div class="alert alert-success">
+         <div class="alert alert-success">
             {{session()->get('successDelete')}}
           </div>
      @endif
@@ -21,20 +21,16 @@
 
       <tr>
         <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th>
-        <th scope="col">Presonne</th>
-        <th scope="col">Appareil</th>
-        <th scope="col">Client</th>
-        <th scope="col">Lieu</th>
-        <th scope="col">designation</th>
-        <th scope="col">Etat</th>
-        <th scope="col">Delai</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Numéro</th>
+        <th scope="col">Adresse</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
             
     </thead>
     <tbody>
-    @foreach($tache as $taches)
+    @foreach($clients as $client)
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -42,18 +38,13 @@
                   <label class="custom-control-label" for="customCheck1"></label>
               </div>
         </td>
-            <td>{{$taches->user->name}}</td>
-            <td>{{$taches->reparation->marque}}</td>
-            <td>{{$taches->reparation->client->nom}}</td>
-            <td>{{$taches->Lieu}}</td>
-            <td>{{$taches->designation}}</td>
-            <td>{{$taches->Etat}}</td>
-            <td>{{$taches->type}}</td>
-            
+            <td>{{$client->nom}}</td>
+            <td>{{$client->numero}}</td>
+            <td>{{$client->adresse}}</td>
           <td>
-            <a href="{{route('tache.edit', $taches->id)}}" class="btn btn-success">Modifier</a>
+            <a href="{{route('reparationajoutA', $client->id)}}" class="btn btn-success">Ajouter appareil</a>
             <a href="" class="btn btn-primary">Modifier</a>
-            <a href="{{route('tache.detail',$taches->id)}}"  class="btn btn-warning">Detail</a>
+            <a href="{{route('client.detail',$client->id)}}"  class="btn btn-warning">Detail</a>
           </td>
         </tr>
         @endforeach

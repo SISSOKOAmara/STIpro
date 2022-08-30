@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('note')->nullable();
 
             $table->string('panne')->nullable();
-            $table->decimal('prix',9)->nullable();
-            $table->decimal('paye',9)->nullable();
-            $table->decimal('restant',9)->nullable();
+            $table->integer('prix')->nullable();
+            $table->integer('paye')->nullable();
+            $table->integer('restant')->nullable();
             $table->date('rdv')->nullable();
             $table->date('date_retrait')->nullable();
             $table->string('remarque')->nullable();

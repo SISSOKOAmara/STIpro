@@ -241,3 +241,19 @@ color:
 orange: #FF6501
 bleu: #0201FD
 vert: #2ECD04
+
+
+'categorie'=>$request['categorie'],
+                'marque'=>$request['marque'],
+                'model'=>$request['model'],
+                'panne'=>$request['panne'],
+                'prix'=>$request['prix'],
+                'paye'=>$request['paye'],
+                'etat'=>$request['etat'],
+                'remarque'=>$request['remarque'],
+                'note'=>$request['note'],
+                'rdv'=>$request['rdv'],
+            ]);
+            dd($repara);
+        // }
+      

@@ -8834,8 +8834,8 @@ pre {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1;
-  color: #495057;
-  background-color: #2A3038;
+  color: #24039e;
+  background-color: #a1a7af;
   background-clip: padding-box;
   border: 1px solid #2c2e33;
   border-radius: 2px;
@@ -8862,7 +8862,7 @@ pre {
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    color: #495057;
+    color: #b9c3ce;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
@@ -9787,7 +9787,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-align: left;
   list-style: none;
-  background-color: #191c24;
+  background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid #2c2e33;
   border-radius: 0.25rem; }
@@ -11399,7 +11399,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+  background-color: #ffffff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -15716,7 +15716,7 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-  background-color: #191c24; }
+  background-color: #ffffff; }
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -15761,7 +15761,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #000000;
+  background: gold;
   padding: 20px 1rem;
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -16928,15 +16928,15 @@ code {
   font-weight: normal;
   font-size: 0.875rem;
   padding: 0.625rem 0.6875rem;
-  background-color: #2A3038;
+  background-color: #ffffff;
   border-radius: 2px;
   color: #ffffff; }
   .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    border: 1px solid rgba(71, 164, 71, 0.5);
-    background-color: #2A3038; }
+    border: 1px solid black;
+    background-color:white; }
   .form-control.form-control-lg, .form-control-lg.asColorPicker-input, .dataTables_wrapper select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=number], .select2-container--default .form-control-lg.select2-selection--single, .select2-container--default .select2-selection--single .form-control-lg.select2-search__field, .form-control-lg.typeahead,
   .form-control-lg.tt-query,
@@ -19027,7 +19027,7 @@ body.avgrund-active {
     color: #ffffff; }
 
 .fc-external-events .fc-event {
-  background: #191c24;
+  background: #ffffff;
   color: #ffffff;
   border-width: 0 0 0 4px;
   padding: 16px;
@@ -20340,7 +20340,7 @@ div.tagsinput {
 /* Navbar */
 .navbar {
   font-weight: normal;
-  background: #191c24;
+  background: #ffffff;
   left: 244px;
   transition: left 0.25s ease;
   -webkit-transition: left 0.25s ease;
@@ -20354,7 +20354,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: #ffffff;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20450,7 +20450,7 @@ div.tagsinput {
       .navbar .navbar-menu-wrapper .count-indicator .count-number {
         position: absolute;
         border-radius: 100%;
-        border: 2px solid #191c24; }
+        border: 2px solid #ffffff; }
       .navbar .navbar-menu-wrapper .count-indicator .count-symbol {
         top: 17px;
         right: -3px;
@@ -20591,7 +20591,7 @@ div.tagsinput {
             margin-left: 0;
             margin-right: auto; } }
     .navbar .navbar-menu-wrapper .search input {
-      background: #191c24;
+      background: #ffffff;
       padding: 13px 20px 11px 20px;
       border: 1px solid #2c2e33; }
       .navbar .navbar-menu-wrapper .search input::placeholder {
@@ -20623,7 +20623,7 @@ div.tagsinput {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #191c24;
+  background: #ffffff;
   font-weight: normal;
   padding: 0;
   width: 244px;
@@ -20637,7 +20637,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: #ffffff;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20736,7 +20736,7 @@ div.tagsinput {
           margin-left: 1rem; }
           /*Moi backgound-active-nav */
       .sidebar .nav .nav-item.active > .nav-link {
-        background: red;
+        background: #2ECD04;
         position: relative; }
         .sidebar .nav .nav-item.active > .nav-link:before {
           content: "";
@@ -20817,7 +20817,7 @@ div.tagsinput {
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-number {
                 position: absolute;
                 border-radius: 100%;
-                border: 2px solid #191c24; }
+                border: 2px solid #ffffff; }
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-symbol {
                 top: 17px;
                 right: -3px;
@@ -21054,7 +21054,7 @@ div.tagsinput {
           left: 70px;
           width: 190px; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-            background: #191c24; }
+            background: #ffffff; }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
             left: auto;
             right: 70px;

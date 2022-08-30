@@ -36,8 +36,8 @@
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas bg-white" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:80%;" /></a>
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top bg-primary">
+          <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:90%;" /></a>
           <a class="sidebar-brand brand-logo-mini" href=""><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
         <ul class="nav bg-white">
@@ -220,13 +220,13 @@
             <ul class="navbar-nav w-100 bg-warning">
               <li class="nav-item w-100">
                 <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search bg-warning">
-                  <!-- <input type="text" class="form-control bg-white" placeholder="Search products"> -->
+                  <input type="text" class="form-control bg-white" placeholder="Search products">
                 </form>
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav- bg-warning">
               <li class="nav-item dropdown d-none d-lg-block">
-                <!-- <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a> -->
+                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <h6 class="p-3 mb-0">Projects</h6>
                   <div class="dropdown-divider"></div>

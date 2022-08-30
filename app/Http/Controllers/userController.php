@@ -63,7 +63,7 @@ class userController extends Controller
             }
             return redirect('/admin/user/index');
     }
-// 222222222222222222222222222222
+// 
 
  /**
      * Display a listing of the resource.

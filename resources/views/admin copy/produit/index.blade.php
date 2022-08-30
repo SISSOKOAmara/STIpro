@@ -2,19 +2,27 @@
 
 @section('content')
 
+<a href="{{route('produit.ajout')}}" class="btn btn-primary">Ajouter</a>
+@if(session()->has("successDelete"))
+         <div class="alert alert-success">
+            {{session()->get('successDelete')}}
+          </div>
+     @endif
 
-<div class="table-responsive">
+     <div class="table-responsive">
   <table class="table">
     <thead>
-      
       <tr>
-        <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th>
-    
+        <th scope="col"></th>
+        <th scope="col">#</th>
+        <th scope="col">Fournisseur</th>
         <th scope="col">categorie </th>
         <th scope="col">Marque</th>
         <th scope="col">Model</th>
         <th scope="col">Motif</th>
+        <th scope="col">Panne</th>
         <th scope="col">Note</th>
+        <th scope="col">Prix</th>
         <th scope="col">Etat</th>
         <th scope="col">Action</th>
       </tr>
@@ -22,7 +30,7 @@
             
     </thead>
     <tbody>
-    @foreach($produit as $produits ) 
+    @foreach($produit as $produits)
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -31,11 +39,15 @@
               </div>
             </td>
         
+            <td scope="row">{{$loop->index + 1}}</td>
+            <td>{{$produits->fournisseur}}</td>
             <td>{{$produits->categorie}}</td>
             <td>{{$produits->marque}}</td>
             <td>{{$produits->model}}</td>
             <td>{{$produits->motif}}</td>
+            <td>{{$produits->etat}}</td>
             <td>{{$produits->note}}</td>
+            <td>{{$produits->prix_vente}}F</td>
             <td>{{$produits->etat}}</td>
             <td>
               <a href="" class="btn btn-primary">Modifier</a>

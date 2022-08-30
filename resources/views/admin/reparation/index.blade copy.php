@@ -3,16 +3,11 @@
 @section('content')
 <div class="container">
     <a href="{{ route('reparationajoutA') }}" class="btn btn-primary">Ajouter</a>
-
-    @if(session()->has("successDelete"))
-         <div class="alert alert-succes">
-            {{session()->get('success')}}
-          </div>
-       @endif
     <div class="table-responsive">
-      <table id="datatablesSimple" class="table text-center font-size-13">
+      <table class="table">
         <thead>
           <tr>
+            <th scope="col"></th>
             <th scope="col">Client</th>
             <th scope="col">categorie </th>
             <th scope="col">Marque</th>
@@ -29,6 +24,13 @@
         <tbody>
         @foreach($reparations as $reparation)
             <tr>
+            <td>
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                      <label class="custom-control-label" for="customCheck1"></label>
+                  </div>
+                </td>
+            
                 <td>{{$reparation->client->nom}}</td>
                 <td>{{$reparation->categorie}}</td>
                 <td>{{$reparation->marque}}</td>
@@ -39,14 +41,15 @@
                 <td>{{$reparation->etat}}</td>
                 <td>
                   <a href="{{route('reparation.edit',$reparation->id)}}" class="btn btn-primary">Modifier</a>
-                  <a href="{{route('reparation.detail',$reparation->id)}}" class="btn btn-success">Detail</a>
+                  <a href="{{route('reparation.detail',$reparation->id)}}" class="btn btn-info">Detail</a>
                   <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }">Suprimer</a>
         
-                  <form id="form-{{$reparation->id}}" action="{{route('reparation.supprimer',
-          ['reparation'=>$reparation->id])}}" method="post">
-        @csrf
-        <input type="hidden" name="_method" value="delete">
-        </form>
+                  <form action="{{route('reparation.destroy', $reparation->id)}}">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Supprimer</button>
+        
+            </form>
                 </td>
             </tr>
             @endforeach

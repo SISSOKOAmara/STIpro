@@ -23,9 +23,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-primary text-center">{{ __('Ajouter Client') }}</div>
+                <div class="card-header">{{ __('Ajouter Client') }}</div>
 
-                <div class="card-body bg-white text-black">
+                <div class="card-body">
                     <form method="POST" action="{{ route('clientregister') }}">
                         @csrf
 
