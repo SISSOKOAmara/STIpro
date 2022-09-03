@@ -20,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Ajouter à réparer') }}</div>
+                <div class="card-header">{{ __('Ajouter un Appareil') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('reparationregister') }}">
@@ -30,15 +30,15 @@
                         <div class="row mb-3">
                         <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Client') }}</label> 
                         <div class="col-md-3">
-                    <select name="client_id" required>
+                    <select name="client_id" required >
                       <option  selected disabled>Client</option>
                         @foreach( $clients as $client )
                       <option value="{{$client->id}}">{{$client->nom}} - {{$client->numero}}</option>
                      @endforeach
                     </select></div>
                     </div>
-                        <div class="row mb-1">
-                            <label for="categorie" required class="col-md-1 col-form-label text-md-end">{{ __('Categorie') }}</label> 
+                        <div class="row mb-3">
+                            <label for="categorie" required class="col-md-4 col-form-label text-md-end">{{ __('Categorie') }}</label> 
                             <div class="col-md-3">
                                 <select name="categorie" required>
                                     <option  selected disabled>Categorie</option>
@@ -110,8 +110,8 @@
                                 <input id="rdv" type="date" class="form-control" name="rdv" >
                             </div>
                         </div> 
-                        <div class="row mb-2">
-                            <label for="categorie" class="col-md-1 col-form-label text-md-end">{{ __('Etat') }}</label> 
+                        <div class="row mb-3">
+                            <label for="categorie" class="col-md-4 col-form-label text-md-end">{{ __('Etat') }}</label> 
                             <div class="col-md-3">
                                 <select name="etat">
                                     <option  selected disabled>Etat</option>

@@ -43,11 +43,11 @@
                             <label for="Etat" class="col-md-4 col-form-label text-md-end">{{ __('Etat') }}</label>
                             <div class="col-md-6">
                             <div class="col-md-3">
-                                <select name="Etat">
+                                <select name="etat">
                                     <option  selected disabled>Etat</option>
                                     <option value="Attente">Attente</option>
                                     <option value="En cours">En cours</option>
-                                    <option value="Fait">Fait</option>
+                                    <option value="Effectué">Effectué</option>
                                 </select>
                             </div>  
                                

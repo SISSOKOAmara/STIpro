@@ -55,12 +55,12 @@
                             </li>
                             <hr>
                             <li class="nav-item">
-                                <a href="{{ route('produit.index') }}" class="text-white"><h3>Vente</h3></a>
+                                <a href="{{ route('produit') }}" class="text-white"><h3>Vente</h3></a>
                                 <!-- <a class="nav-link" href=""><h2>Courrier entrant</h2></a> -->
                             </li>
                             <hr>
                             <li class="nav-item">
-                                 <a href="{{ route('produit.index') }}"><h3 class="text-white">Produit</h3></a>
+                                 <a href="{{ route('produit') }}"><h3 class="text-white">Produit</h3></a>
                                 <!-- <a class="nav-link active" href="" style="width:100% ;"><h3> Accueil</h3></a> -->
                             </li>
                             <!-- <li class="nav-item">

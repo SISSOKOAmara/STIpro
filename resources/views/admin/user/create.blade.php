@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.Master')
 
 @section('content')
 <div class="container">
@@ -52,19 +52,22 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row">
                         <select name="type">
                             <option  selected disabled>Type</option>
                             <option value="1">Admin</option>
                             <option value="2">Gérant</option>
                             <option value="0">technicien</option>
                         </select>
-                
-                        <div class="col col-sm-2">
+                        </div>
+
+                        <div class="row">
+                        <div class="col m-d-3">
                    <label for="input-small" class=" form-control-label">Photo</label> 
                   <input type="file" id="" name="photo" >
                 </div> 
                         
-                        <div class="row mb-3">
+                        <div class="row">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -77,7 +80,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 

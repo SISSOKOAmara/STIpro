@@ -17,20 +17,24 @@ class ReparationsController extends Controller
      */
     
     public function listeA()
-        {
+        {       
             $reparations = Reparations::all();
                   $clients = Clients::all();
             return view('admin/reparation/createA', compact('clients'));
         }
-    public function liste1()
+        // form avec id client
+    public function liste1($id)
         {
+            
             $reparations = Reparations::all();
-                  $clients = Clients::all();
+                  $clients = Clients::findOrfail($id);
             return view('admin/reparation/create1', compact('clients'));
         }
+        // fin
+
     public function index()
         {        
-
+                // $detail = Reparations::Whereid('$id');
                   $reparations = Reparations::all();
                   $clients = Clients::all();
                 return view('admin/reparation/index', compact('reparations', 'clients'));
@@ -80,7 +84,30 @@ class ReparationsController extends Controller
     public function store(Request $request)
     {
         //
-    }
+                    $Auth = Auth::user();
+                    $user = User::all();
+                    $clients = Clients::all();
+                    $Reparations = Reparations::create( 
+                        [                             
+                            'user_id'=>$request['user_id'],
+                            'categorie'=>$request['categorie'],
+                            'marque'=>$request['marque'],
+                            'model'=>$request['model'],
+                            'etat'=>$request['etat'],
+                            'motif'=>'Réparation',
+                            'etat'=>$request['etat'],
+                            'note'=>$request['note'],
+                            'panne'=>$request['panne'],
+                            'prix'=>$request['prix'],
+                            'paye'=>$request['paye'],
+                            'rdv'=>$request['rdv'],
+                            'date_retrait'=>$request['date_retrait'],
+                            'remarque'=>$request['remarque'],
+                            'client_id'=>$request['client_id'],
+                        ]);
+                        
+                return redirect('/admin/reparation/index');
+     }
 
     /**
      * Display the specified resource.
@@ -92,8 +119,8 @@ class ReparationsController extends Controller
     public function show($id)
     {
         //Afficher les details
-           $reparadetail = Reparations::findOrfail($id);
-           return view('admin/reparation/detail', compact('reparadetail'));
+           $details = Reparations::findOrfail($id);
+           return view('admin/reparation/detail', compact('details'));
         //    fin
     }
 

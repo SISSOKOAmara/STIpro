@@ -38,6 +38,12 @@
                 <td>{{$reparation->rdv}}</td>
                 <td>{{$reparation->etat}}</td>
                 <td>
+                  <a href="{{route('index2')}}"><i class="mdi mdi-information-outline"></i></a>
+              
+                <a href="{{route('reparation.detail',$reparation->id)}}" type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#staticModal"><i class="mdi mdi-information-outline"></i>
+              
+                <!-- <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#staticModal"> -->
+                            
                         </a>
                   <a href="{{route('reparation.edit',$reparation->id)}}" class="btn btn-primary"> Modifier</a>
                   <a href="{{route('reparation.detail',$reparation->id)}}"><i class="mdi mdi-information-outline"></i></a>
@@ -56,4 +62,5 @@
     </div>
 </div>
 
+@include(reparation/modal/detail)
 @endsection

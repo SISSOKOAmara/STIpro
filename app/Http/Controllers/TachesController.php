@@ -6,6 +6,7 @@ use App\Models\Reparations;
 use App\Models\taches;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TachesController extends Controller
 {
@@ -21,6 +22,25 @@ class TachesController extends Controller
         return view('tache/Index', compact('tache'));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index2()
+    {
+        //  
+          $User = Auth::User()->id;
+
+    $tache = taches::
+    whereRaw('id = (select max(id) from `taches` id where users = '.$User.')' )
+    ->orderBy('id', 'desc')
+    ->get(); 
+
+
+        // $tache =taches::all();
+        return view('tache/Index', compact('tache'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -63,7 +83,7 @@ class TachesController extends Controller
         );
 
          taches::create($tache);
-        return redirect('tache/Index');
+        return redirect('/admin/tache/Index');
     }
 
     /**
@@ -99,14 +119,21 @@ class TachesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $request,)
+    public function update( Request $request, $id)
     {
                 $modif =$request->validate([
-               "designation"=>"Required",
-                "Etat"=>"Required",
+                'etat'=>['required', 'string', 'max:20'],
+                'designation'=>['required', 'string', 'max:225'],
         ]);
-        taches::whereId()->update($modif);
-        return redirect('/tache/index');
+        if($modif)
+        $modif = taches::whereId($id)->update(
+        [
+            'designation'=> $request['designation'],
+            'etat'=>$request['etat'],
+            
+          ] );
+        
+        return redirect('/admin/tache/Index');
     }
     /**
      * Remove the specified resource from storage.

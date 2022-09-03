@@ -21,7 +21,7 @@
 
       <tr>
         <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th>
-        <th scope="col">Presonne</th>
+        <th scope="col"><i class="mdi mdi-account"></i> </th>
         <th scope="col">Appareil</th>
         <th scope="col">Client</th>
         <th scope="col">Lieu</th>
@@ -52,7 +52,7 @@
             
           <td>
             <a href="{{route('tache.edit', $taches->id)}}" class="btn btn-success">Modifier</a>
-            <a href="" class="btn btn-primary">Modifier</a>
+            <!-- <a href="" class="btn btn-primary">Modifier</a> -->
             <a href="{{route('tache.detail',$taches->id)}}"  class="btn btn-warning">Detail</a>
           </td>
         </tr>

@@ -32,4 +32,7 @@ class Reparations extends Model
     public function client(){
         return $this->belongsTo(Clients::class, 'client_id');
     }
+    public function tache(){
+        return $this->belongsTo(Reparations::class, 'reparation_id');
+    }
 }

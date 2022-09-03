@@ -11399,7 +11399,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  /* background-color: white; */
+  background-color: #e1d2b8;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -11445,8 +11445,7 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color:#0090e7;
-  /* background-color:#e1d2b8; */
+  background-color:#e1d2b8;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
   .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; }
@@ -20705,12 +20704,12 @@ div.tagsinput {
         height: 46px;
         border-radius: 0px 100px 100px 0px; }
         .sidebar .nav .nav-item .nav-link i {
-          color: white; }
+          color: inherit; }
           .sidebar .nav .nav-item .nav-link i.menu-icon {
             font-size: 1rem;
             line-height: 1;
             margin-left: auto;
-            color: black; }
+            color: #bba8bff5; }
             .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
               margin-left: 0;
               margin-right: auto; }
@@ -20729,9 +20728,8 @@ div.tagsinput {
               content: "\f140";
               font-size: inherit;
               color: inherit; }
-              /* Moi nav bar text color all */
         .sidebar .nav .nav-item .nav-link .menu-title {
-          color: black;
+          color: inherit;
           display: inline-block;
           font-size: 0.9375rem;
           line-height: 1;

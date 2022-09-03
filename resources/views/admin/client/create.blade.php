@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header bg-primary text-center">{{ __('Ajouter Client') }}</div>
 
-                <div class="card-body bg-white text-black">
+                <div class="card-body bg-green text-black">
                     <form method="POST" action="{{ route('clientregister') }}">
                         @csrf
 

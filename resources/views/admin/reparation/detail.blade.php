@@ -6,18 +6,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Ajouter Client') }}</div>
+            <div class="card" style="background-image:url('/assetss/images/stiLogo.jpg');">
+                <div class="card-header text-black text-center">{{ __('Detail') }}</div>
 
-                <div class="card-body">
-              <td>{{$reparadetail->client->nom}}</td>
-                <td>{{$reparadetail->categorie}}</td>
-                <td>{{$reparadetail->marque}}</td>
-                <td>{{$reparadetail->panne}}</td>
-                <td>{{$reparadetail->note}}</td>
-                <td>{{$reparadetail->prix}}F</td>
-                <td>{{$reparadetail->rdv}}F</td>
-                <td>{{$reparadetail->etat}}</td>
+                <div class="card-body text-black">
+              <h6>Nom: <td>{{$details->client->nom}}</td></h6>
+              <h6>Numéro: <td>{{$details->client->numero}}</td></h6>
+               <h6>Catégorie: <td>{{$details->categorie}}</td></h6>
+                <h6>Panne: <td>{{$details->marque}}</td></h6>
+                <h6>Panne:<td>{{$details->panne}}</td></h6>
+               <h6> Note:<td>{{$details->note}}</td></h6>
+                <h6>Prix: <td>{{$details->prix}}</td></h6>
+                <h6>RDV: <td>{{$details->rdv}}F</td></h6>
+                <h6>Etat: <td>{{$details->etat}}</td></h6>
                 </div>
             </div>
         </div>

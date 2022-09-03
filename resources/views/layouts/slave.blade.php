@@ -22,17 +22,25 @@
     <link rel="stylesheet" href="{{asset('assetss/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('assetss/images/favicon.png')}}" />
-  </head>
+    <!-- chosen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.js">
+    <!-- data table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    
+    <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+   </head>
   <body>
 
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas bg-white" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top bg-primary">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="{{asset('assetss/images/logo.svg')}}" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color:#e1d2b8">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" >
+          <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:80%;" /></a>
+          <a class="sidebar-brand brand-logo-mini" href=""><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
-        <ul class="nav bg-white">
+        <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
@@ -41,8 +49,8 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
+                  <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+                  <span>{{ Auth::user()->type }}</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -95,14 +103,14 @@
           </li>
           
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic13" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
               <span class="menu-title">Client</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic13">
+            <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex') }}">Liste</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout') }}">Ajouter</a></li>
@@ -134,26 +142,43 @@
               </ul>
             </div>
           </li>
-
+          <!-- <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#authb" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">produit</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="authb">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}"> Blank Page </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+              </ul>
+            </div>
+          </li> -->
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
               <span class="menu-title">Produit</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="ui-basicc">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('produit.index') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Stock</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Vendu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Liste</a></li>
+                <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Stock</a></li> -->
+                <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Vendu</a></li> -->
               </ul>
             </div>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('tache.index') }}">
+            <a class="nav-link" href="{{ route('usertache.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -161,65 +186,48 @@
             </a>
           </li>
 
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
               <span class="menu-title">Inventaire</span>
             </a>
-          </li>
-          <li class="nav-item menu-itemsd">
+          </li> -->
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('user.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
               <span class="menu-title">Comptes</span>
             </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <span class="menu-icon">
-                <i class="mdi mdi-security"></i>
-              </span>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              </ul>
-            </div>
-          </li>
+          </li> -->
+          
           
         </ul>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper bg-white">
+      <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar p-0 fixed-top d-flex flex-row bg-warning">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
           </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch" style="background-color:#e1d2b8">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
-            <ul class="navbar-nav w-100 bg-warning">
+            <ul class="navbar-nav w-100 ">
               <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search bg-warning">
-                  <input type="text" class="form-control bg-white" placeholder="Search products">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search" style="background-color:#e1d2b8">
+                  <!-- <input type="text" class="form-control bg-white" placeholder="Search products"> -->
                 </form>
               </li>
             </ul>
-            <ul class="navbar-nav navbar-nav- bg-warning">
+            <ul class="navbar-nav navbar-nav-" style="background-color:#e1d2b8">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
+                <!-- <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a> -->
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown" >
                   <h6 class="p-3 mb-0">Projects</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -263,7 +271,7 @@
                   <i class="mdi mdi-view-grid"></i>
                 </a>
               </li>
-              <li class="nav-item dropdown border-left">
+              <li class="nav-item dropdown border-left" >
                 <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                   <i class="mdi mdi-email"></i>
                   <span class="count bg-success"></span>
@@ -373,13 +381,20 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  
+                  <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="dropdown-item preview-item">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
+                      
                       <p class="preview-subject mb-1">Se déconnecter</p>
                     </div>
                   </a>
@@ -395,19 +410,19 @@
         </nav>
         <!-- partial -->
         <div class="main-panel ">
-        <div class="content-wrapper bg-white" style="border-left: solid 2px green;">
+        <div class="content-wrapper" style="border-left: solid 1px black; background-color:white">
         <main class="py-4">
             @yield('content')
         </main>
         </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+          <!-- <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
             </div>
-          </footer>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -433,7 +448,12 @@
     <script src="{{asset('assetss/js/todolist.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
+     <!-- data tabl escript -->
+     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.dataTables.min.js"></script>
+   
     <script src="{{asset('assetss/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+   
   </body>
 </html>

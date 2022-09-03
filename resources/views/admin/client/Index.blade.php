@@ -1,7 +1,8 @@
 @extends('layouts.Master')
 
 @section('content')
-<div class="container" style="margin-left:10% ;">
+<h6 class="text-black text-center" >Liste des clients</h6>
+<div class="p-3 bg-body rounded shadow-sm d-block" style="background-color:#e1d2b8;" id="Fondinter">
 <!-- boutton ajouter -->
 <a href="{{ route('clientajout') }}" class="btn btn-primary">Ajouter</a>
 
@@ -20,8 +21,7 @@
     
 
       <tr>
-        <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th>
-        <th scope="col">Nom</th>
+       <th scope="col">Nom</th>
         <th scope="col">Numéro</th>
         <th scope="col">Adresse</th>
         <th scope="col">Action</th>
@@ -32,12 +32,6 @@
     <tbody>
     @foreach($clients as $client)
         <tr>
-        <td>
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                  <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-        </td>
             <td>{{$client->nom}}</td>
             <td>{{$client->numero}}</td>
             <td>{{$client->adresse}}</td>

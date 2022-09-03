@@ -60,7 +60,7 @@
                     <select name="user_id">
                       <option  selected disabled>Personne</option>
                         @foreach ($user as $users)
-                      <option value="{{$users->id}}">{{$users->id}}</option>
+                      <option value="{{$users->id}}">{{$users->name}}</option>
                         @endforeach
                      </select>
                     </div>
