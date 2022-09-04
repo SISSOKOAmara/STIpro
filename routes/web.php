@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppareilsController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\FournisseursController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduitController;
@@ -47,7 +48,7 @@ All Admin Routes List
 -------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-   Route::get('/admin/appareil/Index', [AppareilsController::class, 'index'])->name('appareilIndex');
+   Route::get('/admin/appareil', [AppareilsController::class, 'index'])->name('appareilIndex');
 
 
 
@@ -86,20 +87,20 @@ Route::get('/admin/stock/create', [StocksController::class, 'create'])->name('st
 Route::post('/admin/stock/liste', [StocksController::class, 'store'])->name('stockregister');
 
 // Produit
-Route::get('/admin/produit/index', [ProduitController::class, 'index'])->name('produit');
-Route::get('/admin/produit/create', [ProduitController::class, 'create'])->name('produit.ajout');
+Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
+Route::get('/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
 Route::post('/admin/produit/liste', [ProduitController::class, 'store'])->name('produit.register');
 
 
 // Route Client
-Route::get('/admin/client/Index', [ClientsController::class, 'index'])->name('clientIndex');
+Route::get('/admin/client/IndexC', [ClientsController::class, 'index'])->name('clientIndex');
 Route::get('/admin/client/create', [ClientsController::class, 'create'])->name('clientajout');
 Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
 Route::get('/admin/client/{id}', [ClientsController::class, 'show'])->name('client.detail');
 
 
 // Tache
-Route::get('/admin/tache/Index', [TachesController::class, 'index'])->name('tache.index');
+Route::get('/admin/tache/listT', [TachesController::class, 'index'])->name('tache.list');
 Route::get('/user/tache/Index', [TachesController::class, 'index2'])->name('usertache.index');
 Route::get('/admin/tache/create', [TachesController::class, 'create'])->name('tache.ajout');
 Route::post('/admin/tache/liste', [TachesController::class, 'store'])->name('tache.register');
@@ -107,14 +108,16 @@ Route::get('/tache/{id}', [TachesController::class, 'show'])->name('tache.detail
 Route::get('/tache/edit/{id}', [TachesController::class, 'edit'])->name('tache.edit');
 Route::patch('/admin/tache/update/{id}', [TachesController::class, 'update'])->name('tache.update');
 
-// User Route
-Route::get('/admin/user/index', [userController::class, 'index'])->name('user.index');
-Route::get('/user/index/', [userController::class, 'create'])->name('user.create');
-Route::post('/admin/user/index/', [userController::class, 'store'])->name('user.store');
+// User
+Route::get('/comptes', [userController::class, 'index'])->name('user.index');
+Route::get('/user/indexU/', [userController::class, 'create'])->name('user.create');
+Route::post('/admin/user/indexU/', [userController::class, 'store'])->name('user.store');
 
 Route::get('/admin/user/create/', [userController::class, 'index2'])->name('user.index2');
 Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('user.store2');
 
-
+// Fournisseurs
+Route::get('/admin/fourn/listF', [FournisseursController::class, 'index'])->name('fournisseur');
+Route::get('admin/fourn/create', [FournisseursController::class, 'index'])->name('fournisseur.create');
 
  

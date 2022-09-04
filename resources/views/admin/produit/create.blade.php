@@ -1,4 +1,4 @@
-        @extends('layouts.app')
+        @extends('layouts.Master')
 
 @section('content')
 
@@ -21,8 +21,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Ajouter au stock') }}</div>
+            <div class="card text-black" style="background-image:url('/assetss/images/stiLogo.jpg');">
+                <div class="card-header text-center">{{ __('Ajouter produit') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('produit.register') }}">
@@ -30,19 +30,27 @@
                         
                         <div class="row mb-3">
                             <label for="categorie" class="col-md-4 col-form-label text-md-end">{{ __('categorie') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="categorie" type="text" class="form-control" name="categorie" value="" required autocomplete="categorie" autofocus>
+                            <div class="col-md-6" >
+                                <select  name="categorie">
+                                <option selected disabled>Categorie</option>
+                                    <option value="Portable">Portable</option>
+                                    <option value="Bureautique">Bureautique</option>
+                                    <option value="Projecteur">Projecteur</option>
+                                    <option value="Caméra">Caméra</option>
+                                    <option value="Réseau">Réseau</option>
+                                    <option value="Chargeur">Chargeur</option>
+                                    <option value="Câble">Câble</option>
+                                    <option value="Accessoire">Accessoire</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="marque" class="col-md-4 col-form-label text-md-end">{{ __('marque') }}</label>
-
                             <div class="col-md-6">
                                 <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
                             </div>
-
+                        </div>
                        
                         <div class="row mb-3">
                             <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('model') }}</label>
@@ -55,10 +63,13 @@
                         <div class="row mb-3">
                             <label for="etat" class="col-md-4 col-form-label text-md-end">{{ __('etat') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="etat" type="text" class="form-control" name="etat" value="" required autocomplete="etat" autofocus>
-                            </div>
+                                <select id="etat" type="text" name="etat" required>
+                                <option selected disabled>ETAT</option>
+                                    <option value="Neuf">Neuf</option>
+                                    <option value="Occasion">Occasion</option>
+                                </select>
                         </div>
+
                             <div class="row mb-3">
                             <label for="note" class="col-md-4 col-form-label text-md-end">{{ __('Note') }}</label>
 
@@ -97,40 +108,30 @@
                             <div class="col-md-6">
                                 <input id="date_achat" type="date" class="form-control" name="date_achat" value="" >
                             </div>
-                        </div>
+                        </div>                     
 
                         <div class="row mb-3">
-                            <label for="remarque" class="col-md-4 col-form-label text-md-end">{{ __('Remarque') }}</label>
-
+                            <label class="col-md-4 col-form-label text-md-end">{{ __('Fournisseur') }}</label>
                             <div class="col-md-6">
-                                <input id="remarque" type="text" class="form-control" name="remarque" value="" autocomplete="remarque" autofocus>
+                            <select name="fournisseur_id" >
+                                <option selected disabled>Fournisseur</option>
+                                 @foreach($fournisseur as $fournisseurs)
+                                <option value="{{$fournisseurs->id}}">{{$fournisseurs->nom}} - {{$fournisseurs->numero}}</option>
+                                  @endforeach
+                            </select>
                             </div>
                         </div>
-                     
-
-                        <div class="row mb-3">
-                            <label for="fournisseur" class="col-md-4 col-form-label text-md-end">{{ __('Fournisseur') }}</label>
-                            @foreach($fournisseur as $fournisseurs)
-                            <div class="col-md-6">
-                                <input id="fournisseur"  type="integer" class="form-control" name="fournisseur" value="{{$fournisseurs->id}}"  >
-                            </div>
-                        </div>
-                             @endforeach
-                        <div class="row mb-3">
-                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('User') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="user" hidden type="integer"  class="form-control" name="user" value="{{ Auth::user()->id }}" autofocus>
-                            </div>
-                        </div>
-                        
-                        <input id="user" hidden type="integer"  class="form-control" name="motif" value="Vente" autofocus>
                             
+
+                          <!-- Hiden -->
+                                <input id="user_id" type="integer"  class="form-control" name="user_id" value="{{Auth::user()->id}}" autofocus>
+                                <input id="motif" hidden type="text"  class="form-control" name="motif" value="Vente" autofocus>
+                            <!-- fin hiden -->
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Ajouter') }}
                                 </button>
                             </div>
                         </div>

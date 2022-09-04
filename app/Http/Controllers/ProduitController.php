@@ -28,9 +28,9 @@ class ProduitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $produit = Produit::all();
+    {   $Auth = Auth::user();
         $user = User::all();
+        $produit = Produit::all();
         $fournisseur = fournisseurs::all();
         return view('admin/produit/create', compact('fournisseur', 'user'));
     }
@@ -50,8 +50,8 @@ class ProduitController extends Controller
                 'motif'=>['required', 'string', 'max:20'],
                 'etat'=>['required', 'string', 'max:225'],
                 'note'=>['required', 'string', 'max:225'],        
-                'user'=>['required', 'integer', 'max:225'],        
-                'fournisseur'=>['required', 'integer', 'max:225'],        
+                'user_id'=>['required', 'integer', 'max:225'],        
+                'fournisseur_id'=>['required', 'integer', 'max:225'],        
             ]);
 
             if($produit)
@@ -61,8 +61,8 @@ class ProduitController extends Controller
                 $user = User::all();
                 $stock = Produit::create( 
                     [ 
-                        'user'=>$request['user'],
-                        'fournisseur'=>$request['fournisseur'],
+                        'user_id'=>$request['user_id'],
+                        'fournisseur_id'=>$request['fournisseur_id'],
                         'categorie'=>$request['categorie'],
                         'marque'=>$request['marque'],
                         'model'=>$request['model'],
@@ -76,12 +76,11 @@ class ProduitController extends Controller
                         'prix_vente'=>$request['prix_vente'],
                         'benefice'=>$request['benefice'],
                         'date_achat'=>$request['date_achat'],
-                        'date_vente'=>$request['date_vente'],
-                        'remarque'=>$request['remarque'],                         
+                        'date_vente'=>$request['date_vente'],                  
                     ]);
                     
             }
-            return redirect('/admin/produit/index');
+            return redirect('admin/produit/index');
          
         
     }

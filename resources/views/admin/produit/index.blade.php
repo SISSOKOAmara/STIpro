@@ -19,11 +19,11 @@
         <th scope="col">categorie </th>
         <th scope="col">Marque</th>
         <th scope="col">Model</th>
-        <th scope="col">Motif</th>
+        <th scope="col">Etat</th>
         <th scope="col">Panne</th>
         <th scope="col">Note</th>
         <th scope="col">Prix</th>
-        <th scope="col">Etat</th>
+        <th scope="col">Achat</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -40,15 +40,14 @@
             </td>
         
             <td scope="row">{{$loop->index + 1}}</td>
-            <td>{{$produits->fournisseur}}</td>
+            <td>{{$produits->fournisseur->nom}}</td>
             <td>{{$produits->categorie}}</td>
             <td>{{$produits->marque}}</td>
             <td>{{$produits->model}}</td>
-            <td>{{$produits->motif}}</td>
             <td>{{$produits->etat}}</td>
             <td>{{$produits->note}}</td>
-            <td>{{$produits->prix_vente}}F</td>
-            <td>{{$produits->etat}}</td>
+            <td>{{$produits->prix_achat}} F</td>
+            <td>{{$produits->QtRestant}}</td>
             <td>
               <a href="" class="btn btn-primary">Modifier</a>
               <a href="" class="btn btn-info">Detail</a>
@@ -56,7 +55,8 @@
         </tr>
         @endforeach
     </tbody>
-  </table>
+  </table> 
+       
 </div>
 
 

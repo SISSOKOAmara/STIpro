@@ -14,7 +14,8 @@ class FournisseursController extends Controller
      */
     public function index()
     {
-        //
+        $fournisseurs = fournisseurs::all();
+        return view ('/admin/fourn/list', compact('fournisseurs'));
     }
 
     /**

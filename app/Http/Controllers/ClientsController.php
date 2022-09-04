@@ -15,7 +15,7 @@ class ClientsController extends Controller
     public function index()
     {
         $clients = Clients::all();
-        return view('admin/client/Index', compact('clients'));
+        return view('admin/client/IndexC', compact('clients'));
     }
     
   
@@ -50,7 +50,7 @@ class ClientsController extends Controller
             );
 
             clients::create($clients);
-            return redirect('admin/client/Index');
+            return redirect('admin/client/IndexC');
     }
 
     /**

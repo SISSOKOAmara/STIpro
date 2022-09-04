@@ -2,7 +2,7 @@
 
 @section('content')
 <h6 class="text-black text-center" >Liste des clients</h6>
-<div class="p-3 bg-body rounded shadow-sm d-block" style="background-color:#e1d2b8;" id="Fondinter">
+<div class="p-3 bg-body rounded shadow-sm d-block" >
 <!-- boutton ajouter -->
 <a href="{{ route('clientajout') }}" class="btn btn-primary">Ajouter</a>
 

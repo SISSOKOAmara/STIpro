@@ -23,7 +23,6 @@ class Produit extends Model
         'date_achat',
         'date_vente',
         'remarque',
-        'appareil',
         'fournisseur_id',
         'user_id',
     ];
@@ -35,4 +34,8 @@ class Produit extends Model
     public function client(){
         return $this->belongsTo(Clients::class, 'client_id');
     }
+    public function user(){
+        return $this->belongsTo(Clients::class, 'user_id');
+    }
+
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\repair;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
-class RepairController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class RepairController extends Controller
      */
     public function index()
     {
-        //
+        $categorie = Categories::all();
+        return view('admin/categorie/liste', compact('categorie'));
     }
 
     /**
@@ -41,10 +42,10 @@ class RepairController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\repair  $repair
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(repair $repair)
+    public function show(Categories $categories)
     {
         //
     }
@@ -52,10 +53,10 @@ class RepairController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\repair  $repair
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(repair $repair)
+    public function edit(Categories $categories)
     {
         //
     }
@@ -64,10 +65,10 @@ class RepairController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\repair  $repair
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, repair $repair)
+    public function update(Request $request, Categories $categories)
     {
         //
     }
@@ -75,10 +76,10 @@ class RepairController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\repair  $repair
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(repair $repair)
+    public function destroy(Categories $categories)
     {
         //
     }

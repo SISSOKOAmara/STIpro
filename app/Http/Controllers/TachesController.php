@@ -19,7 +19,7 @@ class TachesController extends Controller
     {
         //
         $tache =taches::all();
-        return view('tache/Index', compact('tache'));
+        return view('tache/listT', compact('tache'));
     }
 
     /**

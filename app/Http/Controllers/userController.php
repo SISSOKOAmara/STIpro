@@ -14,7 +14,7 @@ class userController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('admin/user/index', compact('user'));
+        return view('admin/user/indexU', compact('user'));
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +24,7 @@ class userController extends Controller
     public function create()
     {       
         $User = User::all();
-            return view('admin/user/index', compact('User'));
+            return view('admin/user/indexU', compact('User'));
     }
     /**
      * Store a newly created resource in storage.
@@ -61,7 +61,7 @@ class userController extends Controller
                     ]
                 );
             }
-            return redirect('/admin/user/index');
+            return redirect('/admin/user/indexU');
     }
 // 
 
@@ -90,7 +90,7 @@ class userController extends Controller
         );
 
         User::create($User);
-            return redirect('/admin/user/index');
+            return redirect('/admin/user/indexU');
     }
     
     /**
@@ -103,8 +103,8 @@ class userController extends Controller
     {
         //
           //Afficher les details
-          $client = User::findOrfail($id);
-          return view('admin/client/show', compact('client'));
+          $user = User::findOrfail($id);
+          return view('admin/user/show', compact('user'));
     }
     /**
      * Show the form for editing the specified resource.

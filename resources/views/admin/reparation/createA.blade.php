@@ -43,9 +43,9 @@
                                 <select name="categorie" required>
                                     <option  selected disabled>Categorie</option>
                                     <option value="Portable">Portable</option>
-                                    <option value="Bureau">Bureautique</option>
+                                    <option value="Bureautique">Bureautique</option>
                                     <option value="Camera">Camera</option>
-                                    <option value="Reseau">Reseau</option>
+                                    <option value="Réseau">Réseau</option>
                                     <option value="Projecteur">Projecteur</option>
                                     <option value="Imprimante">Imprimante</option>
                                 </select>
@@ -57,7 +57,7 @@
                             <label for="marque" class="col-md-4 col-form-label text-md-end">{{ __('marque') }}</label>
 
                             <div class="col-md-6">
-                                <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
+                                <input id="marque" type="text" class="form-control" name="marque" value="" autocomplete="categorie" autofocus>
                             </div>
                         </div>
 

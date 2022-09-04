@@ -17,9 +17,10 @@ class AppareilsController extends Controller
     public function index()
     {
         //
-        $produit= Produit::all() and Reparations::all();
-        // $reparation= Reparations::all();
-        // $appareils= Appareils::all();
+        // $produit= Reparations::all() and Produit::all();
+         $produit= Produit::all();
+         $produit= Reparations::all();
+        
         return view('/admin/appareil/Index', compact('produit'));
     }
 
