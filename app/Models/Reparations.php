@@ -2,13 +2,14 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categories;
 
 class Reparations extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'categorie',
+        
         'marque',
         'model',
         'motif',
@@ -23,6 +24,7 @@ class Reparations extends Model
         'remarque_id',
         'client_id',
         'user_id',
+        'categorie_id',
     ];
 
     public function User(){
@@ -34,5 +36,8 @@ class Reparations extends Model
     }
     public function tache(){
         return $this->belongsTo(Reparations::class, 'reparation_id');
+    }
+    public function categorie(){
+        return $this->belongsTo(Categories::class, 'categorie_id');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppareilsController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\FournisseursController;
 use Illuminate\Support\Facades\Route;
@@ -67,7 +68,7 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 // Les route des view nav
 Route::get('/admin/reparation/index', [ReparationsController::class, 'index'])->name('reparationIndex');
 Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
-Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('reparationregister');
+Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('repair.add');
 // Ajouter un appareil à partir du client
 Route::get('/admin/reparation/create1/{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'store'])->name('reparationregister1');
@@ -117,7 +118,13 @@ Route::get('/admin/user/create/', [userController::class, 'index2'])->name('user
 Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('user.store2');
 
 // Fournisseurs
-Route::get('/admin/fourn/listF', [FournisseursController::class, 'index'])->name('fournisseur');
-Route::get('admin/fourn/create', [FournisseursController::class, 'index'])->name('fournisseur.create');
+Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
+Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
+Route::post('fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
+
+ // Categorie
+Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categorie');
+Route::get('/cat/list/', [CategoriesController::class, 'create'])->name('cat.create');
+Route::post('/cat/list/', [CategoriesController::class, 'store'])->name('cat.store');
 
  

@@ -14,10 +14,14 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categorie = Categories::all();
-        return view('admin/categorie/liste', compact('categorie'));
+        $categories = Categories::all();
+        return view('admin/cat/liste', compact('categories'));
     }
-
+        public function index2()
+    {
+        $categories = Categories::all();
+        return view('/admin/appareil/Index', compact('produit'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +29,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+         $categories = Categories::all();
+        return view('admin/cat/liste', compact('categories'));
     }
 
     /**
@@ -36,7 +41,15 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            
+            $categories = $request->validate(
+                [
+                    'nom'=>['required', 'string', 'max:30'],
+                ]
+            );
+    
+            Categories::create($categories);
+        return back()->with("success", "Categorie créee avec succès!");
     }
 
     /**

@@ -154,7 +154,7 @@
               </ul>
             </div>
           </li>
-           <li class="nav-item menu-items">
+           <!-- <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#authb" aria-expanded="false" aria-controls="auth">
               <span class="menu-icon">
                 <i class="mdi mdi-security"></i>
@@ -171,7 +171,7 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
               </ul>
             </div>
-          </li> 
+          </li>  -->
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -183,8 +183,9 @@
             <div class="collapse" id="ui-basicc">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Stock</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Vendu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Stock</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Vendu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('categorie') }}">Categorie</a></li>
               </ul>
             </div>
           </li>

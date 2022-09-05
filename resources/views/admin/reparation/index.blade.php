@@ -3,6 +3,7 @@
 @section('content')
 <div class="my-3 p-3 bg-body rounded shadow-sm d-block"id="Fondinter">
     <a href="{{ route('reparationajoutA') }}" class="btn btn-primary">Ajouter</a>
+<i class="mdi mdi-wrench"></i>
 
     @if(session()->has("successDelete"))
          <div class="alert alert-succes">
@@ -55,5 +56,4 @@
       </table>
     </div>
 </div>
-
 @endsection

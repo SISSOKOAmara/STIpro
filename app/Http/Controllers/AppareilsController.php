@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appareils;
+use App\Models\Categories;
 use App\Models\Produit;
 use App\Models\Reparations;
 use Illuminate\Http\Request;
@@ -18,10 +19,11 @@ class AppareilsController extends Controller
     {
         //
         // $produit= Reparations::all() and Produit::all();
-         $produit= Produit::all();
-         $produit= Reparations::all();
+        //  $produit= Produit::all();
+        //  $produit= Reparations::all();
+         $categories=Categories::all();
         
-        return view('/admin/appareil/Index', compact('produit'));
+        return view('/admin/appareil/Index', compact('categories'));
     }
 
     /**

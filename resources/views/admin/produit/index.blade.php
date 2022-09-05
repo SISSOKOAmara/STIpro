@@ -41,7 +41,7 @@
         
             <td scope="row">{{$loop->index + 1}}</td>
             <td>{{$produits->fournisseur->nom}}</td>
-            <td>{{$produits->categorie}}</td>
+            <td>{{$produits->categorie->nom}}</td>
             <td>{{$produits->marque}}</td>
             <td>{{$produits->model}}</td>
             <td>{{$produits->etat}}</td>

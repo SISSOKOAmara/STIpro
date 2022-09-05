@@ -22,7 +22,7 @@
             
     </thead>
     <tbody>
-    @foreach($produit as $produits ) 
+    @foreach($categories as $categorie ) 
         <tr>
         <td>
               <div class="custom-control custom-checkbox">
@@ -31,12 +31,12 @@
               </div>
             </td>
         
-            <td>{{$produits->categorie}}</td>
-            <td>{{$produits->marque}}</td>
-            <td>{{$produits->model}}</td>
-            <td>{{$produits->motif}}</td>
-            <td>{{$produits->note}}</td>
-            <td>{{$produits->etat}}</td>
+            <td>{{$categorie->nom}}</td>
+            <td>{{$categorie->Reparations}}</td>
+            <td>{{$categorie->produits}}</td>
+            <td>{{$categorie->motif}}</td>
+            <td>{{$categorie->note}}</td>
+            <td>{{$categorie->etat}}</td>
             <td>
               <a href="" class="btn btn-primary">Modifier</a>
               <a href="" class="btn btn-info">Detail</a>

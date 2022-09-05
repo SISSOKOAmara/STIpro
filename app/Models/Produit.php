@@ -9,7 +9,6 @@ class Produit extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'categorie',
         'marque',
         'model',
         'motif',
@@ -25,6 +24,7 @@ class Produit extends Model
         'remarque',
         'fournisseur_id',
         'user_id',
+       'categorie_id',
     ];
 
     public function fournisseur(){
@@ -36,6 +36,10 @@ class Produit extends Model
     }
     public function user(){
         return $this->belongsTo(Clients::class, 'user_id');
+    }
+
+    public function categorie(){
+        return $this->belongsTo(Categories::class, 'categorie_id');
     }
 
 }

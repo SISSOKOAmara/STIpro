@@ -11,4 +11,11 @@ class Categories extends Model
     protected $fillable =[
         'nom',
     ];
+
+    public function produits(){
+        return $this->hasMany(Produit::class, 'categorie_id');
+    }
+    public function reparations(){
+        return $this->hasMany(Reparations::class, 'categorie_id');
+    }
 }

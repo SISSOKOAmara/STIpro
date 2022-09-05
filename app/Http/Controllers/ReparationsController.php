@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Clients;
 use App\Models\Reparations;
 use App\Models\User;
@@ -20,7 +21,8 @@ class ReparationsController extends Controller
         {       
             $reparations = Reparations::all();
                   $clients = Clients::all();
-            return view('admin/reparation/createA', compact('clients'));
+                  $categories = Categories::all();
+            return view('admin/reparation/createA', compact('clients', 'categories'));
         }
         // form avec id client
     public function liste1($id)
@@ -28,7 +30,8 @@ class ReparationsController extends Controller
             
             $reparations = Reparations::all();
                   $clients = Clients::findOrfail($id);
-            return view('admin/reparation/create1', compact('clients'));
+                  $categories =Categories::all();
+            return view('admin/reparation/create1', compact('clients','categories'));
         }
         // fin
 
@@ -54,7 +57,7 @@ class ReparationsController extends Controller
                     $Reparations = Reparations::create( 
                         [                             
                             'user_id'=>$request['user_id'],
-                            'categorie'=>$request['categorie'],
+                            'categorie_id'=>$request['categorie_id'],
                             'marque'=>$request['marque'],
                             'model'=>$request['model'],
                             'etat'=>$request['etat'],
@@ -90,7 +93,7 @@ class ReparationsController extends Controller
                     $Reparations = Reparations::create( 
                         [                             
                             'user_id'=>$request['user_id'],
-                            'categorie'=>$request['categorie'],
+                            'categorie_id'=>$request['categorie_id'],
                             'marque'=>$request['marque'],
                             'model'=>$request['model'],
                             'etat'=>$request['etat'],
@@ -150,6 +153,7 @@ class ReparationsController extends Controller
        
         $repairedit = $request->validate([
                  
+                'categorie_id'=>['required', 'integer', 'max:20'],
                 'model'=>['required', 'string', 'max:20'],
                 'etat'=>['required', 'string', 'max:225'],
                 'note'=>['required', 'string', 'max:225'],        
@@ -162,6 +166,7 @@ class ReparationsController extends Controller
          { 
           $repairedit = Reparations::whereId($id)->update(
                 [
+            'categorie_id'=> $request['categorie_id'],
             'model'=> $request['model'],
             'panne'=>$request['panne'],
             'prix'=>$request['prix'],

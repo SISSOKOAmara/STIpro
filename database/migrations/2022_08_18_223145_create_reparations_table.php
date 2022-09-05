@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
-            $table->string('categorie');
             $table->string('marque');
             $table->string('model')->nullable();
             $table->string('motif');
@@ -37,6 +36,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')->on('users')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('categorie_id');
+            $table->foreign('categorie_id')
+            ->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

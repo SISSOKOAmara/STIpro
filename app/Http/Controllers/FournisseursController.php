@@ -25,7 +25,8 @@ class FournisseursController extends Controller
      */
     public function create()
     {
-        //
+        $fournisseurs = fournisseurs::all();
+        return view ('/admin/fourn/list', compact('fournisseurs'));
     }
 
     /**
@@ -36,7 +37,17 @@ class FournisseursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $fournisseurs = $request->validate(
+            [
+                'nom'=>['required', 'string', 'max:30'],
+                'numéro'=>['required', 'integer', 'max:30'],
+                'adresse'=>['required', 'string', 'max:30'],
+            ]
+        );
+            dd($fournisseurs);
+        fournisseurs::create($fournisseurs);
+        return back()->with("success.alert", "Fournisseur ajouté avec succès!");
     }
 
     /**

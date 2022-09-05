@@ -23,7 +23,7 @@
                 <div class="card-header">{{ __('Ajouter un Appareil') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('reparationregister') }}">
+                    <form method="POST" action="{{ route('repair.add') }}">
                         @csrf
                         
                         
@@ -37,18 +37,15 @@
                      @endforeach
                     </select></div>
                     </div>
-                        <div class="row mb-3">
-                            <label for="categorie" required class="col-md-4 col-form-label text-md-end">{{ __('Categorie') }}</label> 
-                            <div class="col-md-3">
-                                <select name="categorie" required>
-                                    <option  selected disabled>Categorie</option>
-                                    <option value="Portable">Portable</option>
-                                    <option value="Bureautique">Bureautique</option>
-                                    <option value="Camera">Camera</option>
-                                    <option value="Réseau">Réseau</option>
-                                    <option value="Projecteur">Projecteur</option>
-                                    <option value="Imprimante">Imprimante</option>
-                                </select>
+                    <div class="row mb-3">
+                            <label class="col-md-4 col-form-label text-md-end">{{ __('Categorie') }}</label>
+                            <div class="col-md-6">
+                            <select name="categorie_id" >
+                                <option selected disabled>categorie</option>
+                                 @foreach($categories as $categorie)
+                                <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+                                  @endforeach
+                            </select>
                             </div>
                         </div>
 

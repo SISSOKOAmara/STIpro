@@ -3,8 +3,42 @@
 @section('content')
 <div class="container">
 <!-- boutton ajouter -->
-<a href="{{ route('fournisseur.create') }}" class="btn btn-primary">Ajouter</a>
 
+    <li class="">
+                <a class="nav-link" data-toggle="collapse" href="#fourni" aria-expanded="false" aria-controls="ui-basic">
+                  <span class="menu-icon">
+                    <!-- <i class="mdi mdi-laptop"></i> -->
+                    <i class="mdi mdi-plus-circle"></i>
+                  </span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="fourni">
+                  <form method="POST" action="{{ route('fournisseur.store') }}" >
+                  @csrf
+
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <input  type="text" placeholder="Nom" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
+                     
+                    </div>
+                    <div class="col-md-4">
+                      <input  type="integer" placeholder="numéro" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('nom') }}" required autocomplete="numero" autofocus>
+                     
+                    </div>
+                    <div class="col-md-4">
+                      <input  type="text" placeholder="Adresse" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="{{ old('adresse') }}" required autocomplete="adresse" autofocus>
+                   
+                    </div>
+                      <div class="col md-1">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Ajouter') }}
+                                    </button>
+                      </div>
+                      </div>
+                  </form>
+                </div>
+
+    </li>
 <!-- alert -->
 @if(session()->has("successDelete"))
          <div class="alert alert-success">

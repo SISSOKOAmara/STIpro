@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\fournisseurs;
 use App\Models\Produit;
 use App\Models\User;
@@ -32,7 +33,8 @@ class ProduitController extends Controller
         $user = User::all();
         $produit = Produit::all();
         $fournisseur = fournisseurs::all();
-        return view('admin/produit/create', compact('fournisseur', 'user'));
+        $categories =Categories::all();
+        return view('admin/produit/create', compact('fournisseur', 'user', 'categories'));
     }
 
     /**
@@ -44,14 +46,14 @@ class ProduitController extends Controller
     public function store(Request $request)
     {
         $produit = $request->validate([                    
-                'categorie'=>['required', 'string', 'max:30'],
+                'categorie_id'=>['required', 'integer'],
                 'marque'=>['required', 'string', 'max:20'],
                 'model'=>['required', 'string', 'max:20'],
                 'motif'=>['required', 'string', 'max:20'],
                 'etat'=>['required', 'string', 'max:225'],
                 'note'=>['required', 'string', 'max:225'],        
-                'user_id'=>['required', 'integer', 'max:225'],        
-                'fournisseur_id'=>['required', 'integer', 'max:225'],        
+                'user_id'=>['required', 'integer'],        
+                'fournisseur_id'=>['required', 'integer'],        
             ]);
 
             if($produit)
@@ -63,7 +65,7 @@ class ProduitController extends Controller
                     [ 
                         'user_id'=>$request['user_id'],
                         'fournisseur_id'=>$request['fournisseur_id'],
-                        'categorie'=>$request['categorie'],
+                        'categorie_id'=>$request['categorie_id'],
                         'marque'=>$request['marque'],
                         'model'=>$request['model'],
                         'motif'=>'Vente',
