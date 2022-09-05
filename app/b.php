@@ -333,3 +333,20 @@ blue 2: #0090e7
 
               </form>
        </div>
+
+
+       //  
+    //       $User = Auth::User()->id;
+
+    // $tache = taches::
+    // whereRaw('id = (select max(id) from `taches` id where users = '.$User.')' )
+    // ->orderBy('id', 'desc')
+    // ->get(); 
+    // $user= Auth::User()->id;
+
+    // $tache = taches::where($user);
+    $user =Auth::User()->id;
+    
+    $tache = taches::where('user_id', 'user')->get();
+        // $tache =taches::all();
+        return view('tache/listT', compact('tache'));

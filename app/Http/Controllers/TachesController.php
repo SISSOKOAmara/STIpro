@@ -30,16 +30,20 @@ class TachesController extends Controller
     public function index2()
     {
         //  
-          $User = Auth::User()->id;
+    //       $User = Auth::User()->id;
 
-    $tache = taches::
-    whereRaw('id = (select max(id) from `taches` id where users = '.$User.')' )
-    ->orderBy('id', 'desc')
-    ->get(); 
+    // $tache = taches::
+    // whereRaw('id = (select max(id) from `taches` id where users = '.$User.')' )
+    // ->orderBy('id', 'desc')
+    // ->get(); 
+    // $user= Auth::User()->id;
 
-
+    // $tache = taches::where($user);
+    $user =Auth::User()->id;
+    
+    $tache = taches::where('user_id', $user)->get();
         // $tache =taches::all();
-        return view('tache/Index', compact('tache'));
+        return view('tache/listT', compact('tache'));
     }
     /**
      * Show the form for creating a new resource.

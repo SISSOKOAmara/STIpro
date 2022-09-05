@@ -91,6 +91,7 @@ Route::post('/admin/stock/liste', [StocksController::class, 'store'])->name('sto
 Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
 Route::get('/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
 Route::post('/admin/produit/liste', [ProduitController::class, 'store'])->name('produit.register');
+Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->name('produit.acha');
 
 
 // Route Client

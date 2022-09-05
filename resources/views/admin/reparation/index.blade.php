@@ -31,7 +31,7 @@
         @foreach($reparations as $reparation)
             <tr>
                 <td>{{$reparation->client->nom}}</td>
-                <td>{{$reparation->categorie}}</td>
+                <td>{{$reparation->categorie->nom}}</td>
                 <td>{{$reparation->marque}}</td>
                 <td>{{$reparation->panne}}</td>
                 <td>{{$reparation->note}}</td>

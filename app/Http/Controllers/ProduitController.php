@@ -130,5 +130,17 @@ class ProduitController extends Controller
     public function destroy(Produit $produit)
     {
         //
+    }/**
+     * 
+     *
+     * @param  \App\Models\Produit  $produit
+     * @return \Illuminate\Http\Response
+     */
+    public function achat(Produit $produit, $id)
+    {
+        
+        
+        return view('admin/produit/index');
+
     }
 }

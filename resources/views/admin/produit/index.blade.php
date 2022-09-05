@@ -20,10 +20,10 @@
         <th scope="col">Marque</th>
         <th scope="col">Model</th>
         <th scope="col">Etat</th>
-        <th scope="col">Panne</th>
-        <th scope="col">Note</th>
-        <th scope="col">Prix</th>
-        <th scope="col">Achat</th>
+        <th scope="col">Quantite</th>
+        <th scope="col">Prix d'achat</th>
+        <th scope="col">Restant</th>
+        <th scope="col">Vendu</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -45,11 +45,12 @@
             <td>{{$produits->marque}}</td>
             <td>{{$produits->model}}</td>
             <td>{{$produits->etat}}</td>
-            <td>{{$produits->note}}</td>
+            <td>{{$produits->quantite}}</td>
             <td>{{$produits->prix_achat}} F</td>
             <td>{{$produits->QtRestant}}</td>
+            <td>{{$produits->QtVendu}}</td>
             <td>
-              <a href="" class="btn btn-primary">Modifier</a>
+              <a href="" class="btn btn-primary">Acheter</a>
               <a href="" class="btn btn-info">Detail</a>
             </td>
         </tr>
