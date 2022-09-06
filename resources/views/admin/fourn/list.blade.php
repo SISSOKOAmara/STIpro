@@ -63,12 +63,12 @@
     <tbody>
     @foreach($fournisseurs as $fournisseur)
         <tr>
-        <td>
+        <!-- <td>
               <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                   <label class="custom-control-label" for="customCheck1"></label>
               </div>
-        </td>
+        </td> -->
             <td>{{$fournisseur->nom}}</td>
             <td>{{$fournisseur->numero}}</td>
             <td>{{$fournisseur->adresse}}</td>

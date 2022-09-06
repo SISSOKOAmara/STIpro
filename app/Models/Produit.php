@@ -42,4 +42,7 @@ class Produit extends Model
         return $this->belongsTo(Categories::class, 'categorie_id');
     }
 
+    public function achat(){
+        return $this->hasMany(Achat::class, 'produit_id');
+    }
 }

@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class fournisseurs extends Model
+class Achat extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'quantite',
+        'produit_id',
         'nom',
-        'adresse',
-        'numero',
+        'prenom',
     ];
-    
-    public function produits(){
-        return $this->hasMany(Produit::class, 'fournisseur_id');
+
+    public function produit(){
+        return $this->belongsTo(Produit::class, 'produit_id');
     }
 }

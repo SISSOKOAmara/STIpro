@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchatController;
 use App\Http\Controllers\AppareilsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ClientsController;
@@ -74,7 +75,7 @@ Route::get('/admin/reparation/create1/{id}', [ReparationsController::class, 'lis
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'store'])->name('reparationregister1');
 // fin
 Route::get('/admin/reparation/detail/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
-Route::get('/admin/reparation/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
+// Route::get('/admin/reparation/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
 Route::get('/admin/reparation/edit/{id}', [ReparationsController::class, 'edit'])->name('reparation.edit');
 Route::patch('/admin/reparation/update/{id}', [ReparationsController::class, 'update'])->name('reparation.update');
 Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
@@ -90,6 +91,7 @@ Route::post('/admin/stock/liste', [StocksController::class, 'store'])->name('sto
 // Produit
 Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
 Route::get('/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
+Route::get('/produit/details/{id}', [ProduitController::class, 'show'])->name('produit.show');
 Route::post('/admin/produit/liste', [ProduitController::class, 'store'])->name('produit.register');
 Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->name('produit.acha');
 
@@ -99,7 +101,6 @@ Route::get('/admin/client/IndexC', [ClientsController::class, 'index'])->name('c
 Route::get('/admin/client/create', [ClientsController::class, 'create'])->name('clientajout');
 Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
 Route::get('/admin/client/{id}', [ClientsController::class, 'show'])->name('client.detail');
-
 
 // Tache
 Route::get('/admin/tache/listT', [TachesController::class, 'index'])->name('tache.list');
@@ -128,4 +129,6 @@ Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categori
 Route::get('/cat/list/', [CategoriesController::class, 'create'])->name('cat.create');
 Route::post('/cat/list/', [CategoriesController::class, 'store'])->name('cat.store');
 
- 
+// Achat
+Route::get('/achat/{id}/produit', [AchatController::class, 'create'])->name('achat.create');
+Route::post('achat-register', [AchatController::class, 'store'])->name('achat.store');

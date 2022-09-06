@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appareils;
-use App\Models\Categories;
+use App\Models\Achat;
 use App\Models\Produit;
-use App\Models\Reparations;
 use Illuminate\Http\Request;
 
-class AppareilsController extends Controller
+class AchatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +16,6 @@ class AppareilsController extends Controller
     public function index()
     {
         //
-        // $produit= Reparations::all() and Produit::all();
-         $produit= Produit::all();
-         $produit= Reparations::all();
-        //  $categories=Categories::all();
-        
-        return view('/admin/appareil/Index', compact('categories'));
     }
 
     /**
@@ -31,9 +23,11 @@ class AppareilsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( $id)
     {
-        //
+        $produit = Produit::findOrfail($id);
+        return view('admin.achat.create', compact('produit'));
+       
     }
 
     /**
@@ -44,16 +38,34 @@ class AppareilsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $amara= $request->validate(
+           [
+            'quantite'=>['required', 'integer'],
+            'nom'=>['required', 'string'],
+            'prenom'=>['required', 'string'],
+           ]
+           
+        );
+        if($amara)
+        {
+            $achat=Achat::create(
+                [
+                    'quantite'=>$request['quantite'],
+                    'produit_id'=>$request['produit_id'],
+                    'nom'=>$request['nom'],
+                    'prenom'=>$request['prenom'],
+                ]
+                );
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Appareils  $appareils
+     * @param  \App\Models\Achat  $achat
      * @return \Illuminate\Http\Response
      */
-    public function show(Appareils $appareils)
+    public function show(Achat $achat)
     {
         //
     }
@@ -61,10 +73,10 @@ class AppareilsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Appareils  $appareils
+     * @param  \App\Models\Achat  $achat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appareils $appareils)
+    public function edit(Achat $achat)
     {
         //
     }
@@ -73,10 +85,10 @@ class AppareilsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appareils  $appareils
+     * @param  \App\Models\Achat  $achat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appareils $appareils)
+    public function update(Request $request, Achat $achat)
     {
         //
     }
@@ -84,10 +96,10 @@ class AppareilsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Appareils  $appareils
+     * @param  \App\Models\Achat  $achat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appareils $appareils)
+    public function destroy(Achat $achat)
     {
         //
     }

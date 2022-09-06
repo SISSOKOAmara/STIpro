@@ -93,9 +93,16 @@ class ProduitController extends Controller
      * @param  \App\Models\Produit  $produit
      * @return \Illuminate\Http\Response
      */
-    public function show(Produit $produit)
+    public function show($id)
     {
-        //
+        $produit= Produit::findOrFail($id);
+        $Auth = Auth::user();
+        $user = User::all();
+        $categories =Categories::all();
+        $fournisseur=fournisseurs::all();
+        return view('admin.produit.detail', compact('fournisseur', 'user', 'produit', 'categories'));
+
+
     }
 
     /**
@@ -139,7 +146,7 @@ class ProduitController extends Controller
     public function achat(Produit $produit, $id)
     {
         
-        
+
         return view('admin/produit/index');
 
     }

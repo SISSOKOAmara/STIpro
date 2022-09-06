@@ -33,10 +33,10 @@
     @foreach($produit as $produits)
         <tr>
         <td>
-              <div class="custom-control custom-checkbox">
+              <!-- <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                   <label class="custom-control-label" for="customCheck1"></label>
-              </div>
+              </div> -->
             </td>
         
             <td scope="row">{{$loop->index + 1}}</td>
@@ -50,8 +50,9 @@
             <td>{{$produits->QtRestant}}</td>
             <td>{{$produits->QtVendu}}</td>
             <td>
-              <a href="" class="btn btn-primary">Acheter</a>
-              <a href="" class="btn btn-info">Detail</a>
+              <a href="{{route('achat.create', $produits->id)}}" class="btn btn-primary">Acheter</a>
+              <!-- <a href="" class="btn btn-primary">Details</a> -->
+              <a href="{{route('produit.show', $produits->id)}}" class="btn btn-info">Detail</a>
             </td>
         </tr>
         @endforeach

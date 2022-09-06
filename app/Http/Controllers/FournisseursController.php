@@ -38,16 +38,27 @@ class FournisseursController extends Controller
     public function store(Request $request)
     {
         
-        $fournisseurs = $request->validate(
+        $fourn = $request->validate(
             [
                 'nom'=>['required', 'string', 'max:30'],
-                'numéro'=>['required', 'integer', 'max:30'],
+                'numero'=>['required', 'integer', 'max:30'],
                 'adresse'=>['required', 'string', 'max:30'],
             ]
         );
-            dd($fournisseurs);
-        fournisseurs::create($fournisseurs);
-        return back()->with("success.alert", "Fournisseur ajouté avec succès!");
+        if($fourn)
+        {
+            $fourniture= fournisseurs::create(
+                [
+                    'nom'=>$request['nom'],
+                    'numero'=>$request['numero'],
+                    'adresse'=>$request['adresse'],
+                ]
+            );
+           
+        }
+        return view ('/admin/fourn/list', compact('fournisseurs'));
+        
+        // return back()->with("success.alert", "Fournisseur ajouté avec succès!");
     }
 
     /**
