@@ -69,16 +69,16 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 // Les route des view nav
 Route::get('/admin/reparation/index', [ReparationsController::class, 'index'])->name('reparationIndex');
 Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
-Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('repair.add');
+Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('repair.ad');
 // Ajouter un appareil à partir du client
-Route::get('/admin/reparation/create1/{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
+Route::get('/repation-{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'store'])->name('reparationregister1');
 // fin
 Route::get('/admin/reparation/detail/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
 // Route::get('/admin/reparation/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
 Route::get('/admin/reparation/edit/{id}', [ReparationsController::class, 'edit'])->name('reparation.edit');
 Route::patch('/admin/reparation/update/{id}', [ReparationsController::class, 'update'])->name('reparation.update');
-Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
+// Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
 Route::delete('/admin/reparation/delete/{reparation}', [ReparationsController::class, 'destroy2'])->name('reparation.supprimer');
 // Route::get('/admin/reparation/indexb', [ReparationsController::class,'index3'])->name('index2');
 

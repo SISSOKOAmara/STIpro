@@ -19,9 +19,9 @@ class AppareilsController extends Controller
     {
         //
         // $produit= Reparations::all() and Produit::all();
-         $produit= Produit::all();
-         $produit= Reparations::all();
-        //  $categories=Categories::all();
+        //  $produit= Produit::all();
+        //  $produit= Reparations::all();
+         $categories=Categories::all();
         
         return view('/admin/appareil/Index', compact('categories'));
     }

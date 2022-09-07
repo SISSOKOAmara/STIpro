@@ -9,8 +9,8 @@
           </div>
      @endif
 
-     <div class="table-responsive">
-  <table class="table">
+  <!-- <div class="table-responsive"> -->
+  <table id="datatable" class="datatable table-bordered table-stripped table-dark">
     <thead>
       <tr>
         <th scope="col"></th>
@@ -59,7 +59,9 @@
     </tbody>
   </table> 
        
-</div>
+<!-- </div> -->
 
 
 @endsection
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>

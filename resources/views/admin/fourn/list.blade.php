@@ -73,8 +73,8 @@
             <td>{{$fournisseur->numero}}</td>
             <td>{{$fournisseur->adresse}}</td>
           <td>
-            <a href="{{route('reparationajoutA', $fournisseur->id)}}" class="btn btn-success">Ajouter appareil</a>
-            <a href="" class="btn btn-primary">Modifier</a>
+            <a href="{{route('reparationajoutA', $fournisseur->id)}}" class="btn btn-success"><i class="mdi mdi-plus-circle"></i></a>
+            <a href="" class="btn btn-primary"><i class="mdi mdi-pencil"></i></a>
             <!-- <a href="{{route('client.detail',$fournisseur->id)}}"  class="btn btn-warning">Detail</a> -->
           </td>
         </tr>

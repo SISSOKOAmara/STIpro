@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Achat;
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use PhpParser\Builder\Function_;
 
 class AchatController extends Controller
 {
@@ -36,7 +37,7 @@ class AchatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $amara= $request->validate(
            [
@@ -56,6 +57,11 @@ class AchatController extends Controller
                     'prenom'=>$request['prenom'],
                 ]
                 );
+
+                $product = Produit::find($id);
+
+                $stock = Achat::where('produit_id', $product->id);
+                $stock->decrement('quantite', 3);
         }
     }
 
@@ -102,5 +108,14 @@ class AchatController extends Controller
     public function destroy(Achat $achat)
     {
         //
+    }
+
+    public function decrement(Achat $achat)
+    {
+        $produit = $achat->produit_id;
+
+        $produit->decrement('quantite', 3);
+
+        $this->mount();
     }
 }

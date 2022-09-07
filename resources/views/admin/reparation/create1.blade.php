@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Ajouter un Appareil') }}</div>
 
-                <div class="card-body">
+                <div class="card-body text-black">
                     <form method="POST" action="{{ route('reparationregister1', $clients->id) }}">
                         @csrf
                         
