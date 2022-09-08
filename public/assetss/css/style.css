@@ -8718,13 +8718,13 @@ pre {
 .table-light td,
 .table-light thead th,
 .table-light tbody + tbody {
-  border-color: white; }
+  border-color: black; }
 
 .table-hover .table-light:hover {
-  background-color: #dedede; }
+  background-color: #d81111; }
   .table-hover .table-light:hover > td,
   .table-hover .table-light:hover > th {
-    background-color: #dedede; }
+    background-color: white; }
 
 .table-dark,
 .table-dark > th,
@@ -8738,25 +8738,25 @@ pre {
   border-color: #818181; }
 
 .table-hover .table-dark:hover {
-  background-color: black; }
+  background-color: white; }
   .table-hover .table-dark:hover > td,
   .table-hover .table-dark:hover > th {
-    background-color: black; }
+    background-color: white; }
 
 .table-active,
 .table-active > th,
 .table-active > td {
-  background-color: rgba(0, 0, 0, 0.075); }
+  background-color: rgba(241, 234, 234, 0.952); }
 
 .table-hover .table-active:hover {
-  background-color: rgba(0, 0, 0, 0.075); }
+  background-color: rgba(247, 244, 244, 0.075); }
   .table-hover .table-active:hover > td,
   .table-hover .table-active:hover > th {
-    background-color: rgba(0, 0, 0, 0.075); }
+    background-color: rgba(238, 230, 230, 0.966); }
 
 .table .thead-dark th, .jsgrid .jsgrid-table .thead-dark th {
-  color: #fff;
-  background-color: #212529;
+  color: rgb(57, 219, 7);
+  background-color: greenyellow;
   border-color: #454d55; }
 
 .table .thead-light th, .jsgrid .jsgrid-table .thead-light th {
@@ -8765,8 +8765,8 @@ pre {
   border-color: #2c2e33; }
 
 .table-dark {
-  color: #fff;
-  background-color: #212529; }
+  color: black;
+  background-color: white; }
   .table-dark th,
   .table-dark td,
   .table-dark thead th {
@@ -8774,9 +8774,9 @@ pre {
   .table-dark.table-bordered {
     border: 0; }
   .table-dark.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.05); }
+    background-color: rgba(241, 237, 237, 0.05); }
   .table-dark.table-hover tbody tr:hover {
-    color: #fff;
+    color: black;
     background-color: rgba(255, 255, 255, 0.075); }
 
 @media (max-width: 575.98px) {
@@ -16913,14 +16913,14 @@ code {
 
 .input-group-append,
 .input-group-prepend {
-  color: #4b5564;
+  color: black;
   width: auto;
   border: none; }
   .input-group-append .input-group-text,
   .input-group-prepend .input-group-text {
     border-color: #2c2e33;
     padding: 0.56rem 0.75rem;
-    color: #4b5564;
+    color: black;
     background: none; }
 
 
@@ -16943,7 +16943,8 @@ code {
   .tt-hint:focus {
     border: 1px solid black;
     /* fond saisie en cours */
-    background-color:#0090e7; }
+    /* background-color:#0090e } */
+    background-color:white }
   .form-control.form-control-lg, .form-control-lg.asColorPicker-input, .dataTables_wrapper select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=number], .select2-container--default .form-control-lg.select2-selection--single, .select2-container--default .select2-selection--single .form-control-lg.select2-search__field, .form-control-lg.typeahead,
   .form-control-lg.tt-query,
@@ -20628,7 +20629,8 @@ div.tagsinput {
   background: #fa424a; }
 
   #Fondinter{
-    background-color:#e1d2b8;
+    background-color:white;
+    text-decoration-color: blue;
   }
 /* Sidebar */
 .sidebar {
@@ -20654,14 +20656,14 @@ div.tagsinput {
       .sidebar .sidebar-brand-wrapper {
         width: 55px; } }
     .sidebar .sidebar-brand-wrapper .sidebar-brand {
-      color: #38425e;
+      color: blue;
       font-size: 1.5rem;
       line-height: 48px;
       margin-right: 0;
       padding: 0rem 0rem 0rem 1.3rem;
       width: 100%; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand:active, .sidebar .sidebar-brand-wrapper .sidebar-brand:focus, .sidebar .sidebar-brand-wrapper .sidebar-brand:hover {
-        color: #252b3e; }
+        color: #ffffff; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand img {
         width: calc(244px - 120px);
         max-width: 100%;
@@ -20701,7 +20703,7 @@ div.tagsinput {
         align-items: center;
         white-space: nowrap;
         padding: 0.8rem 10px 0.8rem 1.188rem;
-        color: #6c7293;
+        /* color: #6c7293; */
         -webkit-transition-duration: 0.45s;
         -moz-transition-duration: 0.45s;
         -o-transition-duration: 0.45s;
@@ -20722,19 +20724,21 @@ div.tagsinput {
               margin-right: auto; }
             .sidebar .nav .nav-item .nav-link i.menu-icon:before {
               vertical-align: middle; }
+              /* moi icon non active  */
           .sidebar .nav .nav-item .nav-link i.menu-arrow {
             font: normal normal normal 24px/1 "Material Design Icons";
             line-height: 1;
             font-size: 1rem;
             margin-left: auto;
-            color: rgba(108, 114, 147, 0.36); }
+            color:blue}
             .rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
               margin-left: 0;
               margin-right: auto; }
             .sidebar .nav .nav-item .nav-link i.menu-arrow:before {
               content: "\f140";
               font-size: inherit;
-              color: inherit; }
+              /* Moi icon activie */
+              color: black; }
               /* Moi nav bar text color all */
         .sidebar .nav .nav-item .nav-link .menu-title {
           color: black;
@@ -20748,23 +20752,25 @@ div.tagsinput {
           /*Moi backgound-active-nav */
       .sidebar .nav .nav-item.active > .nav-link {
         background: white;
-        border: gold 1px solid;
+        border: #2ECD04 1px solid;
         position: relative; }
         .sidebar .nav .nav-item.active > .nav-link:before {
           content: "";
           width: 3px;
           height: 100%;
-          background: #0090e7;
+          background: blue;
           display: inline-block;
           position: absolute;
           left: 0;
           top: 0; }
           /* moi text-active-color */
         .sidebar .nav .nav-item.active > .nav-link .menu-title {
-          color: black; }
+          color: blue; }
           /* moi icone-active-color */
         .sidebar .nav .nav-item.active > .nav-link i {
-          color: goldenrod; }
+          color: blue;
+         }
+
       .sidebar .nav .nav-item.nav-profile .nav-link {
         height: auto;
         line-height: 1;
@@ -20917,16 +20923,19 @@ div.tagsinput {
           line-height: 1;
           height: auto;
           border-top: 0; }
+          /* Moi active sous menu */
           .sidebar .nav.sub-menu .nav-item .nav-link.active {
             color: black;
+            /* font-weight: bold; */
             background: transparent; }
           .sidebar .nav.sub-menu .nav-item .nav-link:hover {
             color: #ffffff; }
         .sidebar .nav.sub-menu .nav-item:hover {
           background: transparent; }
+          /* hover nav  */
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-      background: #0f1015;
-      color: #ffffff; }
+      background: #2ECD04 ;
+      color: black; }
     .sidebar .nav .menu-items:nth-child(5n+1) .nav-link .menu-icon i {
       color: #0090e7; }
     .sidebar .nav .menu-items:nth-child(5n+2) .nav-link .menu-icon i {
@@ -20977,7 +20986,7 @@ div.tagsinput {
   .sidebar-tinted .sidebar .nav.sub-menu .nav-item .nav-link:hover {
     font-weight: 500; }
   .sidebar-tinted .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-    background: rgba(12, 14, 14, 0.1); }
+    background: white; }
 
 /* Layouts */
 .navbar.fixed-top + .page-body-wrapper {
@@ -21127,12 +21136,12 @@ div.tagsinput {
 .container-scroller {
   display: flex;
   position: relative; }
-
+/* Moi main conteneur */
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
   width: 100%;
   min-height: calc(100vh - 70px);
-  padding-top: 70px;
+  padding-top: 50px;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -21143,7 +21152,7 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #000000;
+  background: #ffffff;
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;

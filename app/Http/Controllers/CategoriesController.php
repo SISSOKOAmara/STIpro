@@ -44,7 +44,7 @@ class CategoriesController extends Controller
             
             $categories = $request->validate(
                 [
-                    'nom'=>['required', 'string', 'max:30'],
+                    'nom'=>['required', 'string', 'max:30','unique:categories'],
                 ]
             );
     

@@ -15,6 +15,7 @@ use App\Http\Controllers\ReparationsController;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TachesController;
 use App\Http\Controllers\userController;
+use App\Models\Data;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +29,19 @@ use App\Http\Controllers\userController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('welcome');
+//     return view('welcome');
 
-});
+// });
+
+Route::get ( '/', function () {
+    $data = Data::all ();
+    return view ( 'welcome' )->withData ( $data );
+} );
+
+
+
 Auth::routes();
 /*------------------------------------------
 --------------------------------------------

@@ -28,9 +28,8 @@
        <label for="etat" class="col-md-1 col-form-label text-md-end">{{ __('Etat') }}</label> 
               <div class="col-md-3">
                                 <select name="etat" >
-                                    <option  selected disabled>Etat</option>
                                     <option value="attente">Attente</option>
-                                    <option value="Encours">En cours</option>
+                                    <option value="En cours">En cours</option>
                                     <option value="Répararé">Réparé</option>
                                 </select>
                             </div>

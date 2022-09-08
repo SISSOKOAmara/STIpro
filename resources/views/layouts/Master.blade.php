@@ -46,7 +46,7 @@
 
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar" >
+      <nav class="sidebar sidebar-offcanvas rounded shadow" id="sidebar" >
         <!-- style="background-color:#e1d2b8" -->
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" >
           <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:80%;" /></a>
@@ -432,8 +432,8 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel ">
-        <div class="content-wrapper" style="border-left: solid 1px black; background-color:white">
+        <div class="main-panel"> 
+        <div class="content-wrapper bg-white"><!-- style="border-left: solid 1px black; background-color:white" -->
         <main class="py-4">
             @yield('content')
         </main>
@@ -447,7 +447,7 @@
             </div>
           </footer> -->
           <!-- partial -->
-        </div>
+        </div> 
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->

@@ -41,7 +41,7 @@ class FournisseursController extends Controller
         $fourn = $request->validate(
             [
                 'nom'=>['required', 'string', 'max:30'],
-                'numero'=>['required', 'integer', 'max:30'],
+                'numero'=>['required', 'integer', 'max:30','unique:fournisseurs'],
                 'adresse'=>['required', 'string', 'max:30'],
             ]
         );

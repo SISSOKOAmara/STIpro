@@ -7,11 +7,18 @@
 <a href="{{ route('clientajout') }}" class="btn btn-primary">Ajouter</a>
 
 <!-- alert -->
-@if(session()->has("successDelete"))
+    @if(session()->has("successDelete"))
          <div class="alert alert-success">
             {{session()->get('successDelete')}}
           </div>
      @endif
+     
+<!-- Success -->
+     @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
      <!-- fin alert -->
 
      <!-- debut tableau -->
