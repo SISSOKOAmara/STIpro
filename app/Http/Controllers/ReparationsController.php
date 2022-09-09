@@ -130,8 +130,24 @@ class ReparationsController extends Controller
     public function show($id)
     {
         //Afficher les details
-           $details = Reparations::findOrfail($id);
-           return view('admin/reparation/detail', compact('details'));
+           $Reparation = Reparations::findOrfail($id);
+           
+           return view('admin/reparation/detail', compact('Reparation'));
+        //    fin
+    }
+     /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @param  \App\Models\Reparations  $reparations
+     * @return \Illuminate\Http\Response
+     */
+    public function facture($id)
+    {
+        //Afficher les details
+           $Reparation = Reparations::findOrfail($id);
+           
+           return view('admin/reparation/facture', compact('Reparation'));
         //    fin
     }
 

@@ -43,7 +43,8 @@
                                 </a>
                           <a href="{{route('reparation.edit',$reparation->id)}}" class="btn btn-primary"><i class="mdi mdi-border-color"></i></a>
                           <a href="{{route('reparation.detail',$reparation->id)}}"><i class="mdi mdi-information-outline"></i></a>
-                          <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }">Suprimer</a>
+                          <a href="{{route('reparation.facture',$reparation->id)}}"><i class="mdi mdi-file-document-box"></i></a>
+                          <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
                 
                           <form id="form-{{$reparation->id}}" action="{{route('reparation.supprimer',
                   ['reparation'=>$reparation->id])}}" method="post">

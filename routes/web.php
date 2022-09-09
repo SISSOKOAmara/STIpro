@@ -82,9 +82,10 @@ Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])
 Route::get('/repation-{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparations', [ReparationsController::class, 'store'])->name('reparationregister1');
 // fin
-Route::get('/{Reparations}/reparations', [ReparationsController::class, 'show2'])->name('reparation.detail');
+// Route::get('/{Reparations}/reparations', [ReparationsController::class, 'show2'])->name('reparation.detail');
 // Route::get('/reparat/', [ReparationsController::class, 'show'])->name('reparation.detail');
-// Route::get('/admin/reparation/{id}', [ReparationsController::class, 'show'])->name('reparation.detail');
+Route::get('/admin/{id}/reparation', [ReparationsController::class, 'show'])->name('reparation.detail');
+Route::get('/admin/{id}/', [ReparationsController::class, 'facture'])->name('reparation.facture');
 Route::get('/admin/{id}/reparations', [ReparationsController::class, 'edit'])->name('reparation.edit');
 Route::patch('/{id}/reparations', [ReparationsController::class, 'update'])->name('reparation.update');
 // Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
