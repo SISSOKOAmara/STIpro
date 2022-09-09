@@ -27,7 +27,7 @@
                         @csrf
                         
                         
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                         <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Client') }}</label> 
                         <div class="col-md-3">
                     <select name="client_id" required >
@@ -37,7 +37,7 @@
                     </select></div>
                     </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label class="col-md-4 col-form-label text-md-end">{{ __('Categorie') }}</label>
                             <div class="col-md-6">
                             <select name="categorie_id" >
@@ -51,7 +51,7 @@
                         
 
 
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="marque" class="col-md-4 col-form-label text-md-end">{{ __('marque') }}</label>
 
                             <div class="col-md-6">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="model" class="col-md-4 col-form-label text-md-end">{{ __('model') }}</label>
 
                             <div class="col-md-6">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="etat" class="col-md-4 col-form-label text-md-end">{{ __('note') }}</label>
                             <div class="col-md-6">
                                 <input id="note" type="text" class="form-control" name="note" value=""  autocomplete="note" autofocus>
@@ -79,7 +79,7 @@
                                 <input id="etat" hidden type="text"  class="form-control" name="etat" value="attente" autofocus>
 
                           <!-- fin hiden -->
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="panne" class="col-md-4 col-form-label text-md-end">{{ __('panne') }}</label>
 
                             <div class="col-md-6">
@@ -87,7 +87,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="prix" class="col-md-4 col-form-label text-md-end">{{ __('prix') }}</label>
 
                             <div class="col-md-6">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="paye" class="col-md-4 col-form-label text-md-end">{{ __('paye') }}</label>
 
                             <div class="col-md-6">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <label for="rdv" class="col-md-4 col-form-label text-md-end">{{ __('RDV') }}</label>
 
                             <div class="col-md-6">

@@ -79,13 +79,13 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
 Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('repair.ad');
 // Ajouter un appareil à partir du client
-Route::get('/repation-{id}', [ReparationsController::class, 'liste1'])->name('reparationajout1');
+Route::get('/repation-{id}/clients', [ReparationsController::class, 'liste1'])->name('reparationajout1');
 Route::post('/admin/reparations', [ReparationsController::class, 'store'])->name('reparationregister1');
 // fin
 // Route::get('/{Reparations}/reparations', [ReparationsController::class, 'show2'])->name('reparation.detail');
 // Route::get('/reparat/', [ReparationsController::class, 'show'])->name('reparation.detail');
-Route::get('/admin/{id}/reparation', [ReparationsController::class, 'show'])->name('reparation.detail');
-Route::get('/admin/{id}/', [ReparationsController::class, 'facture'])->name('reparation.facture');
+Route::get('/admin/details/{id}/reparations', [ReparationsController::class, 'show'])->name('reparation.detail');
+Route::get('/admin//fac/{id}/reparations', [ReparationsController::class, 'facture'])->name('reparation.facture');
 Route::get('/admin/{id}/reparations', [ReparationsController::class, 'edit'])->name('reparation.edit');
 Route::patch('/{id}/reparations', [ReparationsController::class, 'update'])->name('reparation.update');
 // Route::get('/admin/reparation/delete/{id}', [ReparationsController::class, 'destroy'])->name('reparation.destroy');
@@ -107,8 +107,8 @@ Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->na
 
 
 // Route Client
-Route::get('/admin/client', [ClientsController::class, 'index'])->name('clientIndex');
-Route::get('/admin/create/client', [ClientsController::class, 'create'])->name('clientajout');
+Route::get('/admin/clients', [ClientsController::class, 'index'])->name('clientIndex');
+Route::get('/admin/client/plus', [ClientsController::class, 'create'])->name('clientajout');
 Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
 Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('client.detail');
 

@@ -53,7 +53,7 @@
           <a class="sidebar-brand brand-logo-mini" href=""><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
         <ul class="nav">
-          <li class="nav-item profile">
+          <!-- <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
@@ -101,7 +101,7 @@
                 </a>
               </div>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
@@ -138,14 +138,14 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('appareilIndex') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Appareil</span>
             </a>
-          </li>
+          </li> -->
           
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
@@ -209,14 +209,14 @@
           </li>
 
           <!-- inventaire -->
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
               <span class="menu-title">Inventaire</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('user.index')}}">
               <span class="menu-icon">
@@ -236,21 +236,17 @@
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
           </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch bg-primary" style="background-color:#e1d2b8">
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch" style="background-color:#0201FD">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
             <ul class="navbar-nav w-100 ">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search bg-primary" style="background-color:#e1d2b8">
-                  <!-- <input type="text" class="form-control bg-white" placeholder="Search products"> -->
-                </form>
-              </li>
+             
             </ul>
-            <ul class="navbar-nav navbar-nav- bg-primary" style="background-color:#e1d2b8">
+            <ul class="navbar-nav navbar-nav- " style="background-color:#FF6501">
               <li class="nav-item dropdown d-none d-lg-block">
                 <!-- <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a> -->
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown" >
+                <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown" >
                   <h6 class="p-3 mb-0">Projects</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -287,19 +283,19 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">See all projects</p>
-                </div>
+                </div> -->
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin.home') }}">
                   <i class="mdi mdi-view-grid"></i>
                 </a>
               </li>
               <li class="nav-item dropdown border-left" >
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <!-- <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                   <i class="mdi mdi-email"></i>
                   <span class="count bg-success"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                </a> -->
+                <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                   <h6 class="p-3 mb-0">Messages</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -333,13 +329,15 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">4 new messages</p>
-                </div>
+                </div> -->
               </li>
-              <li class="nav-item dropdown border-left">
+              <!-- notification -->
+              <!-- <li class="nav-item dropdown border-left">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                   <i class="mdi mdi-bell"></i>
                   <span class="count bg-danger"></span>
                 </a>
+                
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                   <h6 class="p-3 mb-0">Notifications</h6>
                   <div class="dropdown-divider"></div>
@@ -381,7 +379,9 @@
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">plus</p>
                 </div>
-              </li>
+          
+              </li> -->
+               <!-- fin notification -->
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
@@ -390,7 +390,7 @@
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list text-black" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -418,12 +418,9 @@
                     </div>
                     <div class="preview-item-content">
                       
-                      <p class="preview-subject mb-1">Se déconnecter</p>
+                      <p class="preview-subject mb-1 text-black" id="sedec" >Se déconnecter</p>
                     </div>
                   </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
-                </div>
               </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
