@@ -23,7 +23,7 @@
                 <div class="card-header text-center">{{ __('Ajouter un Appareil') }}</div>
 
                 <div class="card-body text-black text-center">
-                    <form method="POST" action="{{route('repair.add')}}">
+                    <form method="POST" action="">
                         @csrf
                         
                         
@@ -76,8 +76,7 @@
 
                             <!-- Hiden -->
                                 <input id="user_id" hidden type="integer"  class="form-control" name="user_id" value="{{ Auth::user()->id }}" autofocus>
-                                <input id="etat" hidden type="text"  class="form-control" name="etat" value="attente" autofocus>
-                          <!-- fin hiden -->
+                                <!-- fin hiden -->
                         <div class="row mb-1">
                             <label for="panne" class="col-md-4 col-form-label text-right">{{ __('panne') }}</label>
 
@@ -102,7 +101,7 @@
                             </div>
                         </div>
                         
-                        <div class="row mb-1">
+                        <div class="row mb-3">
                             <label for="rdv" class="col-md-4 col-form-label text-right">{{ __('RDV') }}</label>
 
                             <div class="col-md-6">

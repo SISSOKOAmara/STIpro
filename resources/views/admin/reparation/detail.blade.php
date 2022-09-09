@@ -10,15 +10,22 @@
                 <div class="card-header text-black text-center">{{ __('Detail') }}</div>
 
                 <div class="card-body text-black">
-              <h6>Nom: <td>{{$details->client->nom}}</td></h6>
-              <h6>Numéro: <td>{{$details->client->numero}}</td></h6>
-               <h6>Catégorie: <td>{{$details->categorie}}</td></h6>
-                <h6>Panne: <td>{{$details->marque}}</td></h6>
-                <h6>Panne:<td>{{$details->panne}}</td></h6>
-               <h6> Note:<td>{{$details->note}}</td></h6>
-                <h6>Prix: <td>{{$details->prix}}</td></h6>
-                <h6>RDV: <td>{{$details->rdv}}F</td></h6>
-                <h6>Etat: <td>{{$details->etat}}</td></h6>
+              <h6>Nom: <td>{{$Reparations->client->nom}}</td></h6>
+              <h6>Numéro: <td>{{$Reparations->client->numero}}</td></h6>
+               <h6>Catégorie: <td>{{$Reparations->categorie->nom}}</td></h6>
+                <h6>Marque: <td>{{$Reparations->marque}}</td></h6>
+                <h6>Panne:<td>{{$Reparations->panne}}</td></h6>
+                <h6>Model:<td>{{$Reparations->model}}</td></h6>
+               <h6> Note:<td>{{$Reparations->note}}</td></h6>
+                <h6>Prix: <td>{{$Reparations->prix}}F</td></h6>
+                <h6>paye: <td>{{$Reparations->paye}}F</td></h6>
+                <h6>restant: <td>{{$Reparations->restant}}F</td></h6>
+                <h6>RDV: <td>{{$Reparations->rdv}}</td></h6>
+                <h6>Etat: <td>{{$Reparations->etat}}</td></h6>
+                <h6>remarque: <td>{{$Reparations->remarque}}</td></h6>
+                <h6>Enregistrement:<td>{{$Reparations->created_at}}</td></h6>
+                <h6>Par:<td>{{$Reparations->user->name}}</td></h6>
+                <h6>Par:<td>{{$Reparations->taches->designation}}</td></h6>
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ class TachesController extends Controller
     {
         //
         $tache =taches::all();
-        return view('tache/listT', compact('tache'));
+        return view('tache/index', compact('tache'));
     }
 
     /**
@@ -43,7 +43,7 @@ class TachesController extends Controller
     
     $tache = taches::where('user_id', $user)->get();
         // $tache =taches::all();
-        return view('tache/listT', compact('tache'));
+        return view('tache/index2', compact('tache'));
     }
     /**
      * Show the form for creating a new resource.
@@ -83,11 +83,12 @@ class TachesController extends Controller
                 'Etat'=>['required', 'string', 'max:30'],
                 'user_id'=>['required', 'string', 'max:30'],
                 'reparation_id'=>['required', 'string', 'max:30'],
+                'delai'=>['required', 'date', 'max:30'],
             ]
         );
 
          taches::create($tache);
-        return redirect('/admin/tache/Index');
+        return redirect('/admin/tache');
     }
 
     /**
@@ -111,7 +112,6 @@ class TachesController extends Controller
     public function edit($id)
     {
         $user = User::all();
-        $Reparé = Reparations::all();
         $modif = taches::findOrfail($id); 
         $repara = Reparations::where('etat', 'Attente')->get();      
         return view('tache/edit', compact('modif', 'repara', 'user'));
@@ -137,7 +137,7 @@ class TachesController extends Controller
             
           ] );
         
-        return redirect('/admin/tache/Index');
+        return redirect('/admin/tache');
     }
     /**
      * Remove the specified resource from storage.

@@ -11,20 +11,19 @@ class Produit extends Model
     protected $fillable =[
         'marque',
         'model',
-        'motif',
         'etat',
         'quantite',
-         'QtVendu',
-        'QtRestant',
         'prix_achat',
         'prix_vente',
         'benefice',
         'date_achat',
-        'date_vente',
-        'remarque',
+        'somme',
+        'note',
         'fournisseur_id',
         'user_id',
        'categorie_id',
+       'reparation_id',
+
     ];
 
     public function fournisseur(){

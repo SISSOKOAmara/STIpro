@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\fournisseurs;
 use App\Models\Produit;
+use App\Models\Reparations;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,8 @@ class ProduitController extends Controller
         $produit = Produit::all();
         $fournisseur = fournisseurs::all();
         $categories =Categories::all();
-        return view('admin/produit/create', compact('fournisseur', 'user', 'categories'));
+        $reparation = Reparations::where('etat', 'En cours')->get();
+        return view('admin/produit/create', compact('fournisseur', 'user', 'categories','reparation'));
     }
 
     /**
@@ -48,10 +50,7 @@ class ProduitController extends Controller
         $produit = $request->validate([                    
                 'categorie_id'=>['required', 'integer'],
                 'marque'=>['required', 'string', 'max:20'],
-                'model'=>['required', 'string', 'max:20'],
-                'motif'=>['required', 'string', 'max:20'],
-                'etat'=>['required', 'string', 'max:225'],
-                'note'=>['required', 'string', 'max:225'],        
+                'etat'=>['required', 'string', 'max:225'],       
                 'user_id'=>['required', 'integer'],        
                 'fournisseur_id'=>['required', 'integer'],        
             ]);
@@ -59,6 +58,7 @@ class ProduitController extends Controller
             if($produit)
             { 
                 $fournisseur = fournisseurs::all();
+                $reparation = Reparations::all();
                 $Auth = Auth::user();
                 $user = User::all();
                 $stock = Produit::create( 
@@ -66,23 +66,21 @@ class ProduitController extends Controller
                         'user_id'=>$request['user_id'],
                         'fournisseur_id'=>$request['fournisseur_id'],
                         'categorie_id'=>$request['categorie_id'],
+                        'reparation_id'=>$request['reparation_id'],
                         'marque'=>$request['marque'],
                         'model'=>$request['model'],
                         'motif'=>'Vente',
                         'etat'=>$request['etat'],
 
                         'quantite'=>$request['quantite'],
-                        'QtVendu'=>$request['QtVendu'],
-                        'QtRestant'=>$request['QtRestant'],
                         'prix_achat'=>$request['prix_achat'],
                         'prix_vente'=>$request['prix_vente'],
-                        'benefice'=>$request['benefice'],
-                        'date_achat'=>$request['date_achat'],
-                        'date_vente'=>$request['date_vente'],                  
+                        'date_vente'=>$request['date_vente'], 
+                                   
                     ]);
                     
             }
-            return redirect('admin/produit/index');
+            return redirect('/produit');
          
         
     }

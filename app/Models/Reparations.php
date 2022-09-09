@@ -28,14 +28,14 @@ class Reparations extends Model
     ];
 
     public function User(){
-        return $this->belongsTo(User::class, 'appareil_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function client(){
         return $this->belongsTo(Clients::class, 'client_id');
     }
-    public function tache(){
-        return $this->belongsTo(Reparations::class, 'reparation_id');
+    public function taches(){
+        return $this->hasMany(taches::class, 'reparation_id');
     }
     public function categorie(){
         return $this->belongsTo(Categories::class, 'categorie_id');

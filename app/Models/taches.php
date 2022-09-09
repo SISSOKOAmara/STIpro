@@ -12,7 +12,7 @@ class taches extends Model
         'Lieu',
         'designation',
         'Etat',
-        'type',
+        'delai',
         'user_id',
         'reparation_id',
     ];

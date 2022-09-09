@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('Lieu');
             $table->string('designation');
             $table->string('Etat');
-
+            $table->datetime('delai');
+            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')->on('users')->onDelete('cascade');

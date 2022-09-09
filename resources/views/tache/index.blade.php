@@ -48,7 +48,7 @@
             <td>{{$taches->Lieu}}</td>
             <td>{{$taches->designation}}</td>
             <td>{{$taches->Etat}}</td>
-            <td>{{$taches->type}}</td>
+            <td>{{$taches->delai}}</td>
             
           <td>
             <a href="{{route('tache.edit', $taches->id)}}" class="btn btn-success">Modifier</a>

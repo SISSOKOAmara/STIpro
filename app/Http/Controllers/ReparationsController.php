@@ -43,6 +43,14 @@ class ReparationsController extends Controller
                 return view('admin/reparation/index', compact('reparations', 'clients'));
                 
         }
+        public function index2()
+        {        
+                // $detail = Reparations::Whereid('$id');
+                  $reparations = Reparations::all();
+                  $clients = Clients::all();
+                return view('user/reparation/index', compact('reparations', 'clients'));
+                
+        }
     /**
      * Show the form for creating a new resource.
      *
@@ -62,7 +70,7 @@ class ReparationsController extends Controller
                             'model'=>$request['model'],
                             'etat'=>$request['etat'],
                             'motif'=>'Réparation',
-                            'etat'=>$request['etat'],
+                            'etat'=>'attente',
                             'note'=>$request['note'],
                             'panne'=>$request['panne'],
                             'prix'=>$request['prix'],
@@ -109,7 +117,7 @@ class ReparationsController extends Controller
                             'client_id'=>$request['client_id'],
                         ]);
                         
-                return redirect('/admin/reparation/index');
+                return redirect('/admin.reparation.index');
      }
 
     /**
@@ -127,6 +135,20 @@ class ReparationsController extends Controller
         //    fin
     }
 
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Reparations  $reparations
+     * @return \Illuminate\Http\Response
+     */
+    public function show2(Reparations $Reparations)
+    {
+           return view('admin/reparation/detail', compact('Reparations'));
+        //    fin
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -138,7 +160,8 @@ class ReparationsController extends Controller
     {
         
         $repairedit = Reparations::findOrfail($id);
-        return view('admin/reparation/edit', compact('repairedit'));
+        $categories=Categories::all();
+        return view('admin/reparation/edit', compact('repairedit', 'categories'));
         // fin
     }
 
@@ -154,11 +177,7 @@ class ReparationsController extends Controller
         $repairedit = $request->validate([
                  
                 'categorie_id'=>['required', 'integer', 'max:20'],
-                'model'=>['required', 'string', 'max:20'],
-                'etat'=>['required', 'string', 'max:225'],
-                'note'=>['required', 'string', 'max:225'],        
-                'prix'=>['required', 'integer'],        
-                'paye'=>['required', 'integer'],        
+                'etat'=>['required', 'string', 'max:225'],      
                 'rdv'=>['required', 'date'],        
             ]);
 
@@ -177,7 +196,9 @@ class ReparationsController extends Controller
             'rdv'=>$request['rdv'],
           ] );
         }
-        return redirect('/admin/reparation/index');
+        $reparations=Reparations::all();
+        $clients=Clients::all();
+        return view('admin/reparation/index', compact('reparations', 'clients'));
         // Fin
     }
 

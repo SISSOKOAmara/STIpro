@@ -76,6 +76,8 @@
 
                             <!-- Hiden -->
                                 <input id="user_id" hidden type="integer"  class="form-control" name="user_id" value="{{ Auth::user()->id }}" autofocus>
+                                <input id="etat" hidden type="text"  class="form-control" name="etat" value="attente" autofocus>
+
                           <!-- fin hiden -->
                         <div class="row mb-3">
                             <label for="panne" class="col-md-4 col-form-label text-md-end">{{ __('panne') }}</label>
@@ -107,18 +109,7 @@
                             <div class="col-md-6">
                                 <input id="rdv" type="date" class="form-control" name="rdv" >
                             </div>
-                        </div> 
-                        <div class="row mb-3">
-                            <label class="col-md-4 col-form-label text-md-end">{{ __('Etat') }}</label> 
-                            <div class="col-md-3">
-                                <select name="etat">
-                                    <option  selected disabled>Etat</option>
-                                    <option value="attente">Attente</option>
-                                    <option value="Encours">En cours</option>
-                                    <option value="Réparaé">Réparé</option>
-                                </select>
-                            </div>
-                        </div>                      
+                        </div>                       
 
                         <div class="row mb-0">
                             <div class="col-md-3 offset-md-2">

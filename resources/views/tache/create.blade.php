@@ -92,12 +92,12 @@
                                 @enderror
                             </div>
                         </div>
-<!-- 
+
                          <div class="row mb-3">
-                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type') }}</label>
+                            <label for="delai" class="col-md-4 col-form-label text-md-end">{{ __('Delai') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('adresse') }}" required autocomplete="adresse" autofocus>
+                                <input id="dalai" type="datetime-local" class="form-control @error('type') is-invalid @enderror" name="delai" value="">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -105,8 +105,8 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div> -->
-
+                        </div>
+                        
                         <div class="row mb-0">
                             <div class="col-md-4 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

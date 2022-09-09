@@ -136,9 +136,9 @@
             </a>
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">En cours</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">Réparé</a></li>
               </ul>
             </div>
           </li>
