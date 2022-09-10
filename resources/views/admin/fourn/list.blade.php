@@ -12,26 +12,39 @@
                   </span>
                   <i class="menu-arrow"></i>
                 </a>
+                @if(session()->has("success"))
+         <div class="alert alert-succes">
+            {{session()->get('success')}}
+          </div>
+            @endif
+
+            @if ($errors ->any())
+          <ul class="alert alert-danger">
+             @foreach ($errors->all() as $error)
+                      <li>{{$error }}</li>
+              @endforeach
+          </ul>
+          @endif
                 <div class="collapse" id="fourni">
-                  <form method="POST" action="{{ route('fournisseur.store') }}" >
+                  <form method="POST" action="{{route('fournisseur.store')}}" >
                   @csrf
 
                   <div class="row mb-3">
-                    <div class="col-md-4">
-                      <input  type="text" placeholder="Nom" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
+                    <div class="col-md-3">
+                      <input  type="text" placeholder="Nom" class="form-control @error('nom') is-invalid @enderror" name="nom" value="" required autocomplete="nom" autofocus>
                      
                     </div>
-                    <div class="col-md-4">
-                      <input  type="integer" placeholder="numéro" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('nom') }}" required autocomplete="numero" autofocus>
+                    <div class="col-md-3">
+                      <input  type="integer" placeholder="numéro" class="form-control" name="numero" value="" required autocomplete="numero" autofocus>
                      
                     </div>
-                    <div class="col-md-4">
-                      <input  type="text" placeholder="Adresse" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="{{ old('adresse') }}" required autocomplete="adresse" autofocus>
+                    <div class="col-md-3">
+                      <input  type="text" placeholder="Adresse" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="" required autocomplete="adresse" autofocus>
                    
                     </div>
                       <div class="col md-1">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Ajouter') }}
+                                    <button type="submit" class="btn-primary">
+                                      <i class="mdi mdi-plus-circle"></i>
                                     </button>
                       </div>
                       </div>

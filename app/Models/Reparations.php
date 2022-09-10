@@ -16,6 +16,7 @@ class Reparations extends Model
         'etat',
         'note',
         'panne',
+        'accessoire',
         'prix',
         'paye',
         'restant',

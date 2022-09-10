@@ -133,7 +133,7 @@ Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('use
 // Fournisseurs
 Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
 Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
-Route::post('admin/fournisseurs', [FournisseursController::class, 'store'])->name('fournisseur.store');
+Route::post('/fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
 
  // Categorie
 Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categorie');

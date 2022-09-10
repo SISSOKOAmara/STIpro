@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('motif');
             $table->string('etat')->nullable();
             $table->string('note')->nullable();
+            $table->string('accessoire')->nullable();
 
             $table->string('panne')->nullable();
             $table->integer('prix')->nullable();

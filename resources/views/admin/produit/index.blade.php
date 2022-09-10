@@ -10,10 +10,9 @@
      @endif
 
   <!-- <div class="table-responsive"> -->
-  <table id="datatable" class="datatable table-bordered table-stripped table-dark">
+  <table class="table table-bordered table-reponsive">
     <thead>
       <tr>
-        <th scope="col"></th>
         <th scope="col">#</th>
         <th scope="col">Fournisseur</th>
         <th scope="col">categorie </th>
@@ -32,12 +31,6 @@
     <tbody>
     @foreach($produit as $produits)
         <tr>
-        <td>
-              <!-- <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                  <label class="custom-control-label" for="customCheck1"></label>
-              </div> -->
-            </td>
         
             <td scope="row">{{$loop->index + 1}}</td>
             <td>{{$produits->fournisseur->nom}}</td>

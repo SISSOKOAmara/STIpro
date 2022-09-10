@@ -108,6 +108,7 @@ class ReparationsController extends Controller
                             'motif'=>'Réparation',
                             'etat'=>$request['etat'],
                             'note'=>$request['note'],
+                            'accessoire'=>$request['accessoire'],
                             'panne'=>$request['panne'],
                             'prix'=>$request['prix'],
                             'paye'=>$request['paye'],

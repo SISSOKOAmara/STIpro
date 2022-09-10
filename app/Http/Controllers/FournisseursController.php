@@ -28,8 +28,7 @@ class FournisseursController extends Controller
         $fournisseurs = fournisseurs::all();
         return view ('/admin/fourn/list', compact('fournisseurs'));
     }
-
-    /**
+       /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,13 +40,36 @@ class FournisseursController extends Controller
         $fourn = $request->validate(
             [
                 'nom'=>['required', 'string', 'max:30'],
-                'numero'=>['required', 'integer', 'max:30','unique:fournisseurs'],
+                'numero'=>['required', 'integer','unique:fournisseurs'],
+                'adresse'=>['required', 'string', 'max:30'],
+            ]
+        );
+        
+             fournisseurs::create($fourn);
+        return back ()->with("succes", "Ajouté avec succès!");
+        
+        // return back()->with("success.alert", "Fournisseur ajouté avec succès!");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store2(Request $request)
+    {
+        
+        $fourn = $request->validate(
+            [
+                'nom'=>['required', 'string', 'max:30'],
+                'numero'=>['required', 'integer', 'max:17','unique:fournisseurs'],
                 'adresse'=>['required', 'string', 'max:30'],
             ]
         );
         if($fourn)
         {
-            $fourniture= fournisseurs::create(
+            $fourn= fournisseurs::create(
                 [
                     'nom'=>$request['nom'],
                     'numero'=>$request['numero'],
@@ -56,7 +78,7 @@ class FournisseursController extends Controller
             );
            
         }
-        return view ('/admin/fourn/list', compact('fournisseurs'));
+        return view ('/admin/client/create', compact('fournisseurs'));
         
         // return back()->with("success.alert", "Fournisseur ajouté avec succès!");
     }

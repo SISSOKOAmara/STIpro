@@ -4,7 +4,7 @@
 <h6 class="text-black text-center" >Liste des clients</h6>
 <div class="p-3 bg-body rounded shadow-sm d-block" >
 <!-- boutton ajouter -->
-<a href="{{ route('clientajout') }}" class="btn btn-primary">Ajouter</a>
+<a href="{{ route('clientajout') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
 
 <!-- alert -->
     @if(session()->has("successDelete"))
@@ -43,7 +43,7 @@
             <td>{{$client->numero}}</td>
             <td>{{$client->adresse}}</td>
           <td>
-            <a href="{{route('reparationajout1', $client->id)}}" class="btn btn-success">Ajouter appareil</a>
+            <a href="{{route('reparationajout1', $client->id)}}" class="btn btn-success"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
             <a href="" class="btn btn-primary">Modifier</a>
             <a href="{{route('client.detail',$client->id)}}"  class="btn btn-warning">Detail</a>
           </td>
