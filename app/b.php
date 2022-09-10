@@ -244,6 +244,8 @@ vert: #2ECD04
 blue 2: #0090e7
 
 
+grise: 
+color: #6c7293;
 'categorie'=>$request['categorie'],
                 'marque'=>$request['marque'],
                 'model'=>$request['model'],

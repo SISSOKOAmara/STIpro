@@ -4,11 +4,11 @@
 <div class="container">
 <!-- boutton ajouter -->
 
-    <li class="">
-                <a class="nav-link" data-toggle="collapse" href="#fourni" aria-expanded="false" aria-controls="ui-basic">
-                  <span class="menu-icon">
+    <div class="">
+                <a class="Bplus" data-toggle="collapse" href="#fourni" aria-expanded="false" aria-controls="ui-basic" >
+                  <span class="">
                     <!-- <i class="mdi mdi-laptop"></i> -->
-                    <i class="mdi mdi-plus-circle"></i>
+                    <i class="mdi mdi-plus-circle"style="width:50% ;"></i>
                   </span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -38,7 +38,7 @@
                   </form>
                 </div>
 
-    </li>
+    </div>
 <!-- alert -->
 @if(session()->has("successDelete"))
          <div class="alert alert-success">

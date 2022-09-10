@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -25,6 +26,21 @@ class userController extends Controller
     {       
         $User = User::all();
             return view('admin/user/indexU', compact('User'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profil()
+    {       
+        // $User = User::all();
+        $user =Auth::User()->id;
+    
+        $User = User::where('id', $user)->get();
+        // $User = User::all();
+            return view('admin/user/profil', compact('User'));
     }
     /**
      * Store a newly created resource in storage.

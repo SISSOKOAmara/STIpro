@@ -123,7 +123,8 @@ Route::patch('/admin/{id}/tache', [TachesController::class, 'update'])->name('ta
 
 // User
 Route::get('/comptes', [userController::class, 'index'])->name('user.index');
-Route::get('/user/indexU/', [userController::class, 'create'])->name('user.create');
+Route::get('/admin/comptes/', [userController::class, 'create'])->name('user.create');
+Route::get('/user/compte', [userController::class, 'profil'])->name('user.profil');
 Route::post('/admin/user/indexU/', [userController::class, 'store'])->name('user.store');
 
 Route::get('/admin/user/create/', [userController::class, 'index2'])->name('user.index2');
@@ -132,7 +133,7 @@ Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('use
 // Fournisseurs
 Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
 Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
-Route::post('fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
+Route::post('admin/fournisseurs', [FournisseursController::class, 'store'])->name('fournisseur.store');
 
  // Categorie
 Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categorie');

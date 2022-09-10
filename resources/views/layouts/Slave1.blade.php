@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="{{asset('assetss/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
-  
+
     <link rel="stylesheet" href="{{asset('assetss/vendors/jvectormap/jquery-jvectormap.css')}}">
     <link rel="stylesheet" href="{{asset('assetss/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assetss/vendors/owl-carousel-2/owl.carousel.min.css')}}">
@@ -30,30 +27,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.js">
     <!-- data table -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     
-    <!-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.3.4/css/searchBuilder.dataTables.min.css"> -->
-
-    
-    <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
-    
+    <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
    </head>
   <body>
 
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas rounded shadow" id="sidebar" >
-        <!-- style="background-color:#e1d2b8" -->
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top text-center" style="border-bottom: 1px solid black ;">
-          <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:42%;" /></a>
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color:#e1d2b8">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" >
+          <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assetss/images/stiLogo.jpg')}}" alt="logo" style="width:80%;" /></a>
           <a class="sidebar-brand brand-logo-mini" href=""><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
         <ul class="nav">
-          <!-- <li class="nav-item profile">
+          <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
@@ -101,7 +89,7 @@
                 </a>
               </div>
             </div>
-          </li> -->
+          </li>
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
@@ -114,15 +102,6 @@
             </a>
           </li>
           
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('fournisseur') }}">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">Fournisseur</span>
-            </a>
-          </li>
-
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -138,14 +117,14 @@
               </ul>
             </div>
           </li>
-          <!-- <li class="nav-item menu-items">
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('appareilIndex') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Appareil</span>
             </a>
-          </li> -->
+          </li>
           
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
@@ -157,13 +136,13 @@
             </a>
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">En cours</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">Réparé</a></li>
               </ul>
             </div>
           </li>
-           <!-- <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#authb" aria-expanded="false" aria-controls="auth">
               <span class="menu-icon">
                 <i class="mdi mdi-security"></i>
@@ -173,14 +152,14 @@
             </a>
             <div class="collapse" id="authb">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href=""> Blank Page </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}"> Blank Page </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
               </ul>
             </div>
-          </li>  -->
+          </li> -->
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -191,16 +170,15 @@
             </a>
             <div class="collapse" id="ui-basicc">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Stock</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Vendu</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('categorie') }}">Categorie</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Liste</a></li>
+                <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Stock</a></li> -->
+                <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Vendu</a></li> -->
               </ul>
             </div>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('tache.list') }}">
+            <a class="nav-link" href="{{ route('usertache.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -208,7 +186,6 @@
             </a>
           </li>
 
-          <!-- inventaire -->
           <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
@@ -217,14 +194,14 @@
               <span class="menu-title">Inventaire</span>
             </a>
           </li> -->
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('user.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
               <span class="menu-title">Comptes</span>
             </a>
-          </li>
+          </li> -->
           
           
         </ul>
@@ -236,17 +213,21 @@
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
           </div>
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch" style="background-color:#0201FD">
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch" style="background-color:#e1d2b8">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
             <ul class="navbar-nav w-100 ">
-             
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search" style="background-color:#e1d2b8">
+                  <!-- <input type="text" class="form-control bg-white" placeholder="Search products"> -->
+                </form>
+              </li>
             </ul>
-            <ul class="navbar-nav navbar-nav- " style="background-color:#FF6501">
+            <ul class="navbar-nav navbar-nav-" style="background-color:#e1d2b8">
               <li class="nav-item dropdown d-none d-lg-block">
                 <!-- <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a> -->
-                <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown" >
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown" >
                   <h6 class="p-3 mb-0">Projects</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -283,19 +264,19 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">See all projects</p>
-                </div> -->
+                </div>
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="{{ route('admin.home') }}">
+                <a class="nav-link" href="#">
                   <i class="mdi mdi-view-grid"></i>
                 </a>
               </li>
               <li class="nav-item dropdown border-left" >
-                <!-- <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                   <i class="mdi mdi-email"></i>
                   <span class="count bg-success"></span>
-                </a> -->
-                <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                   <h6 class="p-3 mb-0">Messages</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -329,15 +310,13 @@
                   </a>
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">4 new messages</p>
-                </div> -->
+                </div>
               </li>
-              <!-- notification -->
-              <!-- <li class="nav-item dropdown border-left">
+              <li class="nav-item dropdown border-left">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                   <i class="mdi mdi-bell"></i>
                   <span class="count bg-danger"></span>
                 </a>
-                
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                   <h6 class="p-3 mb-0">Notifications</h6>
                   <div class="dropdown-divider"></div>
@@ -379,9 +358,7 @@
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">plus</p>
                 </div>
-          
-              </li> -->
-               <!-- fin notification -->
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
@@ -390,17 +367,17 @@
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list text-black" aria-labelledby="profileDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="{{ route('user.profil') }}">
+                  <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <div class="preview-icon  rounded-circle">
+                      <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1 text-black">Mon compte</p>
+                      <p class="preview-subject mb-1">Réglage</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -412,15 +389,18 @@
                                         @csrf
                                     </form>
                     <div class="preview-thumbnail">
-                      <div class="preview-icon  rounded-circle">
+                      <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
                       
-                      <p class="preview-subject mb-1 text-black" id="sedec" >Se déconnecter</p>
+                      <p class="preview-subject mb-1">Se déconnecter</p>
                     </div>
                   </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
               </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -429,8 +409,8 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel"> 
-        <div class="content-wrapper bg-white"><!-- style="border-left: solid 1px black; background-color:white" -->
+        <div class="main-panel ">
+        <div class="content-wrapper" style="border-left: solid 1px black; background-color:white">
         <main class="py-4">
             @yield('content')
         </main>
@@ -444,7 +424,7 @@
             </div>
           </footer> -->
           <!-- partial -->
-        </div> 
+        </div>
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
@@ -469,21 +449,10 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
      <!-- data tabl escript -->
-     <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.dataTables.min.js"></script> -->
+     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.dataTables.min.js"></script>
    
     <script src="{{asset('assetss/js/dashboard.js')}}"></script>
-    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/searchbuilder/1.3.4/js/dataTables.searchBuilder.min.js"></script> -->
-
-    <script src="{{asset('assetss/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{asset('assetss/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
     <!-- End custom js for this page -->
    
   </body>
