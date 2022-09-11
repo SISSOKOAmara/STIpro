@@ -81,8 +81,10 @@ class ProduitController extends Controller
                     ]);
                     
             }
-            return redirect('/produit');
+            return redirect('admin/produit');
     }
+
+
 
     public function create3()
     {   $Auth = Auth::user();
@@ -134,7 +136,7 @@ class ProduitController extends Controller
                     ]);
                     
             }
-            return redirect('/gerant/produit');
+            return view('gerant/produit/index3');
         }
 
     /**

@@ -123,8 +123,10 @@ class FournisseursController extends Controller
      * @param  \App\Models\fournisseurs  $fournisseurs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fournisseurs $fournisseurs)
+    public function destroy(fournisseurs $fournisseur)
+   
     {
-        //
+        $fournisseur->delete();
+        return back()->with("successDelete", "fournisseur supprimé avec succès!");
     }
 }

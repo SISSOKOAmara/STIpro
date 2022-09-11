@@ -125,9 +125,10 @@ Route::get('/admin/tache', [TachesController::class, 'index'])->name('tache.list
 Route::get('/user/liste/tache', [TachesController::class, 'index2'])->name('tache.list2');
 Route::get('/admin/create/tache', [TachesController::class, 'create'])->name('tache.ajout');
 Route::post('/admin/liste/tache', [TachesController::class, 'store'])->name('tache.register');
-Route::get('/admin/{id}/tache', [TachesController::class, 'show'])->name('tache.detail');
+// Route::get('/admin/{id}/tache', [TachesController::class, 'show'])->name('tache.detail');
 Route::get('/admin/edit/{id}/tache', [TachesController::class, 'edit'])->name('tache.edit');
 Route::patch('/admin/{id}/tache', [TachesController::class, 'update'])->name('tache.update');
+Route::delete('/admin/{taches}', [TachesController::class, 'destroy'])->name('tache.supprimer');
 
 // User
 Route::get('/comptes', [userController::class, 'index'])->name('user.index');
@@ -142,6 +143,7 @@ Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('use
 Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
 Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
 Route::post('/fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
+Route::delete('/fourn/Flist/{fournisseur}', [FournisseursController::class, 'destroy'])->name('fournisseur.supprimer');
 
  // Categorie
 Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categorie');

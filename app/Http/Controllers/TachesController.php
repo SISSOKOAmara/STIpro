@@ -147,6 +147,8 @@ class TachesController extends Controller
      */
     public function destroy(taches $taches)
     {
-        //
+        $taches->delete();
+        return back()->with("successDelete", "taches supprimé avec succès!");
+
     }
 }

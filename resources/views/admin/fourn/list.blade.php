@@ -86,9 +86,16 @@
             <td>{{$fournisseur->numero}}</td>
             <td>{{$fournisseur->adresse}}</td>
           <td>
-            <a href="{{route('reparationajoutA', $fournisseur->id)}}" class="btn btn-success"><i class="mdi mdi-plus-circle"></i></a>
-            <a href="" class="btn btn-primary"><i class="mdi mdi-pencil"></i></a>
+            <!-- <a href="{{route('reparationajoutA', $fournisseur->id)}}"><i class="mdi mdi-plus-circle"></i></a> -->
+            <a href=""><i class="mdi mdi-pencil"></i></a>
             <!-- <a href="{{route('client.detail',$fournisseur->id)}}"  class="btn btn-warning">Detail</a> -->
+            <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet fournisseur?')){document.getElementById('form-{{$fournisseur->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                
+                          <form id="form-{{$fournisseur->id}}" action="{{route('fournisseur.supprimer',
+                  ['fournisseur'=>$fournisseur->id])}}" method="post">
+                @csrf
+                <input type="hidden" name="_method" value="delete">
+                </form>
           </td>
         </tr>
         @endforeach

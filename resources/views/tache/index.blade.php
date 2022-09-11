@@ -53,7 +53,13 @@
           <td>
             <a href="{{route('tache.edit', $taches->id)}}"><i class="mdi mdi-border-color"></i></a>
             <!-- <a href="" class="btn btn-primary">Modifier</a> -->
-            <a href="{{route('tache.detail',$taches->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
+            <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cette tache?')){document.getElementById('form-{{$taches->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                
+                <form id="form-{{$taches->id}}" action="{{route('tache.supprimer',
+        ['taches'=>$taches->id])}}" method="post">
+      @csrf
+      <input type="hidden" name="_method" value="delete">
+      </form>
           </td>
         </tr>
         @endforeach

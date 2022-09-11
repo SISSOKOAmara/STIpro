@@ -20,6 +20,6 @@ class Clients extends Model
 }
 
   public function Reparations(){
-    return $this->hasOne(Reparations::class, 'client');
+    return $this->hasOne(Reparations::class, 'client_id');
 }
 }

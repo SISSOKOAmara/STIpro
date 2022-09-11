@@ -4,7 +4,7 @@
 <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-black "id="Fondinter">
   <h3 class="text-center">Liste de reparation</h3>
             <a href="{{ route('reparationajoutA') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
-            <i class="mdi mdi-wrench"></i>
+            <!-- <i class="mdi mdi-wrench"></i> -->
 
             @if(session()->has("successDelete"))
                 <div class="alert alert-succes">

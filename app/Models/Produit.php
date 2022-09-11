@@ -46,6 +46,6 @@ class Produit extends Model
     }
 
     public function Reparation(){
-        return $this->hasMany(Reparations::class, 'reparation_id');
+        return $this->belongsTo(Reparations::class, 'reparation_id');
     }
 }

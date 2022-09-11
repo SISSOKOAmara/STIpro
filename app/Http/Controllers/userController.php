@@ -24,8 +24,8 @@ class userController extends Controller
      */
     public function create()
     {       
-        $User = User::all();
-            return view('admin/user/indexU', compact('User'));
+        $user = User::all();
+            return view('admin/user/create', compact('user'));
     }
 
     /**
@@ -106,7 +106,7 @@ class userController extends Controller
         );
 
         User::create($User);
-            return redirect('/admin/user/indexU');
+            return view('/admin/user/indexU');
     }
     
     /**
