@@ -26,6 +26,7 @@
         <th scope="col">Quantite</th>
         <th scope="col">Prix d'achat</th>
         <th scope="col">prix de vente</th>
+        <th scope="col">Benefice</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -44,8 +45,10 @@
             <td>{{$produits->quantite}}</td>
             <td>{{$produits->prix_achat}} F</td>
             <td>{{$produits->prix_vente}}</td>
+            <td>{{$produits->prix_vente - $produits->prix_achat}}</td>
             <td>
-              <a href="{{route('achat.create', $produits->id)}}" ><i class="mdi mdi-border-color"></i></a>
+              <!-- <a href="{{route('achat.create', $produits->id)}}" ><i class="mdi mdi-border-color"></i></a> -->
+              <a href="{{route('produit.edit', $produits->id)}}" ><i class="mdi mdi-border-color"></i></a>
               <!-- <a href="" class="btn btn-primary">Details</a> -->
               <a href="{{route('produit.show', $produits->id)}}" ><i class="mdi mdi-information-outline"></i></a>
               <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$produits->id}}').submit() }"><i class="mdi mdi-delete"></i></a>

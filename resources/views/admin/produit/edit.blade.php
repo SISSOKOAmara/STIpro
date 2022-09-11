@@ -26,13 +26,13 @@
                 <div class="card-header text-center">{{ __('Ajouter produit') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('produit.register') }}">
-                        @csrf
-                        
+                <form action="{{route('produit.update' ,$produitedit->id)}}" method="POST" class="text-black">
+                              @csrf
+                              @method('PATCH')
+
                         <div class="row mb-1">
                             <label class="col-md-4 col-form-label text-md-right">{{ __('Appareil') }}</label>
                             <select name="reparation_id" style="margin-left: 10px">
-                                <option selected disabled>Appareil</option>
                                  @foreach($reparation as $reparations)
                                 <option value="{{$reparations->id}}">{{$reparations->client->nom}} -{{$reparations->categorie->nom}}-{{$reparations->marque}}-{{$reparations->panne}}</option>
                                   @endforeach
@@ -42,7 +42,6 @@
                         <div class="row mb-1">
                             <label class="col-md-4 col-form-label text-md-right">{{ __('Categorie') }}</label>
                             <select name="categorie_id" style="margin-left: 10px">
-                                <option selected disabled>categorie</option>
                                  @foreach($categories as $categorie)
                                 <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
                                   @endforeach
@@ -52,7 +51,7 @@
                         <div class="row mb-1">
                             <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __('marque') }}</label>
                             <div class="col-md-6">
-                                <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
+                                <input id="marque" type="text" class="form-control" name="marque" value="{{$produitedit->marque}}" required autocomplete="categorie" autofocus>
                             </div>
                         </div>
                        
@@ -60,7 +59,7 @@
                             <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('model') }}</label>
 
                             <div class="col-md-6">
-                                <input id="model" type="text" class="form-control" name="model" value="" autocomplete="model" autofocus>
+                                <input id="model" type="text" class="form-control" name="model" value="{{$produitedit->model}}" autocomplete="model" autofocus>
                             </div>
                         </div>
 
@@ -79,7 +78,7 @@
                             <label for="note" class="col-md-4 col-form-label text-md-right">{{ __('Note') }}</label>
 
                             <div class="col-md-6">
-                                <input id="note" type="text" class="form-control" name="note" value="" autocomplete="note" autofocus>
+                                <input id="note" type="text" class="form-control" name="note" value="{{$produitedit->note}}" autocomplete="note" autofocus>
                             </div>
                             </div>
                         
@@ -88,25 +87,11 @@
                             <label for="quantite" class="col-md-4 col-form-label text-md-right">{{ __('Quantite') }}</label>
 
                             <div class="col-md-6">
-                                <input id="quantite" type="decimale" class="form-control" name="quantite" value="" required autocomplete="quantite" autofocus>
+                                <input id="quantite" type="decimale" class="form-control" name="quantite" value="{{$produitedit->quantite}}" required autocomplete="quantite" autofocus>
                             </div>
                         </div>
 
-                        <div class="row mb-1">
-                            <label for="prix_achat" class="col-md-4 col-form-label text-md-right">{{ __('prix_achat') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="prix_achat" type="decimal" class="form-control" name="prix_achat" value="" required autocomplete="commentaire" autofocus>
-                            </div>
-                        </div>
-
-                        <div class="row mb-1">
-                            <label for="prix_vente" class="col-md-4 col-form-label text-md-right">{{ __('prix_vente') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="prix_vente" type="decimale" class="form-control" name="prix_vente" value="" required autocomplete="prix_vente" autofocus>
-                            </div>
-                        </div>
+                        
                 
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-right">{{ __('Fournisseur') }}</label>
@@ -117,10 +102,6 @@
                                   @endforeach
                             </select>
                         </div>
-
-                          <!-- Hiden -->
-                                <input id="user_id" hidden type="integer"  class="form-control" name="user_id" value="{{Auth::user()->id}}" autofocus>
-                            <!-- fin hiden -->
 
                         <div class="row mb-0">
                             <div class="col-md-3"></div>

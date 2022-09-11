@@ -193,8 +193,6 @@
             <div class="collapse" id="ui-basicc">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Stock</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Vendu</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('categorie') }}">Categorie</a></li>
               </ul>
             </div>

@@ -102,9 +102,11 @@ Route::get('/admin/stock', [StocksController::class, 'create'])->name('stock.ajo
 Route::post('/admin/stock', [StocksController::class, 'store'])->name('stockregister');
 
 // Produit
-Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
-Route::get('/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
-Route::get('/produit/{id}/details', [ProduitController::class, 'show'])->name('produit.show');
+Route::get('admin/produit', [ProduitController::class, 'index'])->name('produit');
+Route::get('admin/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
+Route::get('admin/produit/{id}/details', [ProduitController::class, 'show'])->name('produit.show');
+Route::get('/produit/{id}/edit', [ProduitController::class, 'edit'])->name('produit.edit');
+Route::patch('/produit/{id}/update', [ProduitController::class, 'update'])->name('produit.update');
 Route::post('/admin/produit', [ProduitController::class, 'store'])->name('produit.register');
 Route::delete('/admin/produit/delete/{produits}', [ProduitController::class, 'destroy2'])->name('produit.supprimer');
 
