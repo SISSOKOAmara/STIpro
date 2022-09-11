@@ -43,9 +43,9 @@
             <td>{{$client->numero}}</td>
             <td>{{$client->adresse}}</td>
           <td>
-            <a href="{{route('reparationajout1', $client->id)}}" class="btn btn-success"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
-            <a href="" class="btn btn-primary">Modifier</a>
-            <a href="{{route('client.detail',$client->id)}}"  class="btn btn-warning">Detail</a>
+            <a href="{{route('reparationajout1', $client->id)}}" class=""><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
+            <a href="" class="mdi mdi-border-color"></a>
+            <a href="{{route('client.detail',$client->id)}}" ><i class="mdi mdi-information-outline"></i></a>
           </td>
         </tr>
         @endforeach

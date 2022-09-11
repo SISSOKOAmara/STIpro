@@ -41,4 +41,7 @@ class Reparations extends Model
     public function categorie(){
         return $this->belongsTo(Categories::class, 'categorie_id');
     }
+    public function produits(){
+        return $this->hasMany(Produit::class, 'reparation_id');
+    }
 }

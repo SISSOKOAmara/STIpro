@@ -44,10 +44,10 @@
                     <div class="row mb-3">
                         <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Appareils') }}</label> 
                         <div class="col-md-3">
-                    <select name="reparation_id">
+                    <select name="reparation">
                       <option  selected disabled>Appareils</option>
-                        @foreach( $repara as $reparations )
-                      <option value="{{$reparations->id}}">{{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
+                        @foreach( $reparation as $reparations )
+                      <option value="{{$reparations->id}}">{{$reparations->model}} - {{$reparations->panne}}</option>
                      @endforeach
                     </select></div>
                     </div>
@@ -57,10 +57,10 @@
                     <div class="row mb-3">
                     <label for="Lieu" class="col-md-4 col-form-label text-md-end">{{ __('Personne') }}</label>
                     <div class="col-md-3">
-                    <select name="user_id">
+                    <select name="user">
                       <option  selected disabled>Personne</option>
                         @foreach ($user as $users)
-                      <option value="{{$users->id}}">{{$users->name}}</option>
+                      <option value="{{$users->id}}">{{$users->id}}</option>
                         @endforeach
                      </select>
                     </div>
@@ -94,10 +94,10 @@
                         </div>
 
                          <div class="row mb-3">
-                            <label for="delai" class="col-md-4 col-form-label text-md-end">{{ __('Delai') }}</label>
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Type') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dalai" type="datetime-local" class="form-control @error('type') is-invalid @enderror" name="delai" value="">
+                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('adresse') }}" required autocomplete="adresse" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -106,7 +106,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="row mb-0">
                             <div class="col-md-4 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -57,6 +57,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
 //    Reparations
     Route::get('/admin/reparation/reparations', [ReparationsController::class, 'index'])->name('reparationIndex');
+    Route::get('/admin/reparation/attente', [ReparationsController::class, 'attente'])->name('reparationattente');
+    Route::get('/admin/reparation/Encours', [ReparationsController::class, 'Encours'])->name('reparationEncours');
+    Route::get('/admin/reparation/Repare', [ReparationsController::class, 'reparfinish'])->name('reparationRepare');
 
 
 
@@ -103,7 +106,10 @@ Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
 Route::get('/create/produit', [ProduitController::class, 'create'])->name('produit.ajout');
 Route::get('/produit/{id}/details', [ProduitController::class, 'show'])->name('produit.show');
 Route::post('/admin/produit', [ProduitController::class, 'store'])->name('produit.register');
+Route::delete('/admin/produit/delete/{produits}', [ProduitController::class, 'destroy2'])->name('produit.supprimer');
+
 Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->name('produit.acha');
+
 
 
 // Route Client
@@ -114,11 +120,11 @@ Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('clie
 
 // Tache
 Route::get('/admin/tache', [TachesController::class, 'index'])->name('tache.list');
-Route::get('/user/liste/tache', [TachesController::class, 'index2'])->name('usertache.index');
+Route::get('/user/liste/tache', [TachesController::class, 'index2'])->name('tache.list2');
 Route::get('/admin/create/tache', [TachesController::class, 'create'])->name('tache.ajout');
-Route::post('/admin/tache/liste', [TachesController::class, 'store'])->name('tache.register');
-Route::get('/tache/{id}', [TachesController::class, 'show'])->name('tache.detail');
-Route::get('/tache/edit/{id}', [TachesController::class, 'edit'])->name('tache.edit');
+Route::post('/admin/liste/tache', [TachesController::class, 'store'])->name('tache.register');
+Route::get('/admin/{id}/tache', [TachesController::class, 'show'])->name('tache.detail');
+Route::get('/admin/edit/{id}/tache', [TachesController::class, 'edit'])->name('tache.edit');
 Route::patch('/admin/{id}/tache', [TachesController::class, 'update'])->name('tache.update');
 
 // User

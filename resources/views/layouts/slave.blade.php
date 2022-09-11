@@ -127,7 +127,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('usertache.index') }}">
+            <a class="nav-link" href="{{ route('tache.list2') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>

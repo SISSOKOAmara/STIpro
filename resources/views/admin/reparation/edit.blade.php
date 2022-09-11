@@ -74,7 +74,7 @@
                                                     <select name="etat" >
                                                         <option value="attente">Attente</option>
                                                         <option value="En cours">En cours</option>
-                                                        <option value="Répararé">Réparé</option>
+                                                        <option value="Réparé">Réparé</option>
                                                     </select>
                                           </div> 
                                           

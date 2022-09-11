@@ -2,7 +2,11 @@
 
 @section('content')
 
-<a href="{{route('produit.ajout')}}" class="btn btn-primary">Ajouter</a>
+<h2 class="text-black text-center" >Liste des produits</h2>
+<div class="p-3 bg-body rounded shadow-sm d-block" >
+
+<a href="{{route('produit.ajout')}}" class="btn btn-primary mb-3"><i class="mdi mdi-plus-circle"style="width:20% ;"></i></a>
+
 @if(session()->has("successDelete"))
          <div class="alert alert-success">
             {{session()->get('successDelete')}}
@@ -21,8 +25,7 @@
         <th scope="col">Etat</th>
         <th scope="col">Quantite</th>
         <th scope="col">Prix d'achat</th>
-        <th scope="col">Restant</th>
-        <th scope="col">Vendu</th>
+        <th scope="col">prix de vente</th>
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -40,21 +43,25 @@
             <td>{{$produits->etat}}</td>
             <td>{{$produits->quantite}}</td>
             <td>{{$produits->prix_achat}} F</td>
-            <td>{{$produits->QtRestant}}</td>
-            <td>{{$produits->QtVendu}}</td>
+            <td>{{$produits->prix_vente}}</td>
             <td>
-              <a href="{{route('achat.create', $produits->id)}}" class="btn btn-primary">Acheter</a>
+              <a href="{{route('achat.create', $produits->id)}}" ><i class="mdi mdi-border-color"></i></a>
               <!-- <a href="" class="btn btn-primary">Details</a> -->
-              <a href="{{route('produit.show', $produits->id)}}" class="btn btn-info">Detail</a>
+              <a href="{{route('produit.show', $produits->id)}}" ><i class="mdi mdi-information-outline"></i></a>
+              <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$produits->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                
+                <form id="form-{{$produits->id}}" action="{{route('produit.supprimer',
+        ['produits'=>$produits->id])}}" method="post">
+      @csrf
+      <input type="hidden" name="_method" value="delete">
+      </form>
             </td>
         </tr>
         @endforeach
     </tbody>
   </table> 
        
-<!-- </div> -->
+</div>
 
 
 @endsection
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>

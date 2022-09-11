@@ -158,8 +158,9 @@
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">En cours</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationattente') }}">Attente</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationEncours') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationRepare') }}">Réparé</a></li>
               </ul>
             </div>
           </li>

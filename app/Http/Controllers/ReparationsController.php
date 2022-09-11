@@ -50,6 +50,36 @@ class ReparationsController extends Controller
                   $clients = Clients::all();
                 return view('user/reparation/index', compact('reparations', 'clients'));
                 
+        } 
+         public function attente()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparationwait = Reparations::where('etat', 'Attente')->get();
+
+                  $clients = Clients::all();
+                return view('admin/reparation/attente', compact('reparationwait', 'clients'));
+                
+        }
+        public function Encours()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparationwait = Reparations::where('etat', 'En cours')->get();
+
+                  $clients = Clients::all();
+                return view('admin/reparation/encours', compact('reparations', 'clients'));
+                
+        }
+        public function reparfinish()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparationwait = Reparations::where('etat', 'Réparé')->get();
+
+                  $clients = Clients::all();
+                return view('admin/reparation/repaired', compact('reparations', 'clients'));
+                
         }
     /**
      * Show the form for creating a new resource.
@@ -76,6 +106,7 @@ class ReparationsController extends Controller
                             'prix'=>$request['prix'],
                             'paye'=>$request['paye'],
                             'rdv'=>$request['rdv'],
+                            'restant'=>$request['prix'-'paye'],
                             'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
                             'client_id'=>$request['client_id'],
@@ -108,17 +139,18 @@ class ReparationsController extends Controller
                             'motif'=>'Réparation',
                             'etat'=>$request['etat'],
                             'note'=>$request['note'],
-                            'accessoire'=>$request['accessoire'],
+                            // 'accessoire'=>$request['accessoire'],
                             'panne'=>$request['panne'],
                             'prix'=>$request['prix'],
                             'paye'=>$request['paye'],
                             'rdv'=>$request['rdv'],
+                            'restant'=>$request['prix'-'paye'],
                             'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
                             'client_id'=>$request['client_id'],
                         ]);
                         
-                return redirect('/admin.reparation.index');
+                return redirect('admin/reparation/reparations');
      }
 
     /**

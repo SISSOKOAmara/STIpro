@@ -16,7 +16,10 @@
         <img src="{{asset('assetss/images/stiLogo.jpg')}}" style="width:100%;" alt="">
     </div>
     <div class="col-md-8">
-        <strong><h1>Sage Tech Informatique</h1></strong>
+            <h1> <strong style="color:blue;"> Sage </strong>
+                <strong style="color:#2ECD04;"> Tech </strong>
+                <strong style="color:#FF6501;"> Informatique</strong>
+            </h1>
         <h5>Maintenance – Vente – Site Web - logiciel</h5>
         <h5>Réseaux – Vidéo surveillance - Formation</h5>
         <h5>Tél. : 78 54 35 74 / 67 14 14 05</h5>
@@ -61,8 +64,24 @@
             <td>{{1}}</td>
             <td>{{$Reparation->marque}} - {{$Reparation->model}} - {{$Reparation->panne}}</td>
             <td>{{$Reparation->prix}}</td>
-            <td>{{$Reparation->prix}}</td>   
+            <td>{{$Reparation->prix}}</td> 
+            
+            
+           
+
         </tr>
+     
+        <!-- debut -->
+        <tr>
+        @foreach($Reparation->produits as $echange)
+
+        <td>{{$echange->quantite}}</td>
+            <td>{{$echange->categorie->nom}} {{$echange->marque}} {{$echange->model}}</td>
+            <td>{{$echange->prix_vente}}</td>
+            <td>{{$echange->somme}}</td> 
+        </tr>
+        @endforeach
+        <!-- fin -->
     </tbody>
   </table>
 </div>

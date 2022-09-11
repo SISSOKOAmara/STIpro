@@ -43,7 +43,7 @@ class TachesController extends Controller
     
     $tache = taches::where('user_id', $user)->get();
         // $tache =taches::all();
-        return view('tache/index2', compact('tache'));
+        return view('user/tache/tache2', compact('tache'));
     }
     /**
      * Show the form for creating a new resource.

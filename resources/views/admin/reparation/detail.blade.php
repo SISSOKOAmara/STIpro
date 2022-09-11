@@ -32,6 +32,12 @@
                 @endforeach
 
                 
+                <h6>Piece change:
+                   <td> @foreach($Reparation->produits as $echange)
+                    {{$echange->marque}}
+                @endforeach</td></h6>
+
+                
                 </div>
             </div>
         </div>

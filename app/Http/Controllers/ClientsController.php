@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Clients;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ClientsController extends Controller
 {
@@ -15,7 +16,7 @@ class ClientsController extends Controller
     public function index()
     {
         $clients = Clients::latest()->paginate(5);
-        return view('admin/client/IndexC', compact('clients'))       
+        return view('admin/client/Index', compact('clients'))       
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     
@@ -53,7 +54,7 @@ class ClientsController extends Controller
             );
 
             clients::create($clients);
-            return redirect('admin/client/IndexC');
+            return Redirect('/admin/clients');
     }
 
     /**

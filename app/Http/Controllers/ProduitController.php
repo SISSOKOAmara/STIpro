@@ -76,6 +76,7 @@ class ProduitController extends Controller
                         'prix_achat'=>$request['prix_achat'],
                         'prix_vente'=>$request['prix_vente'],
                         'date_vente'=>$request['date_vente'], 
+                        'somme'=>$request['qunatite'*'prix_achat'], 
                                    
                     ]);
                     
@@ -147,5 +148,12 @@ class ProduitController extends Controller
 
         return view('admin/produit/index');
 
+    }
+
+    public function destroy2(Produit $produits)
+    {
+        //
+        $produits->delete();
+        return back()->with("successDelete", "supprimé avec succès!");
     }
 }

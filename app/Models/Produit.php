@@ -44,4 +44,8 @@ class Produit extends Model
     public function achat(){
         return $this->hasMany(Achat::class, 'produit_id');
     }
+
+    public function Reparation(){
+        return $this->hasMany(Reparations::class, 'reparation_id');
+    }
 }
