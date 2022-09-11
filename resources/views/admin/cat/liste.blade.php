@@ -1,10 +1,11 @@
 @extends('layouts.Master')
 
 @section('content')
-<h6 class="text-black text-center" >Liste des categories</h6>
+
 <div class="p-3 bg-body rounded shadow-sm d-block" >
+  <h6 class="text-black text-center" >Liste des categories</h6>
 <!-- boutton ajouter -->
-    <li class="">
+    <!-- <li class=""> -->
                 <a class="nav-link" data-toggle="collapse" href="#catAjout" aria-expanded="false" aria-controls="ui-basic">
                   <span class="menu-icon">
                     <!-- <i class="mdi mdi-laptop"></i> -->
@@ -34,7 +35,7 @@
                   </form>
                 </div>
 
-    </li>
+    <!-- </li> -->
 
 <!-- alert -->
 @if(session()->has("successDelete"))

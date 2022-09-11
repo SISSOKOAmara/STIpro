@@ -61,7 +61,7 @@ class userController extends Controller
                     ]
                 );
             }
-            return redirect('/admin/user/indexC');
+            return redirect('/comptes');
     }
     
     /**

@@ -1,7 +1,8 @@
 @extends('layouts.Master')
 
 @section('content')
-<div class="container">
+<div class="p-3 bg-body rounded shadow-sm d-block" >
+  <h6 class="text-black text-center" >Liste des Fournisseurs</h6>
 <!-- boutton ajouter -->
 
     <div class="">

@@ -1,10 +1,11 @@
 @extends('layouts.Master')
 
 @section('content')
-<h6 class="text-black text-center" >Liste des clients</h6>
+
 <div class="p-3 bg-body rounded shadow-sm d-block" >
+  <h6 class="text-black text-center" >Liste des clients</h6>
 <!-- boutton ajouter -->
-<a href="{{ route('clientajout') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
+<a href="{{ route('clientajout') }}" class="Bplus btn btn-primary "><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
 
 <!-- alert -->
     @if(session()->has("successDelete"))

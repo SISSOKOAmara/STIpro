@@ -7,9 +7,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- <div class="card" style="background-image:url('/assetss/images/stiLogo.jpg');"> -->
-            <div class="card">
+            <div class="card print">
                
-                <div class="card-header text-black text-center">{{ __('Facture') }} <p onclick="javascript:window:print()">A</p> <div class="text-right float"><button type="print"  >P</button></div></div>
+                <div class="card-header text-black text-center"> <p onclick="javascript:window:print()">{{ __('Facture') }}</p></div>
                 <!-- head -->
                         <div class="container">
                             <div class="row" style="border-bottom: 2px solid black ;">

@@ -41,6 +41,12 @@
     <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
     
+    <style type="text/css" media="print">
+      body {visibility:hidden;}
+      .print {visibility:visible; display: block; position: fixed; top: 0; bottom: 0; right: 0; left: 0;}
+
+    </style>
+
    </head>
   <body>
 
@@ -108,7 +114,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('admin.home') }}">
               <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-home"></i>
               </span>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -117,7 +123,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('fournisseur') }}">
               <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-contacts"></i>
               </span>
               <span class="menu-title">Fournisseur</span>
             </a>
@@ -126,7 +132,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-contact-mail"></i>
               </span>
               <span class="menu-title">Client</span>
               <i class="menu-arrow"></i>
@@ -185,9 +191,9 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-speaker"></i>
               </span>
-              <span class="menu-title">Produit</span>
+              <span class="menu-title">Pièce/accessoire</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basicc">
@@ -219,7 +225,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('user.index')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-contacts"></i>
+                <i class="mdi mdi-account"></i>
               </span>
               <span class="menu-title">Comptes</span>
             </a>
@@ -286,7 +292,7 @@
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
                 <a class="nav-link" href="{{ route('admin.home') }}">
-                  <i class="mdi mdi-view-grid"></i>
+                  <i class="mdi mdi-windows"></i>
                 </a>
               </li>
               <li class="nav-item dropdown border-left" >
