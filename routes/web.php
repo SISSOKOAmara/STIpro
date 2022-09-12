@@ -45,6 +45,14 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/technicien/reparations', [ReparationsController::class, 'index2'])->name('reparationIndex2');
 
+    
+Route::get('/technicien/details/{id}/reparations', [ReparationsController::class, 'show2'])->name('reparation.detail2');
+Route::get('/technicien/{id}/reparations', [ReparationsController::class, 'edit2'])->name('reparation.edit2');
+Route::patch('tachnicien/updt//{id}/reparations', [ReparationsController::class, 'update2'])->name('reparation.update2');
+
+Route::get('/technicien/reparation/attente', [ReparationsController::class, 'attente2'])->name('reparationattente2');
+Route::get('/technicien/reparation/Encours', [ReparationsController::class, 'Encours2'])->name('reparationEncours2');
+Route::get('/technicien/reparation/Repare', [ReparationsController::class, 'reparfinish2'])->name('reparationRepare2');
 });
 /*------------------------------------------
 --------------------------------------------

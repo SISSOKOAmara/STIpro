@@ -23,7 +23,7 @@
         <div class="col-md-8">
             <div class="card text-black">
             <!-- <div class="card text-black" style="background-image:url('/assetss/images/stiLogo.jpg');"> -->
-                <div class="card-header text-center">{{ __('Ajouter produit') }}</div>
+                <div class="card-header text-center">{{ __('Ajouter pièce') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('produit.register') }}">

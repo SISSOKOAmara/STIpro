@@ -65,16 +65,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('fournisseur') }}">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">Fournisseur</span>
-            </a>
-          </li>
-
+ 
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -101,9 +92,9 @@
             </a>
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">En cours</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex2') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationEncours2') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationRepare2') }}">Réparé</a></li>
               </ul>
             </div>
           </li>

@@ -48,37 +48,68 @@ class ReparationsController extends Controller
                 // $detail = Reparations::Whereid('$id');
                   $reparations = Reparations::all();
                   $clients = Clients::all();
-                return view('user/reparation/index', compact('reparations', 'clients'));
+                return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         } 
+
          public function attente()
         {        
                 // $detail = Reparations::Whereid('$id');
       
-        $reparationwait = Reparations::where('etat', 'Attente')->get();
+        $reparations = Reparations::where('etat', 'Attente')->get();
 
                   $clients = Clients::all();
-                return view('admin/reparation/attente', compact('reparationwait', 'clients'));
+                return view('admin/reparation/index', compact('reparations', 'clients'));
+                
+        }
+        public function attente2()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparations = Reparations::where('etat', 'Attente')->get();
+
+                  $clients = Clients::all();
+                return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         }
         public function Encours()
         {        
                 // $detail = Reparations::Whereid('$id');
       
-        $reparationwait = Reparations::where('etat', 'En cours')->get();
+        $reparations = Reparations::where('etat', 'En cours')->get();
 
                   $clients = Clients::all();
-                return view('admin/reparation/encours', compact('reparations', 'clients'));
+                return view('admin/reparation/index', compact('reparations', 'clients'));
+                
+        }
+        public function Encours2()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparations = Reparations::where('etat', 'En cours')->get();
+
+                  $clients = Clients::all();
+                return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         }
         public function reparfinish()
         {        
                 // $detail = Reparations::Whereid('$id');
       
-        $reparationwait = Reparations::where('etat', 'Réparé')->get();
+        $reparations = Reparations::where('etat', 'Réparé')->get();
 
                   $clients = Clients::all();
-                return view('admin/reparation/repaired', compact('reparations', 'clients'));
+                return view('admin/reparation/index', compact('reparations', 'clients'));
+                
+        }
+        public function reparfinish2()
+        {        
+                // $detail = Reparations::Whereid('$id');
+      
+        $reparations = Reparations::where('etat', 'Réparé')->get();
+
+                  $clients = Clients::all();
+                return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         }
     /**
@@ -113,6 +144,39 @@ class ReparationsController extends Controller
                         ]);
                         
                 return redirect('/admin/reparation/index');
+             }
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create2(Request $request)
+    {
+        //
+                    $Auth = Auth::user();
+                    $user = User::all();
+                    $clients = Clients::all();
+                    $Reparations = Reparations::create( 
+                        [                             
+                            'user_id'=>$request['user_id'],
+                            'categorie_id'=>$request['categorie_id'],
+                            'marque'=>$request['marque'],
+                            'model'=>$request['model'],
+                            'etat'=>$request['etat'],
+                            'motif'=>'Réparation',
+                            'etat'=>'attente',
+                            'note'=>$request['note'],
+                            'panne'=>$request['panne'],
+                            'prix'=>$request['prix'],
+                            'paye'=>$request['paye'],
+                            'rdv'=>$request['rdv'],
+                            'restant'=>$request['prix'-'paye'],
+                            'date_retrait'=>$request['date_retrait'],
+                            'remarque'=>$request['remarque'],
+                            'client_id'=>$request['client_id'],
+                        ]);
+                        
+                return redirect('/user/reparation/index2');
              }
     
     
@@ -152,6 +216,41 @@ class ReparationsController extends Controller
                         
                 return redirect('admin/reparation/reparations');
      }
+      /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store2(Request $request)
+    {
+        //
+                    $Auth = Auth::user();
+                    $user = User::all();
+                    $clients = Clients::all();
+                    $Reparations = Reparations::create( 
+                        [                             
+                            'user_id'=>$request['user_id'],
+                            'categorie_id'=>$request['categorie_id'],
+                            'marque'=>$request['marque'],
+                            'model'=>$request['model'],
+                            'etat'=>$request['etat'],
+                            'motif'=>'Réparation',
+                            'etat'=>$request['etat'],
+                            'note'=>$request['note'],
+                            // 'accessoire'=>$request['accessoire'],
+                            'panne'=>$request['panne'],
+                            'prix'=>$request['prix'],
+                            'paye'=>$request['paye'],
+                            'rdv'=>$request['rdv'],
+                            'restant'=>$request['prix'-'paye'],
+                            'date_retrait'=>$request['date_retrait'],
+                            'remarque'=>$request['remarque'],
+                            'client_id'=>$request['client_id'],
+                        ]);
+                        
+                return redirect('technicien/reparations');
+     }
 
     /**
      * Display the specified resource.
@@ -168,6 +267,7 @@ class ReparationsController extends Controller
            return view('admin/reparation/detail', compact('Reparation'));
         //    fin
     }
+    
      /**
      * Display the specified resource.
      *
@@ -213,6 +313,21 @@ class ReparationsController extends Controller
         return view('admin/reparation/edit', compact('repairedit', 'categories'));
         // fin
     }
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @param  \App\Models\Reparations  $reparations
+     * @return \Illuminate\Http\Response
+     */
+    public function edit2($id)
+    {
+        
+        $repairedit = Reparations::findOrfail($id);
+        $categories=Categories::all();
+        return view('user/reparation/edit', compact('repairedit', 'categories'));
+        // fin
+    }
 
     /**
      * Update the specified resource in storage.
@@ -248,6 +363,37 @@ class ReparationsController extends Controller
         $reparations=Reparations::all();
         $clients=Clients::all();
         return view('admin/reparation/index', compact('reparations', 'clients'));
+        // Fin
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update2(Request $request, $id)
+    {
+       
+        $repairedit = $request->validate([
+                 
+                'categorie_id'=>['required', 'integer', 'max:20'],
+                'etat'=>['required', 'string', 'max:225'],
+            ]);
+
+            if($repairedit);
+         { 
+          $repairedit = Reparations::whereId($id)->update(
+                [
+            'panne'=>$request['panne'],
+            'etat'=>$request['etat'],
+            'remarque'=>$request['remarque'],
+            'note'=>$request['note'],
+          ] );
+        }
+        $reparations=Reparations::all();
+        $clients=Clients::all();
+        return view('user/reparation/index2', compact('reparations', 'clients'));
         // Fin
     }
 
