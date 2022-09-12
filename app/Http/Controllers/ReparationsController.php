@@ -33,6 +33,14 @@ class ReparationsController extends Controller
                   $categories =Categories::all();
             return view('admin/reparation/create1', compact('clients','categories'));
         }
+        public function liste2($id)
+        {
+            
+            $reparations = Reparations::all();
+                  $clients = Clients::findOrfail($id);
+                  $categories =Categories::all();
+            return view('user/reparation/create1', compact('clients','categories'));
+        }
         // fin
 
     public function index()
@@ -167,8 +175,6 @@ class ReparationsController extends Controller
                             'etat'=>'attente',
                             'note'=>$request['note'],
                             'panne'=>$request['panne'],
-                            'prix'=>$request['prix'],
-                            'paye'=>$request['paye'],
                             'rdv'=>$request['rdv'],
                             'restant'=>$request['prix'-'paye'],
                             'date_retrait'=>$request['date_retrait'],
@@ -199,17 +205,13 @@ class ReparationsController extends Controller
                             'categorie_id'=>$request['categorie_id'],
                             'marque'=>$request['marque'],
                             'model'=>$request['model'],
-                            'etat'=>$request['etat'],
+                            'etat'=>'attente',
                             'motif'=>'Réparation',
                             'etat'=>$request['etat'],
                             'note'=>$request['note'],
                             // 'accessoire'=>$request['accessoire'],
                             'panne'=>$request['panne'],
-                            'prix'=>$request['prix'],
-                            'paye'=>$request['paye'],
-                            'rdv'=>$request['rdv'],
                             'restant'=>$request['prix'-'paye'],
-                            'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
                             'client_id'=>$request['client_id'],
                         ]);
@@ -240,10 +242,6 @@ class ReparationsController extends Controller
                             'note'=>$request['note'],
                             // 'accessoire'=>$request['accessoire'],
                             'panne'=>$request['panne'],
-                            'prix'=>$request['prix'],
-                            'paye'=>$request['paye'],
-                            'rdv'=>$request['rdv'],
-                            'restant'=>$request['prix'-'paye'],
                             'date_retrait'=>$request['date_retrait'],
                             'remarque'=>$request['remarque'],
                             'client_id'=>$request['client_id'],

@@ -48,17 +48,17 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store2(Request $request)
+    public function store(Request $request)
     {
                     // var_dump('User')
         $verif = $request->validate(
                 [
-                    'name'=>['required', 'string', 'max:30'],
-                    'prenom'=>['required', 'string', 'max:30'],
-                    'photo' => 'required','string', 'mimes:jpeg,png,jpg,gif|max:1000',
-                    'email'=>['required', 'string'],
-                    'password'=>['required', 'string', 'max:30'],
-                    'type'=>['required', 'string', 'max:30'],
+                    'name'=>['required', 'string', 'max:20'],
+                    'prenom'=>['required', 'string', 'max:20'],
+                    'photo' => 'required|mimes:jpeg,png,jpg,gif|max:1000',
+                    'email'=>['required', 'email',],
+                    'password'=>['required', 'string',],
+                    'type'=>['required', 'integer', 'max:30'],
                 ]
             );
             if($verif)
@@ -77,7 +77,7 @@ class userController extends Controller
                     ]
                 );
             }
-            return redirect('/comptes');
+            return redirect('/admin/user/indexU');
     }
 // 
 
@@ -91,21 +91,33 @@ class userController extends Controller
         $user = User::all();
         return view('admin/user/create', compact('user'));
     }
-    public function store3(Request $request)
+    public function store2(Request $request)
     {
         // var_dump('Clients')
         $User = $request->validate(
             [
                 'name'=>['required', 'string', 'max:30'],
                 'prenom'=>['required', 'string', 'max:30'],
-                'photo' => 'required','string', 'mimes:jpeg,png,jpg,gif|max:1000',
                 'email'=>['required', 'string'],
                 'password'=>['required', 'string', 'max:30'],
                 'type'=>['required', 'string', 'max:30'],
             ]
         );
+        if($User)
+        {
+            // $fileName = time().'.'.$request->photo->extension();  
+            // $request->photo->move(public_path('users/profil'), $fileName);
+            User::create(
 
-        User::create($User);
+            [
+                'name'=>$request['name'],
+                'prenom'=>$request['prenom'],
+                'email'=>$request['email'],
+                'password'=>bcrypt($request['password']),
+                'type'=>['type'],
+                ]
+        );
+    }
             return redirect('/comptes');
     }
     

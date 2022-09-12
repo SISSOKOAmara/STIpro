@@ -44,9 +44,7 @@
             <td>{{$client->numero}}</td>
             <td>{{$client->adresse}}</td>
           <td>
-            <a href="{{route('reparationajout12', $client->id)}}" class=""><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
-           
-            <a href="{{route('client.detail',$client->id)}}" ><i class="mdi mdi-information-outline"></i></a>
+            <a href="{{route('reparationajout2', $client->id)}}" class=""><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
           </td>
         </tr>
         @endforeach

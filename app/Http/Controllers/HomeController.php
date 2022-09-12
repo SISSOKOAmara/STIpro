@@ -116,7 +116,17 @@ class HomeController extends Controller
 
     {
 
-        return view('managerHome');
+        $nbrreparation = Reparations::all()->count();
+        $nbrattente = Reparations::where('etat', 'Attente')->count();
+        $nbrEncours = Reparations::where('etat', 'En cours')->count();
+        $nbrrepare = Reparations::where('etat', 'Réparé')->count();
+
+        $taches = taches::all()->count();
+        $users = User::all()->count();
+        $clients = Clients::all()->count();
+        $fournisseurs = fournisseurs::all()->count();
+
+        return view('managerHome', compact('nbrreparation', 'nbrEncours', 'nbrattente' , 'nbrrepare', 'taches', 'users', 'clients', 'fournisseurs'));
 
     }
 

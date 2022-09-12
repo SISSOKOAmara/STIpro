@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.store2') }}">
+                    <form method="POST" action="{{ route('user.store2') }}" enctype="multipart/form-data">
                     @csrf
                 <div class="row text-center">
                                 <!-- debut scrip -->
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Prenom') }}</label>
+                            <label for="prenom" class="col-md-4 col-form-label text-md-end">{{ __('Prenom') }}</label>
 
                             <div class="col-md-6">
                                 <input id="prenom" type="text" class="form-control @error('name') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="name" autofocus>
@@ -52,19 +52,21 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
+
                         <select name="type">
                             <option  selected disabled>Type</option>
                             <option value="1">Admin</option>
                             <option value="2">Gérant</option>
                             <option value="0">technicien</option>
                         </select>
-                        </div>
+                        </div> -->
+                        <input type="integer" name="type">
 
                         <div class="row">
                         <div class="col m-d-3">
-                   <label for="input-small" class=" form-control-label">Photo</label> 
-                  <input type="file" id="" name="photo" >
+                   <!-- <label for="input-small" class=" form-control-label">Photo</label> 
+                  <input type="file" id="" name="photo" > -->
                 </div> 
                         
                         <div class="row">

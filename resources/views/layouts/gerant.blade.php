@@ -41,6 +41,12 @@
     <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('assetss/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
     
+    <style type="text/css" media="print">
+      body {visibility:hidden;}
+      .print {visibility:visible; display: block; position: fixed; top: 0; bottom: 0; right: 0; left: 0;}
+
+    </style>
+
    </head>
   <body>
 
@@ -53,14 +59,62 @@
           <a class="sidebar-brand brand-logo-mini" href=""><img src="{{asset('assetss/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
         <ul class="nav">
-          
+          <!-- <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="{{asset('assetss/images/faces/face15.jpg')}}" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+                  <span>{{ Auth::user()->type }}</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li> -->
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('admin.home') }}">
+            <a class="nav-link" href="{{ route('manager.home') }}">
               <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-home"></i>
               </span>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -69,7 +123,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('fournisseur') }}">
               <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-contacts"></i>
               </span>
               <span class="menu-title">Fournisseur</span>
             </a>
@@ -78,7 +132,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-contact-mail"></i>
               </span>
               <span class="menu-title">Client</span>
               <i class="menu-arrow"></i>
@@ -90,8 +144,7 @@
               </ul>
             </div>
           </li>
-        
-          
+     
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -109,13 +162,13 @@
               </ul>
             </div>
           </li>
-       
+        
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-speaker"></i>
               </span>
-              <span class="menu-title">Produit</span>
+              <span class="menu-title">Pièce/accessoire</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basicc">
@@ -135,16 +188,6 @@
             </a>
           </li>
 
-        
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{route('user.index')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-contacts"></i>
-              </span>
-              <span class="menu-title">Comptes</span>
-            </a>
-          </li>
-          
           
         </ul>
       </nav>
@@ -164,20 +207,19 @@
             </ul>
             <ul class="navbar-nav navbar-nav- " style="background-color:#FF6501">
               <li class="nav-item dropdown d-none d-lg-block">
-            
+               
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
                 <a class="nav-link" href="{{ route('admin.home') }}">
-                  <i class="mdi mdi-view-grid"></i>
+                  <i class="mdi mdi-windows"></i>
                 </a>
               </li>
               <li class="nav-item dropdown border-left" >
-             
+          
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="{{asset('user->photo')}}" alt="">
-                    <!-- <img class="img-xs rounded-circle" src="{{asset('assetss/images/faces/face15.jpg')}}" alt=""> -->
+                    <img class="img-xs rounded-circle" src="{{asset('assetss/images/faces/face15.jpg')}}" alt="">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>

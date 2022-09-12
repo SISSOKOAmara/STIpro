@@ -50,6 +50,11 @@ Route::get('/technicien/details/{id}/reparations', [ReparationsController::class
 Route::get('/technicien/{id}/reparations', [ReparationsController::class, 'edit2'])->name('reparation.edit2');
 Route::patch('tachnicien/updt//{id}/reparations', [ReparationsController::class, 'update2'])->name('reparation.update2');
 
+// Ajouter un appareil à partir du client
+Route::get('/techn-repation-{id}/clients', [ReparationsController::class, 'liste2'])->name('reparationajout2');
+Route::post('/technicien/reparations', [ReparationsController::class, 'store2'])->name('reparationregister2');
+// fin
+
 Route::get('/technicien/reparation/attente', [ReparationsController::class, 'attente2'])->name('reparationattente2');
 Route::get('/technicien/reparation/Encours', [ReparationsController::class, 'Encours2'])->name('reparationEncours2');
 Route::get('/technicien/reparation/Repare', [ReparationsController::class, 'reparfinish2'])->name('reparationRepare2');
