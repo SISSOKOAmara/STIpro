@@ -15,12 +15,12 @@
                   
                   <thead>
                     <tr">
-                      <th scope="col"> </th>
+                      <!-- <th scope="col"> </th> -->
                       <th scope="col">Nom</th>
                       <th scope="col">Prénom</th>
                       <th scope="col">Type de compte</th>
                       <th scope="col">E-mail</th>
-                      <th scope="col">photo</th>
+                      <!-- <th scope="col">photo</th> -->
                       <th scope="col">Action</th>
                     </tr>
                     <tr>
@@ -34,7 +34,7 @@
                           <td>{{$users->type}}</td>
                           <td>{{$users->email}}</td>
                           <!-- <td>{{$users->photo}}</td>                           -->
-                          <td><img src="{{URL::to('users/profil/' .$users->photo)}}"  alt=""></td>                          
+                          <!-- <td><img src="{{URL::to('users/profil/' .$users->photo)}}"  alt=""></td>                           -->
                           <!-- <td>{{$users->photo}}</td>-->
                           <td>
                             <a href="" class="btn btn-primary">Modifier</a>

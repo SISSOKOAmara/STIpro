@@ -107,16 +107,7 @@ class userController extends Controller
         {
             // $fileName = time().'.'.$request->photo->extension();  
             // $request->photo->move(public_path('users/profil'), $fileName);
-            User::create(
-
-            [
-                'name'=>$request['name'],
-                'prenom'=>$request['prenom'],
-                'email'=>$request['email'],
-                'password'=>bcrypt($request['password']),
-                'type'=>['type'],
-                ]
-        );
+            User::create($User);
     }
             return redirect('/comptes');
     }
