@@ -76,8 +76,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex') }}">Liste</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout') }}">Ajouter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex2') }}">Liste</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout2') }}">Ajouter</a></li>
               </ul>
             </div>
           </li>
@@ -99,23 +99,7 @@
             </div>
           </li>
      
-          <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
-              </span>
-              <span class="menu-title">Produit</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basicc">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Stock</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Vendu</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('categorie') }}">Categorie</a></li>
-              </ul>
-            </div>
-          </li>
+         
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{ route('tache.list2') }}">

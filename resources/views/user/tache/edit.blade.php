@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.Slave')
 
 @section('content')
 
@@ -26,7 +26,7 @@
                 <div class="card-header bg-primary">{{ __('Modifier Tache') }}</div>
 
                 <div class="card-body bg-white text-black">
-                    <form method="POST" action="{{ route('tache.update' ,$modif->id) }}">
+                    <form method="POST" action="{{ route('tache.update2' ,$modif->id) }}">
                         @csrf
                         @method('PATCH')                    
                  
@@ -54,15 +54,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="delai" class="col-md-4 col-form-label text-md-end">{{ __('Delai') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="delai" type="datetime-local" class=" @error('delai') is-invalid @enderror bg-white text-black" name="delai" value="{{$modif->delai}}">
-                            </div>
-                        </div>
-
-
+                        
                         <div class="row mb-0">
                             <div class="col-md-4 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

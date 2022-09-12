@@ -19,6 +19,13 @@ class ClientsController extends Controller
         return view('admin/client/Index', compact('clients'))       
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function index2()
+    {
+        $clients = Clients::latest()->paginate(5);
+        return view('user/client/Index', compact('clients'))       
+        ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    
     
   
 
@@ -35,7 +42,14 @@ class ClientsController extends Controller
             
             // ->with('success','Product created successfully.');
     }
-
+    public function create2()
+    {       
+        $clients = Clients::all();
+            return view('user/client/create', compact('clients'));
+            return view('user/client/createA', compact('clients'));
+            
+            // ->with('success','Product created successfully.');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -56,6 +70,27 @@ class ClientsController extends Controller
             clients::create($clients);
             return Redirect('/admin/clients');
     }
+       /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store2(Request $request)
+    {
+                    // var_dump('Clients')
+        $clients = $request->validate(
+                [
+                    'nom'=>['required', 'string', 'max:30'],
+                    'numero'=>['required', 'integer', 'unique:clients'],
+                    'adresse'=>['required', 'string', 'max:30'],
+                ]
+            );
+
+            clients::create($clients);
+            return Redirect('/technicien/clients');
+    }
+
 
     /**
      * Display the specified resource.

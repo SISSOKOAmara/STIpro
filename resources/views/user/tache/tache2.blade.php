@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.Slave')
 
 @section('content')
 <div class="container mx-4" style="margin-left:10% ;">
@@ -49,12 +49,10 @@
             <td>{{$taches->designation}}</td>
             <td>{{$taches->Etat}}</td>
             <td>{{$taches->delai}}</td>
-            
           <td>
-            <a href="{{route('tache.edit', $taches->id)}}"><i class="mdi mdi-border-color"></i></a>
+            <a href="{{route('tache.edit2', $taches->id)}}"><i class="mdi mdi-border-color"></i></a>
             <!-- <a href="" class="btn btn-primary">Modifier</a> -->
-            <a href="{{route('tache.detail',$taches->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
-          </td>
+         </td>
         </tr>
         @endforeach
     </tbody>

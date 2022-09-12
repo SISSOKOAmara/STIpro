@@ -29,16 +29,7 @@ class TachesController extends Controller
      */
     public function index2()
     {
-        //  
-    //       $User = Auth::User()->id;
-
-    // $tache = taches::
-    // whereRaw('id = (select max(id) from `taches` id where users = '.$User.')' )
-    // ->orderBy('id', 'desc')
-    // ->get(); 
-    // $user= Auth::User()->id;
-
-    // $tache = taches::where($user);
+       
     $user =Auth::User()->id;
     
     $tache = taches::where('user_id', $user)->get();
@@ -64,9 +55,16 @@ class TachesController extends Controller
         $repara = Reparations::where('etat', 'Attente')->get();
 
         return view('tache/create', compact('user',  'repara'));
-        return view('admin/client/createA', compact('clients'));
     }
 
+    public function create2()
+    {       
+        $user = User::all();
+        $Reparé = Reparations::all();
+        $repara = Reparations::where('etat', 'Attente')->get();
+
+        return view('user/tache/create', compact('user',  'repara'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -90,6 +88,31 @@ class TachesController extends Controller
          taches::create($tache);
         return redirect('/admin/tache');
     }
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store2(Request $request)
+    {
+        //
+        $tache = $request->validate(
+            [
+                'Lieu'=>['required', 'string', 'max:30'],
+                'designation'=>['required', 'string', 'max:30'],
+                'Etat'=>['required', 'string', 'max:30'],
+                'user_id'=>['required', 'string', 'max:30'],
+                'reparation_id'=>['required', 'string', 'max:30'],
+                'delai'=>['required', 'date', 'max:30'],
+            ]
+        );
+
+         taches::create($tache);
+        return redirect('/technicien/liste/tache');
+    }
+
 
     /**
      * Display the specified resource.
@@ -117,6 +140,22 @@ class TachesController extends Controller
         return view('tache/edit', compact('modif', 'repara', 'user'));
     }
 
+        
+         /**
+     * Show the form for editing the specified resource.
+     *
+     * * @param  \Illuminate\Http\Request  $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit2($id)
+    {
+        $user = User::all();
+        $modif = taches::findOrfail($id); 
+        $repara = Reparations::where('etat', 'Attente')->get();      
+        return view('user/tache/edit', compact('modif', 'repara', 'user'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -138,6 +177,28 @@ class TachesController extends Controller
           ] );
         
         return redirect('/admin/tache');
+    }
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update2( Request $request, $id)
+    {
+                $modif =$request->validate([
+                'etat'=>['required', 'string', 'max:20'],
+                'designation'=>['required', 'string', 'max:225'],
+        ]);
+        if($modif)
+        $modif = taches::whereId($id)->update(
+        [
+            'designation'=> $request['designation'],
+            'etat'=>$request['etat'],
+            
+          ] );
+        
+        return redirect('/technicien/liste/tache');
     }
     /**
      * Remove the specified resource from storage.

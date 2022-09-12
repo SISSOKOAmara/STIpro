@@ -53,7 +53,20 @@ Route::patch('tachnicien/updt//{id}/reparations', [ReparationsController::class,
 Route::get('/technicien/reparation/attente', [ReparationsController::class, 'attente2'])->name('reparationattente2');
 Route::get('/technicien/reparation/Encours', [ReparationsController::class, 'Encours2'])->name('reparationEncours2');
 Route::get('/technicien/reparation/Repare', [ReparationsController::class, 'reparfinish2'])->name('reparationRepare2');
-});
+ 
+// Client
+    Route::get('/technicien/clients', [ClientsController::class, 'index2'])->name('clientIndex2');
+Route::get('/technicien/client/plus', [ClientsController::class, 'create2'])->name('clientajout2');
+Route::post('/technicien/client/liste', [ClientsController::class, 'store2'])->name('clientregister2');
+
+
+Route::get('/technicien/liste/tache', [TachesController::class, 'index2'])->name('tache.list2');
+Route::get('/technicien/create/tache', [TachesController::class, 'create2'])->name('tache.ajout2');
+Route::post('/technicien/liste/tache', [TachesController::class, 'store2'])->name('tache.register2');
+// Route::get('/technicien/{id}/tache', [TachesController::class, 'show2'])->name('tache.detail2');
+Route::get('/technicien/edit/{id}/tache', [TachesController::class, 'edit2'])->name('tache.edit2');
+Route::patch('/technicien/{id}/tache', [TachesController::class, 'update2'])->name('tache.update2');
+});   
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
@@ -68,6 +81,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/reparation/attente', [ReparationsController::class, 'attente'])->name('reparationattente');
     Route::get('/admin/reparation/Encours', [ReparationsController::class, 'Encours'])->name('reparationEncours');
     Route::get('/admin/reparation/Repare', [ReparationsController::class, 'reparfinish'])->name('reparationRepare');
+
 
 
 
@@ -130,7 +144,6 @@ Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('clie
 
 // Tache
 Route::get('/admin/tache', [TachesController::class, 'index'])->name('tache.list');
-Route::get('/user/liste/tache', [TachesController::class, 'index2'])->name('tache.list2');
 Route::get('/admin/create/tache', [TachesController::class, 'create'])->name('tache.ajout');
 Route::post('/admin/liste/tache', [TachesController::class, 'store'])->name('tache.register');
 // Route::get('/admin/{id}/tache', [TachesController::class, 'show'])->name('tache.detail');
