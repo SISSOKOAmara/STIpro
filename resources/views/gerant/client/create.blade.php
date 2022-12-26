@@ -1,4 +1,4 @@
-@extends('layouts.slave')
+@extends('layouts.gerant')
 
 @section('content')
 
@@ -26,7 +26,7 @@
                 <div class="card-header text-center">{{ __('Ajouter Client') }}</div>
 
                 <div class="card-body bg-green text-black">
-                    <form method="POST" action="{{ route('clientregister') }}">
+                    <form method="POST" action="{{ route('clientregister3') }}">
                         @csrf
 
                         <div class="row mb-3">

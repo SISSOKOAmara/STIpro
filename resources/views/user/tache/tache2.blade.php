@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-4" style="margin-left:10% ;">
 <!-- boutton ajouter -->
-<a href="{{ route('tache.ajout') }}" class="btn btn-primary">Ajouter</a>
+<a href="{{ route('tache.ajout2') }}" class="btn btn-primary">Ajouter</a>
 
 <!-- alert -->
 @if(session()->has("successDelete"))

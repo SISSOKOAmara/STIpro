@@ -1,0 +1,101 @@
+@extends('layouts.gerant')
+
+@section('content')
+<div class="p-3 bg-body rounded shadow-sm d-block" >
+  <h6 class="text-black text-center" >Liste des Fournisseurs</h6>
+<!-- boutton ajouter -->
+
+    <div class="">
+                <a class="Bplus" data-toggle="collapse" href="#fourni" aria-expanded="false" aria-controls="ui-basic" >
+                  <span class="">
+                    <!-- <i class="mdi mdi-laptop"></i> -->
+                    <i class="mdi mdi-plus-circle"style="width:50% ;"></i>
+                  </span>
+                  <i class="menu-arrow"></i>
+                </a>
+                @if(session()->has("success"))
+         <div class="alert alert-succes">
+            {{session()->get('success')}}
+          </div>
+            @endif
+
+            @if ($errors ->any())
+          <ul class="alert alert-danger">
+             @foreach ($errors->all() as $error)
+                      <li>{{$error }}</li>
+              @endforeach
+          </ul>
+          @endif
+                <div class="collapse" id="fourni">
+                  <form method="POST" action="{{route('fournisseur.store3')}}" >
+                  @csrf
+
+                  <div class="row mb-3">
+                    <div class="col-md-3">
+                      <input  type="text" placeholder="Nom" class="form-control @error('nom') is-invalid @enderror" name="nom" value="" required autocomplete="nom" autofocus>
+                     
+                    </div>
+                    <div class="col-md-3">
+                      <input  type="integer" placeholder="numéro" class="form-control" name="numero" value="" required autocomplete="numero" autofocus>
+                     
+                    </div>
+                    <div class="col-md-3">
+                      <input  type="text" placeholder="Adresse" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="" required autocomplete="adresse" autofocus>
+                   
+                    </div>
+                      <div class="col md-1">
+                                    <button type="submit" class="btn-primary">
+                                      <i class="mdi mdi-plus-circle"></i>
+                                    </button>
+                      </div>
+                      </div>
+                  </form>
+                </div>
+
+    </div>
+<!-- alert -->
+@if(session()->has("successDelete"))
+         <div class="alert alert-success">
+            {{session()->get('successDelete')}}
+          </div>
+     @endif
+     <!-- fin alert -->
+
+     <!-- debut tableau -->
+<div class="table-responsive">
+  <table class="table text-center ">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Numéro</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Action</th>
+      </tr>
+      <tr>
+            
+    </thead>
+    <tbody>
+    @foreach($fournisseurs as $fournisseur)
+        <tr>
+            <td>{{$fournisseur->nom}}</td>
+            <td>{{$fournisseur->numero}}</td>
+            <td>{{$fournisseur->adresse}}</td>
+          <td>
+            <a href=""><i class="mdi mdi-pencil"></i></a>
+            <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet fournisseur?')){document.getElementById('form-{{$fournisseur->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                
+                          <form id="form-{{$fournisseur->id}}" action="{{route('fournisseur.supprimer3',
+                  ['fournisseur'=>$fournisseur->id])}}" method="post">
+                @csrf
+                <input type="hidden" name="_method" value="delete">
+                </form>
+          </td>
+        </tr>
+        @endforeach
+    </tbody>
+  </table>
+</div>
+<!-- fin tableau -->
+</div>
+
+@endsection

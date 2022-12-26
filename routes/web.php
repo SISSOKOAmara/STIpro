@@ -60,7 +60,7 @@ Route::get('/technicien/reparation/Encours', [ReparationsController::class, 'Enc
 Route::get('/technicien/reparation/Repare', [ReparationsController::class, 'reparfinish2'])->name('reparationRepare2');
  
 // Client
-    Route::get('/technicien/clients', [ClientsController::class, 'index2'])->name('clientIndex2');
+Route::get('/technicien/clients', [ClientsController::class, 'index2'])->name('clientIndex2');
 Route::get('/technicien/client/plus', [ClientsController::class, 'create2'])->name('clientajout2');
 Route::post('/technicien/client/liste', [ClientsController::class, 'store2'])->name('clientregister2');
 
@@ -87,21 +87,49 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/reparation/Encours', [ReparationsController::class, 'Encours'])->name('reparationEncours');
     Route::get('/admin/reparation/Repare', [ReparationsController::class, 'reparfinish'])->name('reparationRepare');
 
+    // Fournisseurs
+    Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
+    Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
+    Route::post('/fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
+    Route::delete('/fourn/Flist/{fournisseur}', [FournisseursController::class, 'destroy'])->name('fournisseur.supprimer');
 
-
-
+        
+    // Route Client
+    Route::get('/admin/clients', [ClientsController::class, 'index'])->name('clientIndex');
+    Route::get('/admin/client/plus', [ClientsController::class, 'create'])->name('clientajout');
+    Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
+    Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('client.detail');
 
 //    Route::get('/reparation.index', [HomeController::class, 'repaireView'])->name('reparationIndex');
  
 });
 /*------------------------------------------
 --------------------------------------------
-All Admin Routes List
+All Manager Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
     Route::get('/gerant/reparation', [ReparationsController::class, 'index3'])->name('reparationIndex3');
+
+
+      // Fournisseurs
+    Route::get('/fournisseur', [FournisseursController::class, 'index3'])->name('fournisseur3');
+    Route::get('/fourn/list', [FournisseursController::class, 'create3'])->name('fournisseur.create3');
+    Route::post('/fourn/list', [FournisseursController::class, 'store3'])->name('fournisseur.store3');
+    Route::delete('/fourn/list/{fournisseur}', [FournisseursController::class, 'destroy3'])->name('fournisseur.supprimer3');
+
+
+     // Route Client
+     Route::get('/gerant/clients', [ClientsController::class, 'index3'])->name('clientIndex3');
+     Route::get('/gerant/client/plus', [ClientsController::class, 'create3'])->name('clientajout3');
+     Route::post('/gerant/client/liste', [ClientsController::class, 'store3'])->name('clientregister3');
+     Route::get('/gerant/{id}/client', [ClientsController::class, 'show3'])->name('client.detail3');
+
+    // Ajouter un appareil à partir du client
+    // Route::get('/repation-{id}/client', [ReparationsController::class, 'ajout3'])->name('reparationajout1.3');
+    Route::get('/gest/repation-{id}/clients', [ReparationsController::class, 'form3'])->name('reparationajout3');
+    Route::post('/agent/reparations', [ReparationsController::class, 'store3'])->name('reparationregister3');
 
 });
 
@@ -141,11 +169,6 @@ Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->na
 
 
 
-// Route Client
-Route::get('/admin/clients', [ClientsController::class, 'index'])->name('clientIndex');
-Route::get('/admin/client/plus', [ClientsController::class, 'create'])->name('clientajout');
-Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
-Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('client.detail');
 
 // Tache
 Route::get('/admin/tache', [TachesController::class, 'index'])->name('tache.list');
@@ -165,11 +188,7 @@ Route::post('/admin/user/indexU/', [userController::class, 'store'])->name('user
 Route::get('/admin/user/create/', [userController::class, 'index2'])->name('user.index2');
 Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('user.store2');
 
-// Fournisseurs
-Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
-Route::get('/fourn/Flist', [FournisseursController::class, 'create'])->name('fournisseur.create');
-Route::post('/fourn/Flist', [FournisseursController::class, 'store'])->name('fournisseur.store');
-Route::delete('/fourn/Flist/{fournisseur}', [FournisseursController::class, 'destroy'])->name('fournisseur.supprimer');
+
 
  // Categorie
 Route::get('/Categorie', [CategoriesController::class, 'index'])->name('categorie');

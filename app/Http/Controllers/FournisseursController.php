@@ -18,6 +18,17 @@ class FournisseursController extends Controller
         return view ('/admin/fourn/list', compact('fournisseurs'));
     }
 
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index3()
+    {
+        $fournisseurs = fournisseurs::all();
+        return view ('/gerant/fourn/list', compact('fournisseurs'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +38,17 @@ class FournisseursController extends Controller
     {
         $fournisseurs = fournisseurs::all();
         return view ('/admin/fourn/list', compact('fournisseurs'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create3()
+    {
+        $fournisseurs = fournisseurs::all();
+        return view ('/gerant/fourn/list', compact('fournisseurs'));
     }
        /**
      * Store a newly created resource in storage.
@@ -41,7 +63,7 @@ class FournisseursController extends Controller
             [
                 'nom'=>['required', 'string', 'max:30'],
                 'numero'=>['required', 'integer','unique:fournisseurs'],
-                'adresse'=>['required', 'string', 'max:30'],
+                'adresse'=>['required', 'string', 'max:60'],
             ]
         );
         
@@ -49,6 +71,28 @@ class FournisseursController extends Controller
         return back ()->with("succes", "Ajouté avec succès!");
         
         // return back()->with("success.alert", "Fournisseur ajouté avec succès!");
+    }
+
+      /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store3(Request $request)
+    {
+        
+        $fourn = $request->validate(
+            [
+                'nom'=>['required', 'string', 'max:30'],
+                'numero'=>['required', 'integer','unique:fournisseurs'],
+                'adresse'=>['required', 'string', 'max:60'],
+            ]
+        );
+        
+             fournisseurs::create($fourn);
+        return back ()->with("succes", "Ajouté avec succès!");
+        
     }
 
     /**
@@ -124,6 +168,18 @@ class FournisseursController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(fournisseurs $fournisseur)
+   
+    {
+        $fournisseur->delete();
+        return back()->with("successDelete", "fournisseur supprimé avec succès!");
+    }
+       /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\fournisseurs  $fournisseurs
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy3(fournisseurs $fournisseur)
    
     {
         $fournisseur->delete();

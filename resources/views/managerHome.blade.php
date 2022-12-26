@@ -141,7 +141,7 @@
                                 <div class="card-header text-white text-center" style="background-color: blue;">{{ __('Fournisseur') }}</div>
                                     <div class="row">
                                                 <div class="col-md-4 text-right">
-                                                    <h1><a href="{{ route('fournisseur') }}" style="font-size:180% ;">{{$fournisseurs}}</a></h1> 
+                                                    <h1><a href="{{ route('fournisseur3') }}" style="font-size:180% ;">{{$fournisseurs}}</a></h1> 
                                                 </div>
                                                 <div class="col-md-8">
                                                     <br>

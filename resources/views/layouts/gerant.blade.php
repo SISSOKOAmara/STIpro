@@ -121,7 +121,7 @@
           </li>
           
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('fournisseur') }}">
+            <a class="nav-link" href="{{ route('fournisseur3') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
@@ -139,8 +139,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex') }}">Liste</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout') }}">Ajouter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientIndex3') }}">Liste</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('clientajout3') }}">Ajouter</a></li>
               </ul>
             </div>
           </li>
