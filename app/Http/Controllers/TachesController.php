@@ -59,7 +59,9 @@ class TachesController extends Controller
 
     public function create2()
     {       
-        $user = User::all();
+        // $user = User::all();
+    $user =Auth::User()->id;
+
         $Reparé = Reparations::all();
         $repara = Reparations::where('etat', 'Attente')->get();
 
@@ -101,7 +103,7 @@ class TachesController extends Controller
         $tache = $request->validate(
             [
                 'Lieu'=>['required', 'string', 'max:30'],
-                'designation'=>['required', 'string', 'max:30'],
+                'designation'=>['required', 'string', 'max:60'],
                 'Etat'=>['required', 'string', 'max:30'],
                 'user_id'=>['required', 'string', 'max:30'],
                 'reparation_id'=>['required', 'string', 'max:30'],

@@ -28,6 +28,7 @@
         <th scope="col">designation</th>
         <th scope="col">Etat</th>
         <th scope="col">Delai</th>
+        <!-- <th scope="col">Effectué</th> -->
         <th scope="col">Action</th>
       </tr>
       <tr>
@@ -49,6 +50,7 @@
             <td>{{$taches->designation}}</td>
             <td>{{$taches->Etat}}</td>
             <td>{{$taches->delai}}</td>
+            <!-- <td>{{$taches->updated_at}}</td> -->
           <td>
             <a href="{{route('tache.edit2', $taches->id)}}"><i class="mdi mdi-border-color"></i></a>
             <!-- <a href="" class="btn btn-primary">Modifier</a> -->

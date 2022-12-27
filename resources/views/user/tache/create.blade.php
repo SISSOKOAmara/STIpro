@@ -21,16 +21,16 @@
           
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Ajouter tache') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tache.register') }}">
+                    <form method="POST" action="{{ route('tache.register2') }}">
                         @csrf
         
                         <div class="row mb-3">
-                            <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Lieu') }}</label> 
+                            <label for="designation" class="col-md-2 col-form-label text-md-end">{{ __('Lieu') }}</label> 
                             <div class="col-md-3">
                                 <select name="Lieu">
                                     <option  selected disabled>Lieu</option>
@@ -42,7 +42,7 @@
                         </div>
                     
                     <div class="row mb-3">
-                        <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Appareils') }}</label> 
+                        <label for="designation" class="col-md-2 col-form-label text-md-end">{{ __('Appareils') }}</label> 
                         <div class="col-md-3">
                     <select name="reparation_id">
                       <option  selected disabled>Appareils</option>
@@ -54,20 +54,17 @@
                     
 
                     
-                    <div class="row mb-3">
-                    <label for="Lieu" class="col-md-4 col-form-label text-md-end">{{ __('Personne') }}</label>
+                    <div hidden class="row mb-3">
+                    <label for="Lieu" class="col-md-2 col-form-label text-md-end">{{ __('Personne') }}</label>
                     <div class="col-md-3">
                     <select name="user_id">
-                      <option  selected disabled>Personne</option>
-                        @foreach ($user as $users)
-                      <option value="{{$users->id}}">{{$users->name}}</option>
-                        @endforeach
+                      <option value="{{$user}}">{{$user}}</option>
                      </select>
                     </div>
                     </div>
                     
                          <div class="row mb-3">
-                            <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('designation') }}</label>
+                            <label for="designation" class="col-md-2 col-form-label text-md-end">{{ __('designation') }}</label>
 
                             <div class="col-md-6">
                                 <input id="designation" type="text" class="form-control @error('Designation') is-invalid @enderror" name="designation" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
@@ -75,14 +72,14 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="Etat" class="col-md-4 col-form-label text-md-end">{{ __('Etat') }}</label>
+                            <label for="Etat" class="col-md-2 col-form-label text-md-end">{{ __('Etat') }}</label>
                             <div class="col-md-6">
                             <div class="col-md-3">
                                 <select name="Etat">
                                     <option  selected disabled>Etat</option>
                                     <option value="Attente">Attente</option>
                                     <option value="En cours">En cours</option>
-                                    <option value="Fait">Fait</option>
+                                    <option value="Effectué">Effectué</option>
                                 </select>
                             </div>  
                                 @error('name')
@@ -94,7 +91,7 @@
                         </div>
 
                          <div class="row mb-3">
-                            <label for="delai" class="col-md-4 col-form-label text-md-end">{{ __('Delai') }}</label>
+                            <label for="delai" class="col-md-2 col-form-label text-md-end">{{ __('Delai') }}</label>
 
                             <div class="col-md-6">
                                 <input id="dalai" type="datetime-local" class="form-control @error('type') is-invalid @enderror" name="delai" value="">
