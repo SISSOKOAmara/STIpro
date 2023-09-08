@@ -128,23 +128,45 @@ class userController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $User
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $User)
+    public function edit($id)
     {
-        //
+        
+        $useredit= User::findOrfail($id);
+        return view('admin/user/edit', compact('useredit'));
     }
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $User
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $User)
+    public function update(Request $request, User $id)
     {
         //
+        $useredit=$request->validate(
+            [
+                'name'=>['required', 'string', 'max:20'],
+                'prenom'=>['required', 'string', 'max:20'],
+                'email'=>['required', 'string'],
+                'password'=>['required', 'string', 'max:30'],
+                'type'=>['required', 'string', 'max:30'],
+            ]
+            );
+            if($useredit)
+        $useredit= User::whereId($id)->update(
+           [ 
+            'name'=> $request['name'],
+            'prenom'=> $request['prenom'],
+            'prenom'=> $request['prenom'],
+            'password'=> $request['password'],
+            'type'=> $request['type'],
+            ]
+        );
+        return redirect('/comptes');
     }
     /**
      * Remove the specified resource from storage.

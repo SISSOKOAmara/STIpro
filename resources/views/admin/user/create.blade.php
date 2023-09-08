@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-center">{{ __('Ajouter employé') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.store2') }}" enctype="multipart/form-data">
@@ -57,13 +57,8 @@
                         </select>
                         </div>
                 </div>
-                        <!-- <input type="integer" name="type"> -->
-            <div class="row mb-3">
-                        <!-- <div class="row">
-                        <div class="col m-d-3">
-                   <label for="input-small" class=" form-control-label">Photo</label> 
-                  <input type="file" id="" name="photo" > -->
-                
+                         <div class="row">
+                       
                         
                            
                                 <input id="email" type="email" placeholder="Email" class="col-md-4 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -90,8 +85,12 @@
                             <div class="col-md-4">
                                 <input id="password-confirm" placeholder="confirmation mot de passe" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
+                             <div class="col m-d-3 mt-2">
+                                <label for="input-small" class=" form-control-label">Photo</label> 
+                                <input type="file" id="" name="photo" > 
+                            </div>
                     
-            </div>
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

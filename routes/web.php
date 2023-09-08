@@ -184,6 +184,9 @@ Route::get('/comptes', [userController::class, 'index'])->name('user.index');
 Route::get('/admin/comptes/', [userController::class, 'create'])->name('user.create');
 Route::get('/user/compte', [userController::class, 'profil'])->name('user.profil');
 Route::post('/admin/user/indexU/', [userController::class, 'store'])->name('user.store');
+Route::get('admin/{id}/user', [userController::class, 'edit'])->name('user.edit');
+Route::patch('/admin/user/{id}', [userController::class, 'update'])->name('user.update');
+// Route::get('/admin/edit/{id}/user', [userController::class, 'edi'])->name('user.edit');
 
 Route::get('/admin/user/create/', [userController::class, 'index2'])->name('user.index2');
 Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('user.store2');
