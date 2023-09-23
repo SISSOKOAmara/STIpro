@@ -32,9 +32,9 @@ class CreateUsersSeeder extends Seeder
 
             [
 
-               'name'=>'DIAKITE',
-               'prenom'=>'Kadidiatou',
-               'email'=>'manager@sagetech.com',
+               'name'=>'KEITA',
+               'prenom'=>'Aminata',
+               'email'=>'aminata@sagetech.com',
 
                'type'=> 2,
 
@@ -44,10 +44,10 @@ class CreateUsersSeeder extends Seeder
 
             [
 
-               'name'=>'CAMARA',
-               'prenom'=>'Aboubacar',
+               'name'=>'Hacoule',
+               'prenom'=>'Antiou',
 
-               'email'=>'user@sagetech.com',
+               'email'=>'hakoule@sagetech.com',
 
                'type'=>0,
 

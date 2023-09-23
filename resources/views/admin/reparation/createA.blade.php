@@ -23,7 +23,7 @@
                 <div class="card-header text-center">{{ __('Ajouter un Appareil') }}</div>
 
                 <div class="card-body text-black text-center">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('repair.ad') }}">
                         @csrf
                         
                         

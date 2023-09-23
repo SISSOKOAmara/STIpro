@@ -25,6 +25,17 @@ class ProduitController extends Controller
         return view('admin/produit/index', compact('produit', 'fournisseur'));
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index3()
+    {
+        $produit = Produit::all();
+        $fournisseur= Produit::all();
+        return view('gerant/produit/index', compact('produit', 'fournisseur'));
+    }
     /**
      * Show the form for creating a new resource.
      *

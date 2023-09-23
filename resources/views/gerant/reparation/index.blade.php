@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.gerant')
 
 @section('content')
 <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-black "id="Fondinter">

@@ -86,6 +86,15 @@ class ReparationsController extends Controller
                 
         } 
 
+        public function index3()
+        {        
+                // $detail = Reparations::Whereid('$id');
+                  $reparations = Reparations::all();
+                  $clients = Clients::all();
+                return view('gerant/reparation/index', compact('reparations', 'clients'));
+                
+        }
+
          public function attente()
         {        
                 // $detail = Reparations::Whereid('$id');
@@ -98,14 +107,22 @@ class ReparationsController extends Controller
         }
         public function attente2()
         {        
-                // $detail = Reparations::Whereid('$id');
-      
-        $reparations = Reparations::where('etat', 'Attente')->get();
+            $reparations = Reparations::where('etat', 'Attente')->get();
 
                   $clients = Clients::all();
                 return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         }
+        public function attente3()
+        {        
+      
+        $reparations = Reparations::where('etat', 'Attente')->get();
+
+                  $clients = Clients::all();
+                return view('gerant/reparation/index', compact('reparations', 'clients'));
+                
+        }
+        
         public function Encours()
         {        
                 // $detail = Reparations::Whereid('$id');
@@ -126,9 +143,18 @@ class ReparationsController extends Controller
                 return view('user/reparation/index2', compact('reparations', 'clients'));
                 
         }
-        public function reparfinish()
+        public function Encours3()
         {        
                 // $detail = Reparations::Whereid('$id');
+      
+        $reparations = Reparations::where('etat', 'En cours')->get();
+
+                  $clients = Clients::all();
+                return view('gerant/reparation/index', compact('reparations', 'clients'));
+                
+        }
+        public function reparfinish()
+        {        
       
         $reparations = Reparations::where('etat', 'Réparé')->get();
 
@@ -138,12 +164,20 @@ class ReparationsController extends Controller
         }
         public function reparfinish2()
         {        
-                // $detail = Reparations::Whereid('$id');
       
         $reparations = Reparations::where('etat', 'Réparé')->get();
 
                   $clients = Clients::all();
                 return view('user/reparation/index2', compact('reparations', 'clients'));
+                
+        }
+        public function reparfinish3()
+        {        
+      
+        $reparations = Reparations::where('etat', 'Réparé')->get();
+
+                  $clients = Clients::all();
+                return view('gerant/reparation/index', compact('reparations', 'clients'));
                 
         }
     /**
@@ -175,8 +209,8 @@ class ReparationsController extends Controller
                             'remarque'=>$request['remarque'],
                             'client_id'=>$request['client_id'],
                         ]);
+                 return redirect('/admin/reparation/reparations')->with("success", "Appareil ajouté avec succès!");
                         
-                return redirect('/admin/reparation/index');
              }
      /**
      * Show the form for creating a new resource.
@@ -207,6 +241,8 @@ class ReparationsController extends Controller
                             'client_id'=>$request['client_id'],
                         ]);
                         
+                return redirect('/user/reparation/index2')->with("success", "Appareil ajouté avec succès!");
+                
                 return redirect('/user/reparation/index2');
              }
     

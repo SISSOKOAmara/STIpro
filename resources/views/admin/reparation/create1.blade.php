@@ -28,7 +28,7 @@
                         
                         
                         <div class="row mb-1">
-                        <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Client') }}</label> 
+                        <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Client') }}*</label> 
                         <div class="col-md-3">
                     <select name="client_id" required >
                        

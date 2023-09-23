@@ -31,7 +31,7 @@
 
 
                                         <!-- Email -->
-                                            <div class="row mb-3">
+                                            <div class="row mb-3">H
                                                     <div class="col-md-12">
                                                         <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 

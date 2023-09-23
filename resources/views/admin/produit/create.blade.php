@@ -50,14 +50,14 @@
                         </div>
            
                         <div class="row mb-1">
-                            <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __('marque') }}</label>
+                            <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __('Désignation') }}</label>
                             <div class="col-md-6">
                                 <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
                             </div>
                         </div>
                        
                         <div class="row mb-1">
-                            <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('model') }}</label>
+                            <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('Marque/model') }}</label>
 
                             <div class="col-md-6">
                                 <input id="model" type="text" class="form-control" name="model" value="" autocomplete="model" autofocus>

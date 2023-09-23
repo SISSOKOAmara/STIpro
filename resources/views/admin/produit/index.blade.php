@@ -20,8 +20,8 @@
                   <th scope="col">#</th>
                   <th scope="col">Fournisseur</th>
                   <th scope="col">categorie </th>
-                  <th scope="col">Marque</th>
-                  <th scope="col">Model</th>
+                  <th scope="col">Désignation</th>
+                  <th scope="col">Marque/Model</th>
                   <th scope="col">Etat</th>
                   <th scope="col">Quantite</th>
                   <th scope="col">prix de vente</th>

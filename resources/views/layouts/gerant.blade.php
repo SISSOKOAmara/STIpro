@@ -155,10 +155,10 @@
             </a>
             <div class="collapse" id="ui-basic1">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationattente') }}">Attente</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationEncours') }}">En cours</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationRepare') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationIndex3') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationattente3') }}">Attente</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationEncours3') }}">En cours</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationRepare3') }}">Réparé</a></li>
               </ul>
             </div>
           </li>
@@ -173,14 +173,14 @@
             </a>
             <div class="collapse" id="ui-basicc">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('produit') }}">Liste Total</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('categorie') }}">Categorie</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('produit3') }}">Liste Total</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('categorie3') }}">Categorie</a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('tache.list') }}">
+            <a class="nav-link" href="{{ route('tache.list3') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -227,7 +227,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list text-black" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="{{ route('user.profil') }}">
+                  <a class="dropdown-item preview-item" href="{{ route('user.profil3') }}">
                     <div class="preview-thumbnail">
                       <div class="preview-icon  rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>

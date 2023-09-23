@@ -37,7 +37,7 @@
                           <!-- <td><img src="{{URL::to('users/profil/' .$users->photo)}}"  alt=""></td>                           -->
                           <!-- <td>{{$users->photo}}</td>-->
                           <td>
-                            <a href="" class="btn btn-primary">Modifier</a>
+                            <a href="{{route('user.edit', $users->id)}}" class="btn btn-primary">Modifier</a>
                             <a href="" class="btn btn-danger">supprimer</a>
                           </td>
                       </tr>

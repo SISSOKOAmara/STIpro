@@ -17,6 +17,16 @@ class CategoriesController extends Controller
         $categories = Categories::all();
         return view('admin/cat/liste', compact('categories'));
     }
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index3()
+    {
+        $categories = Categories::all();
+        return view('gerant/cat/liste', compact('categories'));
+    }
         public function index2()
     {
         $categories = Categories::all();
@@ -32,6 +42,16 @@ class CategoriesController extends Controller
          $categories = Categories::all();
         return view('admin/cat/liste', compact('categories'));
     }
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create3()
+    {
+         $categories = Categories::all();
+        return view('gerant/cat/liste', compact('categories'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,6 +60,24 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    {
+            
+            $categories = $request->validate(
+                [
+                    'nom'=>['required', 'string', 'max:30','unique:categories'],
+                ]
+            );
+    
+            Categories::create($categories);
+        return back()->with("success", "Categorie créee avec succès!");
+    }
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store3(Request $request)
     {
             
             $categories = $request->validate(
