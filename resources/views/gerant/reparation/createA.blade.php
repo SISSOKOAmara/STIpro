@@ -41,7 +41,7 @@
                     <div class="row mb-1">
                             <label class="col-md-4 col-form-label text-right">{{ __('Categorie') }}</label>
                             <div class="col-md-6 text-left">
-                            <select name="categorie_id" >
+                            <select name="categorie_id" required>
                                 <option selected disabled>categorie</option>
                                  @foreach($categories as $categorie)
                                 <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
@@ -55,7 +55,7 @@
                             <label for="marque" class="col-md-4 col-form-label text-right">{{ __('marque') }}</label>
 
                             <div class="col-md-6">
-                                <input id="marque" type="text" class="form-control" name="marque" value="" autocomplete="categorie" autofocus>
+                                <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
                             </div>
                         </div>
 
