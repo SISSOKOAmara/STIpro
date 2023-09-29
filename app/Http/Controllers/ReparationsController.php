@@ -17,6 +17,7 @@ class ReparationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     
+    //  Admin creat via list
     public function listeA()
         {       
             $reparations = Reparations::all();
@@ -51,14 +52,13 @@ class ReparationsController extends Controller
                 $categories =Categories::all();
             return view('gerant/reparation/create1', compact('clients','categories'));
         }
-
-    public function liste3($id)
+// Add via list
+    public function liste3()
         {
             
-            $reparations = Reparations::all();
-                  $clients = Clients::findOrfail($id);
+                  $clients = Clients::all();
                   $categories =Categories::all();
-            return view('gerant/reparation/create1', compact('clients','categories'));
+            return view('gerant/reparation/createA', compact('clients','categories'));
         }
     public function liste2($id)
         {
@@ -340,7 +340,7 @@ class ReparationsController extends Controller
                             'client_id'=>$request['client_id'],
                         ]);
                         
-                return redirect('gerant/reparation/reparations');
+                return redirect('Manager/reparation/reparations');
      }
     /**
      * Display the specified resource.

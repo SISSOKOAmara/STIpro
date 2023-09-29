@@ -33,7 +33,7 @@
 
 
                 <div class="card-body bg-white">
-                    <form method="POST" action="{{ route('reparationregister') }}">
+                    <form method="POST" action="{{ route('reparationregister3', $clients->id) }}">
                         @csrf
 
 

@@ -167,6 +167,11 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::post('/agent/reparations', [ReparationsController::class, 'store3'])->name('reparationregister3');
 
     //    Reparations
+    // Ajout via liste
+    Route::get('/Gerant/reparation/create', [ReparationsController::class, 'liste3'])->name('reparationajoutA3');
+    Route::post('/Gerant/reparations', [ReparationsController::class, 'store3'])->name('repair.ad3');
+
+
     Route::get('/Manager/reparation/reparations', [ReparationsController::class, 'index3'])->name('reparationIndex3');
     Route::get('/Manager/reparation/attente', [ReparationsController::class, 'attente3'])->name('reparationattente3');
     Route::get('/Manager/reparation/Encours', [ReparationsController::class, 'Encours3'])->name('reparationEncours3');
@@ -234,12 +239,6 @@ Route::post('/admin/produit', [ProduitController::class, 'store'])->name('produi
 Route::delete('/admin/produit/delete/{produits}', [ProduitController::class, 'destroy2'])->name('produit.supprimer');
 
 Route::get('/admin/produit/liste/{id}', [ProduitController::class, 'achat'])->name('produit.acha');
-
-
-
-
-
-
 
 
 
