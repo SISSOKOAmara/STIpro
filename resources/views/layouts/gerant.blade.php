@@ -159,6 +159,9 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('reparationattente3') }}">Attente</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('reparationEncours3') }}">En cours</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('reparationRepare3') }}">Réparé</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationannule3') }}">Annulés</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('reparationrecupere3') }}">Récuperés</a></li>
+
               </ul>
             </div>
           </li>
@@ -210,7 +213,7 @@
                
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="{{ route('admin.home') }}">
+                <a class="nav-link" href="{{ route('manager.home') }}">
                   <i class="mdi mdi-windows"></i>
                 </a>
               </li>
@@ -263,20 +266,21 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel"> 
+        <div class="main-panel"style="padding-left: 8%;"> 
         <div class="content-wrapper bg-white"><!-- style="border-left: solid 1px black; background-color:white" -->
-        <main class="py-4">
+        {{-- <main class="py-4"> --}}
+          <main class="">
             @yield('content')
         </main>
         </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
+          <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+              <span class="text-white d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023 Sage Tech Informatique</span>
+              {{-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span> --}}
             </div>
-          </footer> -->
+          </footer>
           <!-- partial -->
         </div> 
         <!-- main-panel ends -->

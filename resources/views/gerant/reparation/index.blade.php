@@ -41,16 +41,16 @@
                         <td>{{$reparation->etat}}</td>
                         <td>
                                 </a>
-                          <a href="{{route('reparation.edit',$reparation->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
-                          <a href="{{route('reparation.detail',$reparation->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
-                          <a href="{{route('reparation.facture',$reparation->id)}}"><i class="mdi mdi-file-document-box"></i></a>
-                          <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                          <a href="{{route('reparation.edit3',$reparation->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
+                          <a href="{{route('reparation.detail3',$reparation->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
+                          <a href="{{route('reparation.facture3',$reparation->id)}}"><i class="mdi mdi-file-document-box"></i></a>
+                          {{-- <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
                 
                           <form id="form-{{$reparation->id}}" action="{{route('reparation.supprimer',
                   ['reparation'=>$reparation->id])}}" method="post">
                 @csrf
                 <input type="hidden" name="_method" value="delete">
-                </form>
+                </form> --}}
                         </td>
                     </tr>
                     @endforeach

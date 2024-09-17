@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.Slave')
 
 @section('content')
 
@@ -20,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Ajouter un Appareil') }}</div>
+                <div class="card-header text-center text-white" style="background-color: #0201FD">{{ __('Ajouter un Appareil') }}</div>
 
                 <div class="card-body text-black">
                     <form method="POST" action="{{ route('reparationregister2', $clients->id) }}">
@@ -29,12 +29,13 @@
                         
                         <div class="row mb-1">
                         <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Client') }}</label> 
-                        <div class="col-md-3">
-                    <select name="client_id" required >
-                       
-                      <option value="{{$clients->id}}">{{$clients->nom}} - {{$clients->numero}}</option>
-                     
-                    </select></div>
+                        <div class="col-md-6">
+                            <select name="client_id" required >
+                            
+                            <option value="{{$clients->id}}">{{$clients->nom}} - {{$clients->numero}}</option>
+                            
+                            </select>
+                        </div>
                     </div>
 
                         <div class="row mb-1">
@@ -49,8 +50,6 @@
                             </div>
                         </div>
                         
-
-
                         <div class="row mb-1">
                             <label for="marque" class="col-md-4 col-form-label text-md-end">{{ __('marque') }}</label>
 
@@ -85,17 +84,41 @@
                             <div class="col-md-6">
                                 <input id="panne" type="text" class="form-control" name="panne" value="" autocomplete="panne" autofocus>
                             </div>
-                        </div>                    
+                        </div> 
+                        <div class="row mb-1">
+                            <label for="prix" class="col-md-4 col-form-label text-md-end">{{ __('prix') }}</label>
 
-                        <div class="row mb-0">
+                            <div class="col-md-6">
+                                <input id="prix" type="decimal" maxlength="7" class="form-control" name="prix" value="" autocomplete="prix" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <label for="paye" class="col-md-4 col-form-label text-md-end">{{ __('paye') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="paye" type="decimal" maxlength="7" class="form-control" name="paye" value="" autocomplete="paye" autofocus>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-1">
+                            <label for="rdv" class="col-md-4 col-form-label text-md-end">{{ __('RDV') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="rdv" type="date" class="form-control" name="rdv" >
+                            </div>
+                        </div>                       
+                   
+
+                        <div class="row mb-0 mt-3">
                             <div class="col-md-3 offset-md-2">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn" style="background-color: #0201FD">
                                     {{ __('Enregister') }}
                                 </button>
                             </div>
                             
                             <div class="col-md-3 offset-md-4">
-                                <button class="btn btn-warning">
+                                <button class="btn" style="background-color: #FF6501">
                                     {{ __('Annuler') }}
                                 </button>
                             </div>

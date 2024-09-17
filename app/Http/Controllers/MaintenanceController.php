@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\maintenance;
+use App\Models\Reparations;
 use Illuminate\Http\Request;
 
 class MaintenanceController extends Controller
@@ -16,15 +17,12 @@ class MaintenanceController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+     
+    public function create($id)
     {
-        //
+        $appareil=Reparations::FindOrFail($id);
+
+        return view('admin/panne/create', compact('appareil'));
     }
 
     /**
@@ -35,7 +33,19 @@ class MaintenanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $panne = $request->validate(
+            [
+        
+                'panne'=>['required', 'string', 'max:30'],
+                'etat'=>['required', 'string', 'max:60'],
+                'prix'=>['required', 'integer', 'max:2000000'],
+                'paye'=>['required', 'integer', 'max:2000000'],
+                'reparation_id'=>['required', 'integer'],
+            ]
+        );
+
+         maintenance::create($panne);
+        return redirect('/admin/reparation/reparations');
     }
 
     /**

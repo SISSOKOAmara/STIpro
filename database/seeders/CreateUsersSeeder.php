@@ -26,7 +26,7 @@ class CreateUsersSeeder extends Seeder
 
                'type'=>1,
 
-               'password'=> bcrypt('111111'),
+               'password'=> bcrypt('Jinnam10'),
 
             ],
 
@@ -34,16 +34,16 @@ class CreateUsersSeeder extends Seeder
 
                'name'=>'KEITA',
                'prenom'=>'Aminata',
-               'email'=>'aminata@sagetech.com',
+               'email'=>'aminatak@sagetech.com',
 
                'type'=> 2,
 
-               'password'=> bcrypt('111111'),
+               'password'=> bcrypt('0102AmiK23'),
 
             ],
 
             [
-
+ 
                'name'=>'Hacoule',
                'prenom'=>'Antiou',
 
@@ -51,9 +51,34 @@ class CreateUsersSeeder extends Seeder
 
                'type'=>0,
 
-               'password'=> bcrypt('111111'),
+               'password'=> bcrypt('23Hakoul03'),
 
             ],
+            
+            [
+
+                'name'=>'Coulibaly ',
+                'prenom'=>'Zoumana',
+ 
+                'email'=>'coulibalyz@sagetech.com',
+ 
+                'type'=>2,
+ 
+                'password'=> bcrypt('Z76Coulou'),
+ 
+             ],
+             [
+
+                'name'=>'DOUKARA',
+                'prenom'=>'Oumar',
+ 
+                'email'=>'Odoukara@sagetech.com',
+ 
+                'type'=>0,
+ 
+                'password'=> bcrypt('Odouk065'),
+ 
+             ],
 
         ];
 

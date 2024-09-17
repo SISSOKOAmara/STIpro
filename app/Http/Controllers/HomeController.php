@@ -53,6 +53,7 @@ class HomeController extends Controller
         $nbrattente = Reparations::where('etat', 'Attente')->count();
         $nbrEncours = Reparations::where('etat', 'En cours')->count();
         $nbrrepare = Reparations::where('etat', 'Réparé')->count();
+        $Recupere = Reparations::where('etat', 'Récuperé')->count();
 
 
         $user =Auth::User()->id;
@@ -85,13 +86,16 @@ class HomeController extends Controller
         $nbrattente = Reparations::where('etat', 'Attente')->count();
         $nbrEncours = Reparations::where('etat', 'En cours')->count();
         $nbrrepare = Reparations::where('etat', 'Réparé')->count();
+        $Recupere = Reparations::where('etat', 'Récuperé')->count();
+        $cancel = Reparations::where('etat', 'Annulé')->count();
+
 
         $taches = taches::all()->count();
         $users = User::all()->count();
         $clients = Clients::all()->count();
         $fournisseurs = fournisseurs::all()->count();
 
-        return view('admin.Home', compact('nbrreparation', 'nbrEncours', 'nbrattente' , 'nbrrepare', 'taches', 'users', 'clients', 'fournisseurs'));
+        return view('admin.Home', compact('nbrreparation', 'nbrEncours', 'nbrattente' , 'nbrrepare', 'taches', 'users', 'clients', 'fournisseurs','Recupere', 'cancel'));
 
          $reparations = Reparations::all();
             return view('admin.reparation/index', compact('reparations'));
@@ -120,13 +124,15 @@ class HomeController extends Controller
         $nbrattente = Reparations::where('etat', 'Attente')->count();
         $nbrEncours = Reparations::where('etat', 'En cours')->count();
         $nbrrepare = Reparations::where('etat', 'Réparé')->count();
+        $nbrRecupere = Reparations::where('etat', 'Récuperé')->count();
+        $nbrcancel = Reparations::where('etat', 'Annulé')->count();
 
         $taches = taches::all()->count();
         $users = User::all()->count();
         $clients = Clients::all()->count();
         $fournisseurs = fournisseurs::all()->count();
 
-        return view('managerHome', compact('nbrreparation', 'nbrEncours', 'nbrattente' , 'nbrrepare', 'taches', 'users', 'clients', 'fournisseurs'));
+        return view('managerHome', compact('nbrreparation', 'nbrEncours', 'nbrattente' , 'nbrrepare', 'taches', 'users', 'clients', 'fournisseurs', 'nbrRecupere', 'nbrcancel'));
 
     }
 

@@ -5,7 +5,7 @@
       
       <div class="p-3 bg-body rounded shadow-sm d-block" >
 <h2 class="text-black text-center" >Liste des pièces d'echange</h2>
-      <a href="{{route('produit.ajout')}}" class="btn btn-primary mb-3"><i class="mdi mdi-plus-circle"style="width:20% ;"></i></a>
+      <a href="{{route('produit.ajout3')}}" class="btn btn-primary mb-3"><i class="mdi mdi-plus-circle"style="width:20% ;"></i></a>
 
       @if(session()->has("successDelete"))
               <div class="alert alert-success">
@@ -22,6 +22,7 @@
                   <th scope="col">categorie </th>
                   <th scope="col">Désignation</th>
                   <th scope="col">Marque/Model</th>
+                  {{-- <th scope="col">Client</th> --}}
                   <th scope="col">Etat</th>
                   <th scope="col">Quantite</th>
                   <th scope="col">prix de vente</th>
@@ -39,6 +40,7 @@
                       <td>{{$produits->categorie->nom}}</td>
                       <td>{{$produits->marque}}</td>
                       <td>{{$produits->model}}</td>
+                      <td></td>
                       <td>{{$produits->etat}}</td>
                       <td>{{$produits->quantite}}</td>
                       <td>{{$produits->prix_vente}}</td>

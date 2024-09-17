@@ -12,7 +12,7 @@
              
                         <div class="container">
                             <div class="row" style="border-bottom: 2px solid black ;">
-                                <div class="col-md-3">
+                                <div class="col-md-3 sm-3">
                                     <img src="{{asset('assetss/images/stiLogo.jpg')}}" style="width:100%;" alt="">
                                 </div>
                                 <div class="col-md-8">
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
 
-                            <table class="table text-center table-bordered" id="facture">
+                            <table class="table tabe-responsive text-center table-bordered" id="facture">
                                 <thead>
                                 <tr>
                                     <th scope="col">Qté</th>
@@ -61,9 +61,9 @@
                                     <tr>
                                     <!-- <tH colspan="4">Ds</th> -->
                                         <td>{{1}}</td>
-                                        <td>{{$Reparation->marque}} {{$Reparation->model}} {{$Reparation->panne}}</td>
-                                        <td>{{$Reparation->prix}}</td>
-                                        <td>{{$Reparation->prix * 1}}</td> 
+                                        <td>{{$Reparation->marque}} {{$Reparation->model}} <br> <hr> {{$Reparation->panne}}</td>
+                                        <td>{{$Reparation->prix}} F</td>
+                                        <td>{{$Reparation->prix * 1}} F</td> 
                                     </tr>
                                 
                                     <!-- Pièce d'echange -->
@@ -72,35 +72,34 @@
 
                                         <td>{{$echange->quantite}}</td>
                                         <td>{{$echange->categorie->nom}} {{$echange->marque}} {{$echange->model}}</td>
-                                        <td>{{$echange->prix_vente}}</td>
-                                        <td>{{$echange->prix_vente * $echange->quantite}}</td>
+                                        <td>{{$echange->prix_vente}} F</td>
+                                        <td>{{$echange->prix_vente * $echange->quantite}} F</td>
                                     </tr>
                                     @endforeach
                                     <tr>
                                         <td colspan="3">Total</td>
-                                        <!-- <td><script> print(totalColonne);</script></td> -->
-                                        <td>{{$echange->prix_vente + $Reparation->prix}}</td>
+                                        <td>{{$piecedechange + $Reparation->prix}} F</td>
                                     </tr>
-                                    <!-- fin -->
+                                    
                                 </tbody>
                             </table>
                             <!-- </div> -->
-                    <!-- signature -->
-                    <div class="row mb-5"></div>
-                    <div class="row">
-                            <div class="col-md-1">
-                                <h6>Client</h6>
-                            </div>
+                            <!-- signature -->
+                            <div class="row mb-5"></div>
+                            <div class="row">
+                                    <div class="col-md-2 text-center">
+                                        <h6>Client</h6>
+                                    </div>
 
-                            <div class="col-md-9"></div>
+                                    <div class="col-md-8"></div>
 
-                            <div class="col-md-2 text-right">
-                                <h6>Fournisseur</h6>
+                                    <div class="col-md-2 text-center">
+                                        <h6>Fournisseur</h6>
+                                    </div>
                             </div>
-                    </div>
-                    <!-- fin signature -->
-                <br><br><br>
-                </div>
+                            <!-- fin signature -->
+                                <br><br><br>
+                        </div>
             </div>
             </div>
         </div>

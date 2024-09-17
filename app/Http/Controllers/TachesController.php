@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reparations;
 use App\Models\taches;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,29 @@ class TachesController extends Controller
     public function index()
     {
         //
-        $tache =taches::all();
+        // $tache =taches::all();
+        $tache = taches::whereMonth('created_at',\Carbon\Carbon::now()->month)
+                   ->whereYear('created_at', \Carbon\Carbon::now()->year)
+                   ->get();
+        return view('tache/index', compact('tache'));
+    }
+    public function indexP()
+    {
+        //
+        // $tache =taches::all();
+        // $tache = taches::whereMonth('created_at',\Carbon\Carbon::now()->submonth)
+        // $tache = taches::query()->whereBetween('created_at', [now(), now()->subMonth()])
+        $tache = taches::whereMonth('created_at',\Carbon\Carbon::now()->now()->subMonth())
+
+
+                   ->whereYear('created_at', \Carbon\Carbon::now()->year)
+                   ->get();
+        return view('tache/index', compact('tache'));
+    }
+    public function indexA()
+    {
+        //
+         $tache =taches::all();
         return view('tache/index', compact('tache'));
     }
 
@@ -27,13 +50,30 @@ class TachesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexA2()
+    {
+        $user =Auth::User()->id;
+        $tache = taches::where('user_id', $user)->get();
+        return view('user/tache/tache2', compact('tache'));
+    }
+
     public function index2()
     {
-       
-    $user =Auth::User()->id;
-    
-    $tache = taches::where('user_id', $user)->get();
-        // $tache =taches::all();
+         $user =Auth::User();
+
+        $tache=$user->taches()->whereMonth('created_at',Carbon::now()->month)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->get();
+        return view('user/tache/tache2', compact('tache'));
+    }
+
+    public function indexP2()
+    {
+        $user =Auth::User();
+        $tache=$user->taches()->whereMonth('created_at',\Carbon\Carbon::now()->now()->subMonth())
+
+                   ->whereYear('created_at', \Carbon\Carbon::now()->year)
+                   ->get();
         return view('user/tache/tache2', compact('tache'));
     }
      /**
@@ -43,8 +83,11 @@ class TachesController extends Controller
      */
     public function index3()
     {
-        //
-        $tache =taches::all();
+    $user =Auth::User();
+
+        $tache=$user->taches()->whereMonth('created_at',Carbon::now()->month)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->get();
         return view('gerant/tache/index', compact('tache'));
     }
     /**
@@ -108,7 +151,7 @@ class TachesController extends Controller
         );
 
          taches::create($tache);
-        return redirect('/admin/tache');
+        return redirect('/admin/tache')->withSuccess('Tache crée avec succès');
     }
 
       /**
@@ -132,7 +175,7 @@ class TachesController extends Controller
         );
 
          taches::create($tache);
-        return redirect('/Manager/tache');
+        return redirect('/Manager/tache')->withSuccess('Tache crée avec succès');
     }
      /**
      * Store a newly created resource in storage.
@@ -155,7 +198,7 @@ class TachesController extends Controller
         );
 
          taches::create($tache);
-        return redirect('/technicien/liste/tache');
+        return redirect('/technicien/liste/tache')->withSuccess('Tache crée avec succès');
     }
 
 
@@ -213,7 +256,7 @@ class TachesController extends Controller
         $user = User::all();
         $modif = taches::findOrfail($id); 
         $repara = Reparations::where('etat', 'Attente')->get();      
-        return view('Manager/tache/edit', compact('modif', 'repara', 'user'));
+        return view('gerant/tache/edit', compact('modif', 'repara', 'user'));
     }
 
 
@@ -269,7 +312,7 @@ class TachesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function updat3( Request $request, $id)
+    public function update3( Request $request, $id)
     {
                 $modif =$request->validate([
                 'etat'=>['required', 'string', 'max:20'],

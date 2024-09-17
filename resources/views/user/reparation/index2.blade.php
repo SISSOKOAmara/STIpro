@@ -4,7 +4,7 @@
 
 <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-black "id="Fondinter">
   <h3 class="text-center">Liste de reparation</h3>
-            <a href="{{ route('reparationajoutA') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
+            <a href="{{ route('reparationajoutA2') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
             <!-- <i class="mdi mdi-wrench"></i> -->
 
             @if(session()->has("successDelete"))
@@ -41,6 +41,8 @@
                         <td>
                                 </a>
                           <a href="{{route('reparation.edit2',$reparation->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
+
+                          <a href="{{route('reparation.detail2',$reparation->id)}}" ><i class="mdi mdi-information-outline"></i></a>
                       
                         </td>
                     </tr>

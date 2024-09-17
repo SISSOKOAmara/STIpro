@@ -77,29 +77,29 @@
                             <!-- Hiden -->
                                 <input id="user_id" hidden type="integer"  class="form-control" name="user_id" value="{{ Auth::user()->id }}" autofocus>
                                 <!-- fin hiden -->
-                        <div class="row mb-1">
+                        {{-- <div class="row mb-1">
                             <label for="panne" class="col-md-4 col-form-label text-right">{{ __('panne') }}</label>
 
                             <div class="col-md-6">
                                 <input id="panne" type="text" class="form-control" name="panne" value="" autocomplete="panne" autofocus>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="row mb-1">
+                        {{-- <div class="row mb-1">
                             <label for="prix" class="col-md-4 col-form-label text-right">{{ __('prix') }}</label>
 
                             <div class="col-md-6">
                                 <input id="prix" type="integer" class="form-control" name="prix" value="" autocomplete="prix" autofocus>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="row mb-1">
+                        {{-- <div class="row mb-1">
                             <label for="paye" class="col-md-4 col-form-label text-right">{{ __('paye') }}</label>
 
                             <div class="col-md-6">
                                 <input id="paye" type="integer" class="form-control" name="paye" value="" autocomplete="paye" autofocus>
                             </div>
-                        </div>
+                        </div> --}}
                         
                         <div class="row mb-3">
                             <label for="rdv" class="col-md-4 col-form-label text-right">{{ __('RDV') }}</label>

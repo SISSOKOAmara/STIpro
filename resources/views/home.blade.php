@@ -14,7 +14,7 @@
                         <div class="card-header text-white text-center" style="background-color: blue;">{{ __('Attente') }}</div>
                             <div class="row">
                                         <div class="col-md-4 text-right">
-                                            <h1><a href="{{ route('reparationattente') }}" style="font-size:180% ;">{{$nbrattente}}</a></h1> 
+                                            <h1><a href="{{ route('reparationIndex2') }}" style="font-size:180% ;">{{$nbrattente}}</a></h1> 
                                         </div>
                                         <div class="col-md-8">
                                             <br>
@@ -29,7 +29,7 @@
                                 <div class="card-header text-white text-center" style="background-color: blue;">{{ __('Encours') }}</div>
                                     <div class="row">
                                                 <div class="col-md-4 text-right">
-                                                    <h1><a href="{{ route('reparationEncours') }}" style="font-size:180% ;">{{$nbrEncours}}</a></h1> 
+                                                    <h1><a href="{{ route('reparationEncours2') }}" style="font-size:180% ;">{{$nbrEncours}}</a></h1> 
                                                 </div>
                                                 <div class="col-md-8">
                                                     <br>
@@ -50,7 +50,7 @@
                             <!-- <h1><a href="{{ route('reparationIndex') }}" style="font-size:380% ; float:left; margin-top:-35% ;">{{$nbrreparation}}</a></h1>  -->
                             <div class="row">
                                     <div class="col-md-4 text-right">
-                                        <h1><a href="{{ route('tache.list') }}" style="font-size:180% ;">{{$taches}}</a></h1> 
+                                        <h1><a href="{{ route('tache.list2') }}" style="font-size:180% ;">{{$taches}}</a></h1> 
 
                                     </div>
                                     
@@ -69,5 +69,29 @@
 
        
     </div>
-
+    <script type="text/javascript">
+        // Fonction pour vérifier si l'alerte a déjà été affichée aujourd'hui
+        function afficherAlerteSiNecessaire() {
+            var aujourdHui = new Date().toLocaleDateString(); // Récupère la date actuelle (jj/mm/aaaa)
+            var dernierAffichage = localStorage.getItem('alerteDate');
+    
+            // Si l'alerte n'a pas été affichée aujourd'hui
+            if (dernierAffichage !== aujourdHui) {
+                var reponse = confirm("Bienvenue {{ Auth::user()->prenom }} {{ Auth::user()->name }} ! j'espère que tu vas effectuer beaucoup des taches aujourd'hui?");
+    
+                if (reponse) {
+                    alert("Bien, Tu as choisi de bien travailler aujord'hui ! C'est noté. Merci");
+                } else {
+                    alert("Alors ton avis est aussi prit en compte, Tu as choisi Non !");
+                }
+    
+                // Stocke la date du jour dans le localStorage
+                localStorage.setItem('alerteDate', aujourdHui);
+            }
+        }
+    
+        window.onload = function() {
+            afficherAlerteSiNecessaire();
+        };
+    </script>  
 @endsection

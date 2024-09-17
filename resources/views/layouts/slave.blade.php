@@ -45,7 +45,7 @@
   <body>
 
     <div class="container-scroller">
-      <!-- partial:partials/_sidebar.html -->
+      
       <nav class="sidebar sidebar-offcanvas rounded shadow" id="sidebar" >
         <!-- style="background-color:#e1d2b8" -->
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top text-center" style="border-bottom: 1px solid black ;">
@@ -188,20 +188,19 @@
           </div>
         </nav>
         <!-- partial -->
-        <div class="main-panel"> 
+        <div class="main-panel"style="padding-left: 8%;"> 
         <div class="content-wrapper bg-white"><!-- style="border-left: solid 1px black; background-color:white" -->
-        <main class="py-4">
+        {{-- <main class="py-4"> --}}
+          <main class="">
             @yield('content')
         </main>
         </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
+          <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
-            </div>
-          </footer> -->
+              <span class=" d-block text-center text-white text-sm-left d-sm-inline-block">Copyright © Sage Tech Informatique 2023</span>
+          </footer>
           <!-- partial -->
         </div> 
         <!-- main-panel ends -->

@@ -4,21 +4,14 @@
 
 namespace App\Models;
 
-  
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 use Illuminate\Notifications\Notifiable;
-
 use Laravel\Sanctum\HasApiTokens;
-
 use Illuminate\Database\Eloquent\Casts\Attribute;
-
-  
+use App\Models\taches;
 
 class User extends Authenticatable
 
@@ -54,8 +47,8 @@ class User extends Authenticatable
     public function Produit(){
         return $this->belongsTo(Produit::class, 'client');
     }
-    public function taches(){
-        return $this->belongsTo(Taches::class, 'client');
+    public function taches(){   
+        return $this->hasMany(Taches::class, 'user_id');
     }
   
 

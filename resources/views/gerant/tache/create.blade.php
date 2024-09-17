@@ -26,7 +26,7 @@
                 <div class="card-header">{{ __('Ajouter tache') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tache.register') }}">
+                    <form method="POST" action="{{ route('tache.register3') }}">
                         @csrf
         
                         <div class="row mb-3">
@@ -47,7 +47,7 @@
                     <select name="reparation_id">
                       <option  selected disabled>Appareils</option>
                         @foreach( $repara as $reparations )
-                      <option value="{{$reparations->id}}">{{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
+                      <option value="{{$reparations->id}}">{{$reparations->client->nom}} - {{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
                      @endforeach
                     </select></div>
                     </div>

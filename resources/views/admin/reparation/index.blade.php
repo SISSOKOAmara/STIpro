@@ -1,18 +1,18 @@
 @extends('layouts.Master')
 
 @section('content')
-<div class="my-3 p-3 bg-body rounded shadow-sm d-block text-black "id="Fondinter">
-  <h3 class="text-center">Liste de reparation</h3>
+<div class="bg-body rounded shadow-sm text-black "id="Fondinter">
+  <h3 class="text-center">Liste des reparations</h3>
             <a href="{{ route('reparationajoutA') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
-            <!-- <i class="mdi mdi-wrench"></i> -->
+            {{-- <i class="mdi mdi-wrench"></i> --}}
 
             @if(session()->has("successDelete"))
                 <div class="alert alert-succes">
                     {{session()->get('success')}}
                   </div>
               @endif
-            <div class="table-responsive">
-              <table id="datatablesSimple" class="table text-center font-size-13">
+            {{-- <div class=""> --}}
+              <table id="datatablesSimple" class="table-responsive table text-center font-size-13">
                 <thead>
                   <tr>
                     <th scope="col">Client</th>
@@ -30,6 +30,7 @@
                 </thead>
                 <tbody>
                 @foreach($reparations as $reparation)
+
                     <tr>
                         <td>{{$reparation->client->nom}}</td>
                         <td>{{$reparation->categorie->nom}}</td>
@@ -56,6 +57,6 @@
                     @endforeach
                 </tbody>
               </table>
-            </div>
+            {{-- </div> --}}
 </div>
 @endsection

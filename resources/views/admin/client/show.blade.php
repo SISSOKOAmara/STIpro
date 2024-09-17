@@ -8,11 +8,18 @@
                 <div class="card-header text-black text-center">{{ __('Detail') }}</div>
 
                 <div class="card-body text-black">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h3>Nom: {{$client->nom}}</h3> 
+                            <h3>Numéro: {{$client->numero}}</h3>
+                            <h3>adresse: {{$client->adresse}}<h3>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="{{route('reparationajout1', $client->id)}}" class=""><i class="mdi mdi-plus-circle"style="width:90% ;"></i></a>
+                        </div>
+                    </div>
 
-                       <h3>Nom: {{$client->nom}}</h3> 
-                       <h3>Numéro: {{$client->numero}}</h3>
-                        
-                        <h3>adresse: {{$client->adresse}}<h3>
+                       
 
                 </div>
                 <div class="card-footer text-black">
@@ -32,6 +39,7 @@
                             <th scope="col">Date</th>
                             <th scope="col">Rdv</th>
                             <th scope="col">Note</th>
+                            <th scope="col">Action</th>
                             </tr>
                         </thead>
                         
@@ -49,6 +57,19 @@
                                 <td>{{$appareils->created_at}}</td>
                                 <td>{{$appareils->rdv}}</td>
                                 <td>{{$appareils->note}}</td>
+                                
+                                <td>
+                                    <a href="{{route('reparation.edit',$appareils->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
+                                    <a href="{{route('reparation.detail',$appareils->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
+                                    <a href="{{route('reparation.facture',$appareils->id)}}"><i class="mdi mdi-file-document-box"></i></a>
+                                    
+                                    <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$appareils->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
+                                      <form id="form-{{$appareils->id}}" action="{{route('reparation.supprimer',
+                                          ['reparation'=>$appareils->id])}}" method="post">
+                                          @csrf
+                                          <input type="hidden" name="_method" value="delete">
+                                      </form>
+                                  </td>
 
                             </tr>
                           @endforeach  

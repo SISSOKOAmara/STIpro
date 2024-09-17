@@ -17,78 +17,71 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Scripts -->
-    
-    </head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+       
+    {{-- </head> --}}
     <body style="background-image:url('/assetss/images/stiLogo.jpg');">
-        <div class="container">
-                <!-- Login 2 -->
-                <form class="login" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="container"> 
-                            <div class="row justify-content-center">
-
-                                        <!-- <div class="card-body">                       -->
-
-
-                                        <!-- Email -->
-                                            <div class="row mb-3">H
-                                                    <div class="col-md-12">
-                                                        <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                                        @error('email')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                            </div>
-                                        <!-- Fin email -->
-
-                                                <div class="row mb-3">
-                                                    <div class="col-md-12">
-                                                        <input id="password" placeholder="Mot de passe" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                                        @error('password')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-3">
-                                                    <div class="col-md-6 offset-md-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                                            <label class="form-check-label" for="remember">
-                                                                {{ __('Reste connecter') }}
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-0">
-                                                    <div class="col-md-8 offset-md-4">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            {{ __('Login') }}
-                                                        </button>
-
-                                                        @if (Route::has('password.request'))
-                                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                                {{ __('Mot de passe oublié ?') }}
-                                                            </a>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                        <!-- </div> -->
-                                
-                                
-                            </div>
-                        </div>
-                    <!-- <input type="text" placeholder="Username"> -->
-                </form>
-
+        
+    
+        <body>
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
         </div>
+        <form class="login" method="POST" action="{{ route('login') }}" style="background-color: rgb(77, 73, 73); opacity:unset">
+            @csrf
+
+            <h3>Se connecter</h3>
+    
+            <label for="username">Email</label>
+                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+    
+            <label for="password">Mot de passe</label>
+                <input id="password" placeholder="Mot de passe" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required >
+
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            {{-- <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+            <label class="form-check-label" for="remember">
+                {{ __('Reste connecter') }} --}}
+                
+                
+            <button type="submit" >Se connecter</button>
+            {{-- <div class="social">
+              <div class="go"><i class="fab fa-google"></i>  Google</div>
+              <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+            </div> --}}
+        </form>
+
+        
+       
     </body>
+    
 </html>
+{{-- 
+
+
+
+    
+             
+        
+                       
+             
+
+        
+                    
+              
+</form> --}}

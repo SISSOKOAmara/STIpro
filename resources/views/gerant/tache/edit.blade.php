@@ -26,7 +26,7 @@
                 <div class="card-header bg-primary">{{ __('Modifier Tache') }}</div>
 
                 <div class="card-body bg-white text-black">
-                    <form method="POST" action="{{ route('tache.update' ,$modif->id) }}">
+                    <form method="POST" action="{{ route('tache.update3' ,$modif->id) }}">
                         @csrf
                         @method('PATCH')                    
                  

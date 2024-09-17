@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class taches extends Model
 {
@@ -22,5 +24,11 @@ class taches extends Model
     }
     public function reparation(){
         return $this->belongsTo(Reparations::class, 'reparation_id');
+    }
+
+    public function index2($query)
+    {
+        return $query->whereMonth('created_at', Carbon::now()->month)
+        ->whereYear('created_at', Carbon::now()->year);
     }
 }

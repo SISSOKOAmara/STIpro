@@ -27,7 +27,45 @@
                     <form action="{{route('reparation.update' ,$repairedit->id)}}" method="POST" class="text-black">
                               @csrf
                               @method('PATCH')
+                              {{--  --}}
+                                                            
+                              <div class="row mb-1">
+                                <div class="col-md-6 col-sm-6 text-center">
+                                              
+                                <i class="mdi mdi-account"></i>
+                                {{-- debut --}}
+                                <select name="client_id" >
+                                                
+                                  {{-- <option value="{{$repairedit->client_id}}">{{$repairedit->client->nom}}</option> --}}
+                                  <option value="{{$repairedit->client_id}}">{{$repairedit->client->nom}}</option>
+                                  <hr>
+                                  @foreach($clients as $clien)
+                                  <option value="{{$clien->id}}">{{$clien->nom}}</option>
+                                    @endforeach
+                              </select>
+                              {{-- <input type="text" name="model" class="col-md-4" value="{{$repairedit->numero}}"> --}}
+                                {{-- fin --}}
 
+                                {{-- {{$repairedit->client->nom}} --}}
+                                          
+                                </div>
+                                <div class="col-md-6 text-center">
+                                  <i class="mdi mdi-phone"></i>
+                                  {{$repairedit->client->numero}}
+
+                                </div>
+                              </div>
+                              <hr>
+
+                                  <div class="row bg-primary text-white">
+                                    <div class="col-md-12 text-center">     
+                                        {{$repairedit->categorie->nom}} - {{$repairedit->marque}}-{{$repairedit->model}}
+                                    </div>
+                                  </div>
+                                  <hr>
+
+
+                              {{--  --}}
                                         <div class="row mb-1">
                                                 <label class="col-md-4 col-form-label text-right">{{ __('Categorie') }}</label>
                                                 
@@ -52,17 +90,21 @@
                                           </div>
                                             <div class="row mb-1">
                                             <label class="col-md-4 col-form-label text-right">{{ __('Prix') }}</label>
-                                                  <input type="decimal" name="prix"  value="{{$repairedit->prix}}">
+                                                  <input type="decimal" id="prix" maxlength="7" name="prix"  value="{{$repairedit->prix}}">
                                             </div>
 
                                             <div class="row mb-1">
                                             <label class="col-md-4 col-form-label text-right">{{ __('Paye') }}</label>
-                                                <input type="decimal" name="paye"  value="{{$repairedit->paye}}">
+                                                <input type="decimal" id="paye" maxlength="7" name="paye"  value="{{$repairedit->paye}}">
                                             </div>
                                             <div class="row mb-1">
                                             <label class="col-md-4 col-form-label text-right">{{ __('RDV') }}</label>
                                               <input type="date" name="rdv"  value="{{$repairedit->rdv}}">
                                             </div>
+                                            <div class="row mb-1">
+                                              <label class="col-md-4 col-form-label text-right">{{ __('Date Récup.') }}</label>
+                                                <input type="date" name="Date_retrait"  value="{{$repairedit->date_retrait}}">
+                                              </div>
 
                                             <div class="row mb-1">
                                             <label class="col-md-4 col-form-label text-right">{{ __('Remarque') }}</label>
@@ -72,9 +114,13 @@
                                                     <label for="etat" class="col-md-4 col-form-label text-right">{{ __('Etat') }}</label> 
                                                 
                                                     <select name="etat" >
+                                                        <option value="{{$repairedit->etat}}">{{$repairedit->etat}}</option>
+                                                        <hr>
                                                         <option value="attente">Attente</option>
                                                         <option value="En cours">En cours</option>
                                                         <option value="Réparé">Réparé</option>
+                                                        <option value="Récuperé">Récuperé</option>
+                                                        <option value="Annulé">Annulé</option>
                                                     </select>
                                           </div> 
                                           
@@ -85,18 +131,38 @@
 
                                           
                                           <div class="row mb-1">
-                                            <div class="col-md-1 offset-md-4">
+                                            <div class="col-md-1 offset-md-4 mt-1">
                                                 <button type="submit" class="btn btn-primary">
                                                     {{ __('Modifier') }}
                                                 </button>
                                             </div>
                                             
-                                            <div class="col-md-1 offset-md-1">
+                                            <div class="col-md-1 offset-md-1 mt-1">
                                                 <button a href="{{ route('reparationIndex') }}" class="btn btn-primary" class="btn btn-warning">
                                                     {{ __('Annuler') }}
                                                 </button>
                                             </div>
                                         </div>
+                                        {{-- script --}}
+                                        <script>
+                                          var nombre = document.getElementById('prix');
+                                          nombre.addEventListener('keypress', function(e){
+                                               if (e.charCode < 48 || e.charCode > 57) {
+                                                   e.preventDefault();
+                                                   }
+                                                  });
+                                       </script>
+
+                                      <script>
+                                        var nombre = document.getElementById('paye');
+                                        nombre.addEventListener('keypress', function(e){
+                                            if (e.charCode < 48 || e.charCode > 57) {
+                                                e.preventDefault();
+                                                }
+                                                });
+                                      </script>
+
+                                        {{-- end script --}}
                     </form>
                  </div>
               </div>

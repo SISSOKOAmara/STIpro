@@ -1,4 +1,4 @@
-@extends('layouts.slave')
+@extends('layouts.Slave')
 
 @section('content')
 
@@ -47,7 +47,7 @@
                     <select name="reparation_id">
                       <option  selected disabled>Appareils</option>
                         @foreach( $repara as $reparations )
-                      <option value="{{$reparations->id}}">{{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
+                      <option value="{{$reparations->id}}"> {{$reparations->client->nom}} -{{$reparations->marque}} - {{$reparations->panne}}</option>
                      @endforeach
                     </select></div>
                     </div>

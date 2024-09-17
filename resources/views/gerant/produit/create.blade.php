@@ -1,4 +1,4 @@
-        @extends('layouts.Master')
+        @extends('layouts.gerant')
 
 @section('content')
 
@@ -22,11 +22,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card text-black">
-            <!-- <div class="card text-black" style="background-image:url('/assetss/images/stiLogo.jpg');"> -->
                 <div class="card-header text-center">{{ __('Ajouter produit') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('produit.register') }}">
+                    <form method="POST" action="{{ route('produit.register3') }}">
                         @csrf
                         
                         <div class="row mb-1">
@@ -50,14 +49,14 @@
                         </div>
            
                         <div class="row mb-1">
-                            <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __('marque') }}</label>
+                            <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __("Désignation") }}</label>
                             <div class="col-md-6">
                                 <input id="marque" type="text" class="form-control" name="marque" value="" required autocomplete="categorie" autofocus>
                             </div>
                         </div>
                        
                         <div class="row mb-1">
-                            <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('model') }}</label>
+                            <label for="model" class="col-md-4 col-form-label text-md-right">{{ __('Marque/model') }}</label>
 
                             <div class="col-md-6">
                                 <input id="model" type="text" class="form-control" name="model" value="" autocomplete="model" autofocus>
@@ -65,7 +64,7 @@
                         </div>
 
                         <div class="row mb-1">
-                            <label for="etat" class="col-md-4 col-form-label text-md-right">{{ __('etat') }}</label>
+                            <label for="etat" class="col-md-4 col-form-label text-md-right">{{ __('Etat') }}</label>
 
                                 <select id="etat" type="text" name="etat" required style="margin-left: 10px">
                                 <option selected disabled>ETAT</option>
@@ -93,7 +92,7 @@
                         </div>
 
                         <div class="row mb-1">
-                            <label for="prix_achat" class="col-md-4 col-form-label text-md-right">{{ __('prix_achat') }}</label>
+                            <label for="prix_achat" class="col-md-4 col-form-label text-md-right">{{ __("Prix d'achat") }}</label>
 
                             <div class="col-md-6">
                                 <input id="prix_achat" type="decimal" class="form-control" name="prix_achat" value="" required autocomplete="commentaire" autofocus>
@@ -101,7 +100,7 @@
                         </div>
 
                         <div class="row mb-1">
-                            <label for="prix_vente" class="col-md-4 col-form-label text-md-right">{{ __('prix_vente') }}</label>
+                            <label for="prix_vente" class="col-md-4 col-form-label text-md-right">{{ __("prix de vente") }}</label>
 
                             <div class="col-md-6">
                                 <input id="prix_vente" type="decimale" class="form-control" name="prix_vente" value="" required autocomplete="prix_vente" autofocus>
@@ -131,7 +130,7 @@
                             </div>
                         
                             <div class="col-md-3 offset-md-4">
-                                <a href="{{ route('produit') }}" class="btn btn-danger"> 
+                                <a href="{{ route('produit3') }}" class="btn btn-danger"> 
                                     {{ __('annuler') }}
                                 </a>
                             </div>

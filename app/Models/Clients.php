@@ -22,4 +22,8 @@ class Clients extends Model
   public function Reparations(){
     return $this->hasMany(Reparations::class, 'client_id'); 
 }
+
+public function Produit(){
+  return $this->hasManyThrough(Reparations::class, 'client_id'); 
+}
 }

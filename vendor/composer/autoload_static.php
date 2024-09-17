@@ -352,8 +352,8 @@ class ComposerStaticInitb96460e5cdc3e3067bff7eb33f30eb18
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -571,6 +571,7 @@ class ComposerStaticInitb96460e5cdc3e3067bff7eb33f30eb18
         'App\\Models\\Appareils' => __DIR__ . '/../..' . '/app/Models/Appareils.php',
         'App\\Models\\Categories' => __DIR__ . '/../..' . '/app/Models/Categories.php',
         'App\\Models\\Clients' => __DIR__ . '/../..' . '/app/Models/Clients.php',
+        'App\\Models\\Diagnostics' => __DIR__ . '/../..' . '/app/Models/Diagnostics.php',
         'App\\Models\\Produit' => __DIR__ . '/../..' . '/app/Models/Produit.php',
         'App\\Models\\Reparations' => __DIR__ . '/../..' . '/app/Models/Reparations.php',
         'App\\Models\\Stocks' => __DIR__ . '/../..' . '/app/Models/Stocks.php',

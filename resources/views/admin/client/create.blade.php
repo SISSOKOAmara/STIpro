@@ -41,7 +41,8 @@
                             <label for="numero" class="col-md-4 col-form-label text-md-end">{{ __('numero') }}</label>
 
                             <div class="col-md-6">
-                                <input id="numero" type="integer" class="form-control @error('number') is-invalid @enderror" name="numero" value="{{ old('numero') }}" required autocomplete="numero" autofocus>
+
+                                <input id="numero" maxlength="8" type="tel" class="form-control @error('number') is-invalid @enderror" name="numero" value="{{ old('numero') }}" required autocomplete="numero" autofocus>
                                     
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +51,6 @@
                                 @enderror
                             </div>
                         </div>
-
                          <div class="row mb-3">
                             <label for="adresse" class="col-md-4 col-form-label text-md-end">{{ __('adresse') }}</label>
 
@@ -72,6 +72,14 @@
                                 </button>
                             </div>
                         </div>
+                        <script>
+                            var nombre = document.getElementById('numero');
+                            nombre.addEventListener('keypress', function(e){
+                                 if (e.charCode < 48 || e.charCode > 57) {
+                                     e.preventDefault();
+                                     }
+                                    });
+                         </script>
                     </form>
                 </div>
             </div>

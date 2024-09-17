@@ -3,6 +3,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Categories;
+use App\Models\maintenance;
+
 
 class Reparations extends Model
 {
@@ -43,5 +45,11 @@ class Reparations extends Model
     }
     public function produits(){
         return $this->hasMany(Produit::class, 'reparation_id');
+    }
+    public function maintenances(){
+        return $this->hasMany(maintenance::class, 'reparation_id');
+    }
+    public function Diagnostics(){
+        return $this->hasMany(Diagnostics::class, 'reparation_id');
     }
 }

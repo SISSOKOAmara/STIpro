@@ -15771,7 +15771,7 @@ code {
 
 /* Footer */
 .footer {
-  background: green;
+  background: #FF6501;
   padding: 20px 1rem;
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -20609,6 +20609,12 @@ div.tagsinput {
           .rtl .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {
             margin-left: 0;
             margin-right: auto; } }
+
+      @media (min-width: 992px) {
+        #sidebar {
+          position: fixed;
+        } }
+            
     .navbar .navbar-menu-wrapper .search input {
       background: #ffffff;
       padding: 13px 20px 11px 20px;

@@ -21,7 +21,7 @@ class ProduitController extends Controller
     public function index()
     {
         $produit = Produit::all();
-        $fournisseur= Produit::all();
+        $fournisseur= fournisseurs::all();
         return view('admin/produit/index', compact('produit', 'fournisseur'));
     }
 
@@ -33,7 +33,7 @@ class ProduitController extends Controller
     public function index3()
     {
         $produit = Produit::all();
-        $fournisseur= Produit::all();
+        $fournisseur= fournisseurs::all();
         return view('gerant/produit/index', compact('produit', 'fournisseur'));
     }
     /**
@@ -147,7 +147,7 @@ class ProduitController extends Controller
                     ]);
                     
             }
-            return view('gerant/produit/index3');
+            return Redirect('Manager/produit');
         }
 
     /**

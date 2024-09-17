@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="my-3 p-3 bg-body rounded shadow-sm d-block text-black "id="Fondinter">
-  <h3 class="text-center">Liste de reparation</h3>
+  <h3 class="text-center">Liste des reparations annulées</h3>
             <a href="{{ route('reparationajoutA') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"style="width:50% ;"></i></a>
             <i class="mdi mdi-wrench"></i>
 
@@ -40,18 +40,10 @@
                         <td>{{$reparation->rdv}}</td>
                         <td>{{$reparation->etat}}</td>
                         <td>
-                                </a>
-                          <a href="{{route('reparation.edit',$reparation->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
-                          <a href="{{route('reparation.detail',$reparation->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
-                          <a href="{{route('reparation.facture',$reparation->id)}}"><i class="mdi mdi-file-document-box"></i></a>
-                          <a href="#"  onclick="if(confirm('Voulez vous vraiment supprimer cet appareil?')){document.getElementById('form-{{$reparation->id}}').submit() }"><i class="mdi mdi-delete"></i></a>
-                
-                          <form id="form-{{$reparation->id}}" action="{{route('reparation.supprimer',
-                  ['reparation'=>$reparation->id])}}" method="post">
-                @csrf
-                <input type="hidden" name="_method" value="delete">
-                </form>
-                        </td>
+                          <a href="{{route('reparation.edit3',$reparation->id)}}"  class="mdi mdi-border-color" id="Bplus"></a>
+                          <a href="{{route('reparation.detail3',$reparation->id)}}"  class=""><i class="mdi mdi-information-outline"></i></a>
+                          <a href="{{route('reparation.facture3',$reparation->id)}}"><i class="mdi mdi-file-document-box"></i></a>
+                  </td>
                     </tr>
                     @endforeach
                 </tbody>

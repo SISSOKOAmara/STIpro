@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\FournisseursController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ReparaController;
 use Illuminate\Support\Facades\Auth;
@@ -51,9 +52,15 @@ Route::get('/technicien/{id}/reparations', [ReparationsController::class, 'edit2
 Route::patch('technicien/updt//{id}/reparations', [ReparationsController::class, 'update2'])->name('reparation.update2');
 
 // Ajouter un appareil à partir du client
-Route::get('/techn-repation-{id}/clients', [ReparationsController::class, 'liste2'])->name('reparationajout2');
+Route::get('/techn-repation-{id}/clients', [ReparationsController::class, 'form2'])->name('reparationajout2'); 
 Route::post('/technicien/reparations', [ReparationsController::class, 'store2'])->name('reparationregister2');
+
 // fin
+
+// Add on list
+Route::get('/technicien/reparation/create', [ReparationsController::class, 'liste2'])->name('reparationajoutA2');
+// Route::post('/technicien/reparations', [ReparationsController::class, 'store2'])->name('repair.ad2');
+// fin add
 
 Route::get('/technicien/reparation/attente', [ReparationsController::class, 'attente2'])->name('reparationattente2');
 Route::get('/technicien/reparation/Encours', [ReparationsController::class, 'Encours2'])->name('reparationEncours2');
@@ -62,11 +69,16 @@ Route::get('/technicien/reparation/Repare', [ReparationsController::class, 'repa
 // Client
 Route::get('/technicien/clients', [ClientsController::class, 'index2'])->name('clientIndex2');
 Route::get('/technicien/client/plus', [ClientsController::class, 'create2'])->name('clientajout2');
-Route::post('/technicien/client/liste', [ClientsController::class, 'store2'])->name('clientregister2');
+Route::post('/technicien/liste/client', [ClientsController::class, 'store2'])->name('clientregister2');
+Route::post('/technicien/liste/clients', [ClientsController::class, 'store2T'])->name('clientregisterT2');
+Route::get('/technicien/{id}/client', [ClientsController::class, 'show2'])->name('client.detail2');
+
 
 
 // Taches
 Route::get('/technicien/liste/tache', [TachesController::class, 'index2'])->name('tache.list2');
+Route::get('/technicien/liste/tachep', [TachesController::class, 'indexP2'])->name('tache.listPreview2');
+Route::get('/technicien/liste/tachea', [TachesController::class, 'indexA2'])->name('tache.list.all2');
 Route::get('/technicien/create/tache', [TachesController::class, 'create2'])->name('tache.ajout2');
 Route::post('/technicien/liste/tache', [TachesController::class, 'store2'])->name('tache.register2');
 // Route::get('/technicien/{id}/tache', [TachesController::class, 'show2'])->name('tache.detail2');
@@ -91,6 +103,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/reparation/attente', [ReparationsController::class, 'attente'])->name('reparationattente');
     Route::get('/admin/reparation/Encours', [ReparationsController::class, 'Encours'])->name('reparationEncours');
     Route::get('/admin/reparation/Repare', [ReparationsController::class, 'reparfinish'])->name('reparationRepare');
+    Route::get('/admin/reparation/Annule', [ReparationsController::class, 'Annule'])->name('reparationannule');
+    Route::get('/admin/reparation/recupere', [ReparationsController::class, 'recupere'])->name('reparationrecupere');
 
     // Fournisseurs
     Route::get('/fournisseurs', [FournisseursController::class, 'index'])->name('fournisseur');
@@ -104,6 +118,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/client/plus', [ClientsController::class, 'create'])->name('clientajout');
     Route::post('/admin/client/liste', [ClientsController::class, 'store'])->name('clientregister');
     Route::get('/admin/{id}/client', [ClientsController::class, 'show'])->name('client.detail');
+    Route::get('/admin/{id}/client.edit', [ClientsController::class, 'edit'])->name('client.edit');
+    Route::patch('/admin/{id}/client.updt', [ClientsController::class, 'update'])->name('client.update');
 
     
     // Categorie
@@ -115,6 +131,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
 // Tache
 Route::get('/admin/tache', [TachesController::class, 'index'])->name('tache.list');
+Route::get('/admin/tachelist', [TachesController::class, 'indexP'])->name('tache.listPreview');
+Route::get('/admin/tacheliste', [TachesController::class, 'indexA'])->name('tache.list.all');
 Route::get('/admin/create/tache', [TachesController::class, 'create'])->name('tache.ajout');
 Route::post('/admin/liste/tache', [TachesController::class, 'store'])->name('tache.register');
 // Route::get('/admin/{id}/tache', [TachesController::class, 'show'])->name('tache.detail');
@@ -136,6 +154,9 @@ Route::Post('/admin/user/create/', [userController::class, 'store2'])->name('use
 
 Route::get('/user/compte', [userController::class, 'profil'])->name('user.profil');
 
+Route::get('admin/pannes', [MaintenanceController::class, 'index'])->name('panne.index');
+Route::get('admin/create/{id}/panne', [MaintenanceController::class, 'create'])->name('panne.create');
+Route::post('admin/panne', [MaintenanceController::class, 'store'])->name('panne.register');
  
 });
 /*------------------------------------------
@@ -143,9 +164,8 @@ Route::get('/user/compte', [userController::class, 'profil'])->name('user.profil
 All Manager Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
+Route::middleware(['auth', 'user-access:manager'])->group(function () { 
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
-    Route::get('/gerant/reparation', [ReparationsController::class, 'index3'])->name('reparationIndex3');
 
 
       // Fournisseurs
@@ -160,6 +180,8 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
      Route::get('/gerant/client/plus', [ClientsController::class, 'create3'])->name('clientajout3');
      Route::post('/gerant/client/liste', [ClientsController::class, 'store3'])->name('clientregister3');
      Route::get('/gerant/{id}/client', [ClientsController::class, 'show3'])->name('client.detail3');
+     Route::get('/gerant/{id}/client.edit', [ClientsController::class, 'edit3'])->name('client.edit3');
+     Route::patch('/gerant/{id}/client.updt', [ClientsController::class, 'update3'])->name('client.update3');
 
     // Ajouter un appareil à partir du client
     // Route::get('/repation-{id}/client', [ReparationsController::class, 'ajout3'])->name('reparationajout1.3');
@@ -167,15 +189,34 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::post('/agent/reparations', [ReparationsController::class, 'store3'])->name('reparationregister3');
 
     //    Reparations
-    // Ajout via liste
+    Route::get('/gerant/reparation', [ReparationsController::class, 'index3'])->name('reparationIndex3');
+
+//     // Ajout via liste
     Route::get('/Gerant/reparation/create', [ReparationsController::class, 'liste3'])->name('reparationajoutA3');
     Route::post('/Gerant/reparations', [ReparationsController::class, 'store3'])->name('repair.ad3');
+
+//     Route::get('/admin/reparation/createA', [ReparationsController::class, 'listeA'])->name('reparationajoutA');
+// Route::post('/admin/reparation/liste', [ReparationsController::class, 'create'])->name('repair.ad');
+// // Ajouter un appareil à partir du client
+// Route::get('/repation-{id}/clients', [ReparationsController::class, 'liste1'])->name('reparationajout1');
+// Route::post('/admin/reparations', [ReparationsController::class, 'store'])->name('reparationregister1');
+
+Route::get('/manager/details/{id}/reparations', [ReparationsController::class, 'show3'])->name('reparation.detail3');
+Route::get('/manager//fac/{id}/reparations', [ReparationsController::class, 'facture3'])->name('reparation.facture3');
+Route::get('/manager/{id}/reparations', [ReparationsController::class, 'edit3'])->name('reparation.edit3');
+Route::patch('Manager/{id}/reparations', [ReparationsController::class, 'update3'])->name('reparation.update3');
+Route::delete('/manager/reparation/delete/{reparation}', [ReparationsController::class, 'destroy2'])->name('reparation.supprimer3');
+
+
 
 
     Route::get('/Manager/reparation/reparations', [ReparationsController::class, 'index3'])->name('reparationIndex3');
     Route::get('/Manager/reparation/attente', [ReparationsController::class, 'attente3'])->name('reparationattente3');
     Route::get('/Manager/reparation/Encours', [ReparationsController::class, 'Encours3'])->name('reparationEncours3');
     Route::get('/Manager/reparation/Repare', [ReparationsController::class, 'reparfinish3'])->name('reparationRepare3');
+    Route::get('/manager/reparation/Annule', [ReparationsController::class, 'Annule3'])->name('reparationannule3');
+    Route::get('/manager/reparation/recupre', [ReparationsController::class, 'recupere3'])->name('reparationrecupere3');
+
 
      // Categorie
     Route::get('/Manager/Categorie', [CategoriesController::class, 'index3'])->name('categorie3');
@@ -184,24 +225,29 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
 
     // Tache
     Route::get('/Manager/tache', [TachesController::class, 'index3'])->name('tache.list3');
-    Route::get('/Manager/create/tache', [TachesController::class, 'create'])->name('tache.ajout3');
-    Route::post('/Manager/liste/tache', [TachesController::class, 'store'])->name('tache.register3');
+    Route::get('/Manager/tache/all', [TachesController::class, 'index3A'])->name('tache.list.all3');
+    Route::get('/Manager/create/tache', [TachesController::class, 'create3'])->name('tache.ajout3');
+    Route::post('/Manager/liste/tache', [TachesController::class, 'store3'])->name('tache.register3');
     // Route::get('/Manager/{id}/tache', [TachesController::class, 'show'])->name('tache.detail3');
-    Route::get('/Manager/edit/{id}/tache', [TachesController::class, 'edit'])->name('tache.edit3');
-    Route::patch('/Manager/{id}/tache', [TachesController::class, 'update'])->name('tache.update3');
-    Route::delete('/Manager/{taches}', [TachesController::class, 'destroy'])->name('tache.supprimer3');
+    Route::get('/Manager/edit/{id}/tache', [TachesController::class, 'edit3'])->name('tache.edit3');
+    Route::patch('/Manager/{id}/tache', [TachesController::class, 'update3'])->name('tache.update3');
+    Route::delete('/Manager/{taches}', [TachesController::class, 'destroy3'])->name('tache.supprimer3');
 
     // Produit
     Route::get('Manager/produit', [ProduitController::class, 'index3'])->name('produit3');
-    Route::get('Manager/create/produit', [ProduitController::class, 'create'])->name('produit.ajout3');
+    Route::get('Manager/create/produit', [ProduitController::class, 'create3'])->name('produit.ajout3');
     Route::get('Manager/produit/{id}/details', [ProduitController::class, 'show'])->name('produit.show3');
-    Route::get('/Manager/{id}/edit', [ProduitController::class, 'edit'])->name('produit.edit3');
-    Route::patch('/Manager/{id}/update', [ProduitController::class, 'update'])->name('produit.update3');
-    Route::post('/Manager/produit', [ProduitController::class, 'store'])->name('produit.register3');
+    Route::get('/Manager/{id}/edit', [ProduitController::class, 'edit3'])->name('produit.edit3');
+    Route::patch('/Manager/{id}/update', [ProduitController::class, 'update3'])->name('produit.update3');
+    Route::post('/Manager/produit', [ProduitController::class, 'store3'])->name('produit.register3');
     Route::delete('/Manager/produit/delete/{produits}', [ProduitController::class, 'destroy2'])->name('produit.supprimer3');
 
     // User
 Route::get('/user/Moncompte', [userController::class, 'profil3'])->name('user.profil3');
+
+Route::get('/listecomptes', [userController::class, 'index3'])->name('user.index3');
+
+
 
 
 });

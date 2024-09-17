@@ -28,11 +28,12 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('tache.register') }}">
                         @csrf
+                        <input id="nom" type="text" class="form-control" name="nom"   autofocus>
         
                         <div class="row mb-3">
-                            <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Lieu') }}</label> 
+                            <label for="designation" class="col-md-3 col-form-label text-md-end  @error('lieu') is-invalid @enderror">{{ __('Lieu') }}</label> 
                             <div class="col-md-3">
-                                <select name="Lieu">
+                                <select name="Lieu" value="{{ old('lieu') }}" required autocomplete="lieu" >
                                     <option  selected disabled>Lieu</option>
                                     <option value="Interne">Interne</option>
                                     <option value="Externe">Externe</option>
@@ -42,12 +43,12 @@
                         </div>
                     
                     <div class="row mb-3">
-                        <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('Appareils') }}</label> 
-                        <div class="col-md-3">
+                        <label for="designation" class="col-md-3 col-form-label text-md-end">{{ __('Appareils') }}</label> 
+                        <div class="col-md-9">
                     <select name="reparation_id">
                       <option  selected disabled>Appareils</option>
                         @foreach( $repara as $reparations )
-                      <option value="{{$reparations->id}}">{{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
+                      <option class="@error('lieu') is-invalid @enderror" value="{{$reparations->id}}"  value="{{ old('lieu') }}" required autocomplete="reparation_id"  >{{$reparations->client->nom}} {{$reparations->marque}} - {{$reparations->model}} - {{$reparations->panne}}</option>
                      @endforeach
                     </select></div>
                     </div>
@@ -55,7 +56,7 @@
 
                     
                     <div class="row mb-3">
-                    <label for="Lieu" class="col-md-4 col-form-label text-md-end">{{ __('Personne') }}</label>
+                    <label for="Lieu" class="col-md-2 col-form-label text-md-end">{{ __('Personne') }}</label>
                     <div class="col-md-3">
                     <select name="user_id">
                       <option  selected disabled>Personne</option>
@@ -67,15 +68,15 @@
                     </div>
                     
                          <div class="row mb-3">
-                            <label for="designation" class="col-md-4 col-form-label text-md-end">{{ __('designation') }}</label>
+                            <label for="designation" class="col-md-3 col-form-label text-md-end">{{ __('designation') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input id="designation" type="text" class="form-control @error('Designation') is-invalid @enderror" name="designation" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="Etat" class="col-md-4 col-form-label text-md-end">{{ __('Etat') }}</label>
+                            <label for="Etat" class="col-md-3 col-form-label text-md-end">{{ __('Etat') }}</label>
                             <div class="col-md-6">
                             <div class="col-md-3">
                                 <select name="Etat">

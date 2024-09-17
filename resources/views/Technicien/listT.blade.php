@@ -20,7 +20,7 @@
     
 
       <tr>
-        <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th>
+        {{-- <th scope="col"><input type="checkbox" id="fieldsForm_checkall" class="checkall_box" title="Tout cocher"></th> --}}
         <th scope="col"><i class="mdi mdi-account"></i> </th>
         <th scope="col">Appareil</th>
         <th scope="col">Client</th>
@@ -36,12 +36,12 @@
     <tbody>
     @foreach($tache as $taches)
         <tr>
-        <td>
+        {{-- <td>
               <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
                   <label class="custom-control-label" for="customCheck1"></label>
               </div>
-        </td>
+        </td> --}}
             <td>{{$taches->user->name}}</td>
             <td>{{$taches->reparation->marque}}</td>
             <td>{{$taches->reparation->client->nom}}</td>
